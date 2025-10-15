@@ -6,5 +6,5 @@ public class Constantes {
     public static final String TABLA_RECETAS = "recetas";
     public static final String TABLA_INGREDIENTES = "ingredientes";
     public static final String TABLA_PASOS = "pasos";
-    public static final String BBDD = "recetarioBD.db";
+    public static final String BASEDATOS = "recetario-db";
 }
