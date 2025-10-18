@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/es/deployment-diagram
+'https://plantuml.com/es/style-evolution
+skinparam roundCorner 15
+
+hide stereotype
+
+<style>
+    rectangle {
+        LineThickness 2
+        FontColor #white
+
+            .transparente {
+                BackGroundColor #transparent
+                LineColor #transparent
+                FontColor #transparent
+            }
+            .dao {
+              BackGroundColor #f8c735
+              LineColor #f7d46c
+            }
+            .repo {
+              BackGroundColor #6fc539
+              LineColor #91d069
+            }
+            .viewmodel {
+              BackGroundColor #ffa001
+              LineColor #fab747
+            }
+            .view {
+              BackGroundColor #019ce3
+              LineColor #3eaee1
+            }
+            .model {
+              BackGroundColor #fdfdfd
+              LineColor #999999
+              FontColor #DimGray
+              LineStyle 5.0-5.0
+            }
+    }
+    database {
+        BackGroundColor #DarkGrey
+        LineColor #white
+        FontColor #white
+    }
+
+</style>
+
+rectangle "Model" <<model>> {
+    database DB <<database>> [
+        ---
+        ---
+
+        <#transparent,#transparent>|        db        |
+
+    ]
+    rectangle "\n      DAO      \n" as DAO <<dao>>
+    rectangle "\n   Repositorio    \n" as REPO <<repo>>
+}
+
+hide <<transparente>> stereotype
+rectangle "ViewModel" <<transparente>>  {
+    rectangle "\n   ViewModel   \n" as VM <<viewmodel>>
+}
+
+rectangle "View" <<transparente>> {
+    rectangle "\n        View        \n" as VIEW <<view>>
+}
+
+DB <-right-> DAO : "accede"
+DAO <-right-> REPO : "proporciona datos"
+REPO <-right-> VM : "alimenta"
+VM -right-> VIEW : "expone estado UI"
+VIEW -left-> VM : "eventos usuario"
+
+@enduml
