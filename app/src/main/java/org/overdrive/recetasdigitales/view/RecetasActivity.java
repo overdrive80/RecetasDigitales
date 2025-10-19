@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.viewmodel.RecetarioViewModel;
 
-public class MainActivity extends AppCompatActivity {
+public class RecetasActivity extends AppCompatActivity {
     private RecetarioViewModel viewModel;
 
 
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recetas);
 
         //Para testear la creación de la base de datos antes de implementar Patron Repositorio
         //Recetario basedatos = Recetario.getInstance(getApplicationContext());
