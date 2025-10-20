@@ -26,6 +26,15 @@ public interface RecetaDAO {
     @Query("SELECT * FROM recetas")
     LiveData<List<RecetaCompleta>> getTodasRecetasCompletas();
 
+    // Obtener solo receta
+    @Query("SELECT * FROM recetas WHERE idReceta = :id")
+    LiveData<Receta> getReceta(int id);
+
+    // Obtener todas recetas
+    @Query("SELECT * FROM recetas")
+    LiveData<List<Receta>> getTodasRecetas();
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insertarReceta(Receta receta);
+
 }

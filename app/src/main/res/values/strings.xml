@@ -3,4 +3,6 @@
     <string name="boton_nueva_receta">Botón nueva receta</string>
     <string name="logo_app">logo_app</string>
     <string name="semiesfera_decorativa">semiesfera_decorativa</string>
+    <string name="titulo_receta">Título de la receta</string>
+    <string name="breve_descripcion">Breve descripción de la receta</string>
 </resources>

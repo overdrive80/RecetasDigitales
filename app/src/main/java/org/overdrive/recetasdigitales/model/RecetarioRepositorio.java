@@ -2,9 +2,14 @@ package org.overdrive.recetasdigitales.model;
 
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
+
 import org.overdrive.recetasdigitales.model.dao.IngredienteDAO;
 import org.overdrive.recetasdigitales.model.dao.PasoDAO;
 import org.overdrive.recetasdigitales.model.dao.RecetaDAO;
+import org.overdrive.recetasdigitales.model.entidades.Receta;
+
+import java.util.List;
 
 public class RecetarioRepositorio {
     private static final String TAG = RecetarioRepositorio.class.getSimpleName();
@@ -23,5 +28,9 @@ public class RecetarioRepositorio {
         this.mIngredienteDAO = mdb.ingredienteDAO();
         this.mPasoDAO = mdb.pasoDAO();
 
+    }
+
+    public LiveData<List<Receta>> getTodasRecetas() {
+        return mRecetaDAO.getTodasRecetas();
     }
 }
