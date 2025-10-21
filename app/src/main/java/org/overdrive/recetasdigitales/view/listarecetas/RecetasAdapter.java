@@ -1,6 +1,5 @@
 package org.overdrive.recetasdigitales.view.listarecetas;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -16,15 +15,15 @@ import java.util.List;
 /**
  * Esta clase recibe los datos y los pasa al ViewHolder
  */
-public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder>{
+public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     private List<Receta> recetas;
-    private Context contexto;
     private static final String TAG = "RecetasAdapter";
+    private OnClickItemListener listener;
 
 
-    public RecetasAdapter(List<Receta> recetas, Context contexto) {
+    public RecetasAdapter(List<Receta> recetas, OnClickItemListener listener) {
         this.recetas = recetas;
-        this.contexto = contexto;
+        this.listener = listener;
     }
 
     @NonNull
@@ -39,14 +38,14 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder>{
         //El metodo estático inflate() del binding nos permite construir la vista del ítem a partir del XML.
         RecyclerRecetasItemBinding binding = RecyclerRecetasItemBinding.inflate(inflater, parent, false);
 
-        return new RecetasViewHolder(binding) ;
+        return new RecetasViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecetasViewHolder holder, int position) {
         // Aqui pasamos cada objeto al ViewHolder
         Receta receta = recetas.get(position);
-        holder.bind(receta);
+        holder.bind(receta, listener);
 
     }
 
@@ -57,7 +56,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder>{
 
     /**
      * Actualizar datos del adapter y nofiticar cambios al recyclerView.
-     *
+     * <p>
      * Permite optimizar el uso del recyclerview.
      *
      * @param nuevasRecetas
@@ -65,5 +64,9 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder>{
     public void actualizarDatos(List<Receta> nuevasRecetas) {
         this.recetas = nuevasRecetas;
         notifyDataSetChanged();
+    }
+
+    public interface OnClickItemListener {
+        void onClickReceta(Receta receta);
     }
 }

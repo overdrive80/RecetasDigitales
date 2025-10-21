@@ -7,7 +7,7 @@
     <!-- Azul superior con borde inclinado y curva ligera -->
     <path
         android:fillColor="@color/blue_500"
-        android:pathData="M0,0 L0,120 Q200,120 400,145 L400,0 Z" />
+        android:pathData="M0,0 L0,110 Q200,110 400,130 L400,0 Z" />
 </vector>
 
 

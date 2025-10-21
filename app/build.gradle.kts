@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "org.overdrive.recetasdigitales"
-        minSdk = 24
+        minSdk = 26
         //noinspection OldTargetApi
         targetSdk = 35
         versionCode = 1

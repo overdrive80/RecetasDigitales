@@ -5,4 +5,10 @@
     <string name="semiesfera_decorativa">semiesfera_decorativa</string>
     <string name="titulo_receta">Título de la receta</string>
     <string name="breve_descripcion">Breve descripción de la receta</string>
+    <string name="ver_receta">Ver receta</string>
+    <string name="modificar_receta">Modificar receta</string>
+    <string name="eliminar_receta">Eliminar receta</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="ver">Ver receta</string>
 </resources>

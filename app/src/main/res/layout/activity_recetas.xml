@@ -5,6 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:touchscreenBlocksFocus="false"
     android:fitsSystemWindows="true"
     tools:context=".view.listarecetas.RecetasActivity">
 
@@ -38,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="1dp"/>
+        android:elevation="1dp" />
 
     <SearchView
         android:theme="@style/ThemeOverlay.SearchView.DarkIcons"
@@ -73,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
-        tools:listitem = "@layout/recycler_recetas_item"/>
+        tools:listitem="@layout/recycler_recetas_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -91,6 +94,5 @@
         app:tint="@android:color/white"
         app:backgroundTint="?attr/colorPrimary"
         app:rippleColor="?attr/colorOnPrimaryContainer"
-        tools:ignore="SpeakableTextPresentCheck"
-        />
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

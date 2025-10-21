@@ -22,7 +22,7 @@ public class RecetarioViewModel extends AndroidViewModel {
 
     }
 
-    public LiveData<List<Receta>> getTodasRecetas(){
+    public LiveData<List<Receta>> getTodasRecetas() {
         return this.repo.getTodasRecetas();
     }
 }
