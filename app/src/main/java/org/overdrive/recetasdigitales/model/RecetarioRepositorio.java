@@ -33,4 +33,8 @@ public class RecetarioRepositorio {
     public LiveData<List<Receta>> getTodasRecetas() {
         return mRecetaDAO.getTodasRecetas();
     }
+
+    public LiveData<List<Receta>> buscarPortitulo(String texto) {
+        return mRecetaDAO.buscarPortitulo(texto);
+    }
 }

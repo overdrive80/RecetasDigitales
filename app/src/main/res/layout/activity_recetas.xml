@@ -29,7 +29,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck,VisualLintBounds" />
 
 
     <ImageView
@@ -38,14 +39,15 @@
         android:layout_height="200dp"
         android:background="@drawable/bg_semiesfera"
         android:contentDescription="@string/semiesfera_decorativa"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="1dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:theme="@style/ThemeOverlay.SearchView.DarkIcons"
-        android:id="@+id/searchView"
+        android:id="@+id/svRecetas"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -75,7 +77,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/svRecetas"
         tools:listitem="@layout/recycler_recetas_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

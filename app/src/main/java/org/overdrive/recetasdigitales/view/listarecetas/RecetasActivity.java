@@ -4,23 +4,22 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import org.overdrive.recetasdigitales.databinding.ActivityRecetasBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.tools.SearchViewTool;
 import org.overdrive.recetasdigitales.viewmodel.RecetarioViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecetasActivity extends AppCompatActivity {
     private RecetarioViewModel viewModel;
     private ActivityRecetasBinding binding;
     private RecetasAdapter adapter;
-    BottomSheetDialog bottomSheetDialog;
-    //RecetasBottomSheetBinding bindBottomSheet;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +38,21 @@ public class RecetasActivity extends AppCompatActivity {
         binding.rvRecetas.setAdapter(adapter);
 
         // Observamos cambios en la lista de recetas y actualizamos el adaptador
-        viewModel.getTodasRecetas().observe(this, recetas -> {
-            // Crear un nuevo objeto adapter en cada actualización que emite Room
-            // tiene efectos indeseados, como perder posición del scroll del Recycler.
-            adapter.actualizarDatos(recetas);
+        viewModel.getTodasRecetas().observe(this, new Observer<List<Receta>>() {
+            @Override
+            public void onChanged(List<Receta> recetas) {
+                // Evitamos crear un nuevo adapter por cada cambio en Room
+                adapter.actualizarDatos(recetas);
+            }
         });
 
+        // *** SEARCHVIEW *** //
+        SearchViewTool.configurar(binding.svRecetas, this, viewModel);
+
+        // Observamos los cambios al filtrar recetas
+        viewModel.recetasFiltradas.observe(this, recetas -> {
+            adapter.actualizarDatos(recetas);
+        });
     }
 
     // Implementación del listener al hacer clic sobre un item del recyclerview
@@ -86,9 +94,6 @@ public class RecetasActivity extends AppCompatActivity {
                 //Eliminar receta
                 Toast.makeText(RecetasActivity.this, "Eliminar receta", Toast.LENGTH_SHORT).show();
             }
-
         };
     }
-
-
 }

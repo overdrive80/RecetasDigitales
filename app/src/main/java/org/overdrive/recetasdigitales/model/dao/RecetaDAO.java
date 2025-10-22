@@ -34,6 +34,10 @@ public interface RecetaDAO {
     @Query("SELECT * FROM recetas")
     LiveData<List<Receta>> getTodasRecetas();
 
+    // Obtener rectas por titulo
+    @Query("SELECT * FROM recetas WHERE titulo LIKE '%' || :texto || '%' ORDER BY titulo ASC")
+    LiveData<List<Receta>> buscarPortitulo(String texto);
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insertarReceta(Receta receta);
 
