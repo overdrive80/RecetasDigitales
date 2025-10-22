@@ -3,6 +3,7 @@ package org.overdrive.recetasdigitales.model;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Transaction;
 
 import org.overdrive.recetasdigitales.model.dao.IngredienteDAO;
 import org.overdrive.recetasdigitales.model.dao.PasoDAO;
@@ -37,4 +38,14 @@ public class RecetarioRepositorio {
     public LiveData<List<Receta>> buscarPortitulo(String texto) {
         return mRecetaDAO.buscarPortitulo(texto);
     }
+
+    public void borrarReceta(Receta receta){
+        Recetario.servicioExecutor.execute(
+                () -> mRecetaDAO.borrarReceta(receta)
+        );
+
+    }
+
+
+
 }

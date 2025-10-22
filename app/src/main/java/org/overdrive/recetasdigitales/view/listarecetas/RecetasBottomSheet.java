@@ -17,6 +17,9 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
     private RecetasBottomSheetBinding binding;
     private OnClickOpcionListener listener;
 
+    //La documentación de Android prohíbe constructores con parámetros en fragments
+    //Al recrear el fragmento se rompe el ciclo de vida del fragment
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

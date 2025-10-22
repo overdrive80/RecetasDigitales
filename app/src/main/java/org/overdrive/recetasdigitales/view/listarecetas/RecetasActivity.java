@@ -5,16 +5,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.overdrive.recetasdigitales.databinding.ActivityRecetasBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
-import org.overdrive.recetasdigitales.tools.SearchViewTool;
 import org.overdrive.recetasdigitales.viewmodel.RecetarioViewModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecetasActivity extends AppCompatActivity {
     private RecetarioViewModel viewModel;
@@ -28,26 +27,35 @@ public class RecetasActivity extends AppCompatActivity {
         binding = ActivityRecetasBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //Para testear la creación de la base de datos antes de implementar Patron Repositorio
-        //Recetario basedatos = Recetario.getInstance(getApplicationContext());
-        this.viewModel = new ViewModelProvider(this)
-                .get(RecetarioViewModel.class);
+        inicializarViewModel();
+        configurarRecyclerView();
+        configurarSearchView();
+        configurarObservadores();
 
-        // Creamos la instancia del adapter, es unica.
-        adapter = new RecetasAdapter(new ArrayList<>(), getOnClickRecetaListener());
-        binding.rvRecetas.setAdapter(adapter);
+    }
 
-        // Observamos cambios en la lista de recetas y actualizamos el adaptador
-        viewModel.getTodasRecetas().observe(this, new Observer<List<Receta>>() {
+    private void configurarSearchView() {
+        binding.svRecetas.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onChanged(List<Receta> recetas) {
-                // Evitamos crear un nuevo adapter por cada cambio en Room
-                adapter.actualizarDatos(recetas);
+            public boolean onQueryTextSubmit(String query) {
+                viewModel.setFiltroBusqueda(query.trim());
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                viewModel.setFiltroBusqueda(newText.trim());
+                return true;
             }
         });
+    }
 
-        // *** SEARCHVIEW *** //
-        SearchViewTool.configurar(binding.svRecetas, this, viewModel);
+    private void configurarObservadores() {
+        // Observamos cambios en la lista de recetas
+        viewModel.getTodasRecetas().observe(this, recetas -> {
+            // Evitamos crear un nuevo adapter por cada cambio en Room
+            adapter.actualizarDatos(recetas);
+        });
 
         // Observamos los cambios al filtrar recetas
         viewModel.recetasFiltradas.observe(this, recetas -> {
@@ -55,20 +63,28 @@ public class RecetasActivity extends AppCompatActivity {
         });
     }
 
+    private void configurarRecyclerView() {
+        adapter = new RecetasAdapter(new ArrayList<>(), getOnClickRecetaListener());
+        binding.rvRecetas.setAdapter(adapter);
+    }
+
+    private void inicializarViewModel() {
+        //Para testear la creación de la base de datos antes de implementar Patron Repositorio
+        //Recetario basedatos = Recetario.getInstance(getApplicationContext());
+        this.viewModel = new ViewModelProvider(this)
+                .get(RecetarioViewModel.class);
+    }
+
     // Implementación del listener al hacer clic sobre un item del recyclerview
     private RecetasAdapter.OnClickItemListener getOnClickRecetaListener() {
         return new RecetasAdapter.OnClickItemListener() {
             @Override
             public void onClickReceta(Receta receta) {
-                // Crea el BottomSheet y configura el listener ANTES de mostrarlo
+                viewModel.setRecetaSeleccionada(receta);
+
                 RecetasBottomSheet bottomSheet = new RecetasBottomSheet();
-
-                // Configura el listener inmediatamente después de crear la instancia
                 bottomSheet.setOnClickOpcionListener(getOnClickOpcionListener());
-
-                // Ahora muestra el BottomSheet
                 bottomSheet.show(getSupportFragmentManager(), "RecetasBottomSheet");
-
             }
         };
     }
@@ -79,20 +95,27 @@ public class RecetasActivity extends AppCompatActivity {
             @Override
             public void onVerReceta() {
                 //Abrir activity para ver receta
-                Toast.makeText(RecetasActivity.this, "Ver receta", Toast.LENGTH_SHORT).show();
+                Receta receta = viewModel.getRecetaSeleccionada().getValue();
+                Toast.makeText(RecetasActivity.this, "Ver receta " + receta.getTitulo(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onModificarReceta() {
                 //Abrir activity para modificar receta
-                Toast.makeText(RecetasActivity.this, "Modificar receta", Toast.LENGTH_SHORT).show();
+                Receta receta = viewModel.getRecetaSeleccionada().getValue();
+                Toast.makeText(RecetasActivity.this, "Modificar receta " + receta.getTitulo(), Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onEliminarReceta() {
                 //Eliminar receta
-                Toast.makeText(RecetasActivity.this, "Eliminar receta", Toast.LENGTH_SHORT).show();
+                Receta receta = viewModel.getRecetaSeleccionada().getValue();
+                String titulo = receta.getTitulo();
+
+                viewModel.borrarReceta(receta);
+
+                Snackbar.make(binding.getRoot(), titulo + " eliminada.", Snackbar.LENGTH_LONG).show();
             }
         };
     }

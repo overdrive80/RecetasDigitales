@@ -2,6 +2,7 @@ package org.overdrive.recetasdigitales.model.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -34,11 +35,16 @@ public interface RecetaDAO {
     @Query("SELECT * FROM recetas")
     LiveData<List<Receta>> getTodasRecetas();
 
-    // Obtener rectas por titulo
+    // Obtener recetas por titulo
     @Query("SELECT * FROM recetas WHERE titulo LIKE '%' || :texto || '%' ORDER BY titulo ASC")
     LiveData<List<Receta>> buscarPortitulo(String texto);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insertarReceta(Receta receta);
 
+    @Query("DELETE FROM recetas WHERE idReceta = :id")
+    void borrarRecetaPorId(long id);
+
+    @Delete
+    void borrarReceta(Receta receta);
 }

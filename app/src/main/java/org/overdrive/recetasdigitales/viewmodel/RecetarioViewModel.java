@@ -16,11 +16,16 @@ import java.util.List;
 
 import kotlin.jvm.functions.Function1;
 
+/**
+ * ViewModel para Recetario
+ * <p>
+ * Sobrevive a recreaciones por eso hay que persistir los datos para que no se pierdan
+ */
 public class RecetarioViewModel extends AndroidViewModel {
     private final RecetarioRepositorio repo;
     private final MutableLiveData<String> filtroBusqueda = new MutableLiveData<>("");
     public LiveData<List<Receta>> recetasFiltradas;
-
+    private MutableLiveData<Receta> recetaSeleccionada = new MutableLiveData<>();
 
     public RecetarioViewModel(@NonNull Application application) {
         super(application);
@@ -47,6 +52,16 @@ public class RecetarioViewModel extends AndroidViewModel {
         filtroBusqueda.setValue(texto);
     }
 
+    // Asignar receta seleccionada
+    public void setRecetaSeleccionada(Receta receta) {
+        recetaSeleccionada.setValue(receta);
+    }
 
+    public LiveData<Receta> getRecetaSeleccionada() {
+        return recetaSeleccionada;
+    }
 
+    public void borrarReceta(Receta receta){
+        repo.borrarReceta(receta);
+    }
 }
