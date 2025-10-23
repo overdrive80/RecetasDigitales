@@ -43,10 +43,21 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.recyclerview)
     implementation(libs.cardview)
-    annotationProcessor(libs.room.compiler)
-    implementation(libs.room.runtime)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+    //Room
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.runtime)
+
+    //Navigation+ViewPager
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+    implementation(libs.viewpager2)
+
+
+    implementation(libs.core.ktx)
 }

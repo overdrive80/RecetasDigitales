@@ -20,5 +20,5 @@ public interface PasoDAO {
     // Recuperar pasos de una receta
     @Transaction
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
-    LiveData<RecetaPasos> getRecetaConPasos(int id);
+    LiveData<RecetaPasos> getRecetaConPasos(long id);
 }

@@ -20,5 +20,5 @@ public interface IngredienteDAO {
     // Recuperar ingredientes de una receta
     @Transaction
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
-    LiveData<RecetaIngredientes> getRecetaConIngredientes(int id);
+    LiveData<RecetaIngredientes> getRecetaConIngredientes(long id);
 }

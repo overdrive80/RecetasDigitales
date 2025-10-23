@@ -20,7 +20,7 @@ public interface RecetaDAO {
     // Recuperar receta completa por id
     @Transaction
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
-    LiveData<RecetaCompleta> getRecetaCompleta(int id);
+    LiveData<RecetaCompleta> getRecetaCompleta(long id);
 
     // Recuperar todas recetas completas
     @Transaction
@@ -29,7 +29,7 @@ public interface RecetaDAO {
 
     // Obtener solo receta
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
-    LiveData<Receta> getReceta(int id);
+    LiveData<Receta> getReceta(long id);
 
     // Obtener todas recetas
     @Query("SELECT * FROM recetas")

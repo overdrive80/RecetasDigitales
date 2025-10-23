@@ -3,12 +3,12 @@ package org.overdrive.recetasdigitales.model;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Transaction;
 
 import org.overdrive.recetasdigitales.model.dao.IngredienteDAO;
 import org.overdrive.recetasdigitales.model.dao.PasoDAO;
 import org.overdrive.recetasdigitales.model.dao.RecetaDAO;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 
 import java.util.List;
 
@@ -39,9 +39,13 @@ public class RecetarioRepositorio {
         return mRecetaDAO.buscarPortitulo(texto);
     }
 
-    public void borrarReceta(Receta receta){
+    public void borrarReceta(Receta receta) {
         Recetario.servicioExecutor.execute(
                 () -> mRecetaDAO.borrarReceta(receta)
         );
+    }
+
+    public LiveData<RecetaCompleta> getRecetaCompleta(long recetaId) {
+        return mRecetaDAO.getRecetaCompleta(recetaId);
     }
 }

@@ -11,4 +11,11 @@
     <string name="modificar">Modificar</string>
     <string name="eliminar">Eliminar</string>
     <string name="ver">Ver receta</string>
+    <string name="title_activity_ver_receta">VerRecetaActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="portada">Portada</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="pasos">Pasos</string>
+
 </resources>

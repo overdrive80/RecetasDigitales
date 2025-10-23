@@ -11,7 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecetasDigitales">
         <activity
-            android:name=".view.listarecetas.RecetasActivity"
+            android:name=".view.ver_receta.VerRecetaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_ver_receta"
+            android:theme="@style/Theme.RecetasDigitales.NoActionBar" />
+        <activity
+            android:name=".view.lista_recetas.RecetasActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

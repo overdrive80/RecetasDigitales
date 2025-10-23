@@ -9,7 +9,7 @@
     android:focusableInTouchMode="true"
     android:touchscreenBlocksFocus="false"
     android:fitsSystemWindows="true"
-    tools:context=".view.listarecetas.RecetasActivity">
+    tools:context=".view.lista_recetas.RecetasActivity">
 
     <ImageView
         android:id="@+id/logo_app"
