@@ -1,6 +1,7 @@
 package org.overdrive.recetasdigitales.view.listarecetas;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,8 +32,11 @@ public class RecetasActivity extends AppCompatActivity {
         configurarRecyclerView();
         configurarSearchView();
         configurarObservadores();
+        configurarFab();
 
     }
+
+
 
     private void configurarSearchView() {
         binding.svRecetas.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -82,6 +86,7 @@ public class RecetasActivity extends AppCompatActivity {
             public void onClickReceta(Receta receta) {
                 viewModel.setRecetaSeleccionada(receta);
 
+                // Android recomienda no crear constructores con parametros en Fragments
                 RecetasBottomSheet bottomSheet = new RecetasBottomSheet();
                 bottomSheet.setOnClickOpcionListener(getOnClickOpcionListener());
                 bottomSheet.show(getSupportFragmentManager(), "RecetasBottomSheet");
@@ -93,24 +98,22 @@ public class RecetasActivity extends AppCompatActivity {
     private RecetasBottomSheet.OnClickOpcionListener getOnClickOpcionListener() {
         return new RecetasBottomSheet.OnClickOpcionListener() {
             @Override
-            public void onVerReceta() {
+            public void onVerReceta(Receta receta) {
                 //Abrir activity para ver receta
-                Receta receta = viewModel.getRecetaSeleccionada().getValue();
                 Toast.makeText(RecetasActivity.this, "Ver receta " + receta.getTitulo(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onModificarReceta() {
+            public void onModificarReceta(Receta receta) {
                 //Abrir activity para modificar receta
-                Receta receta = viewModel.getRecetaSeleccionada().getValue();
+
                 Toast.makeText(RecetasActivity.this, "Modificar receta " + receta.getTitulo(), Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
-            public void onEliminarReceta() {
+            public void onEliminarReceta(Receta receta) {
                 //Eliminar receta
-                Receta receta = viewModel.getRecetaSeleccionada().getValue();
                 String titulo = receta.getTitulo();
 
                 viewModel.borrarReceta(receta);
@@ -118,5 +121,16 @@ public class RecetasActivity extends AppCompatActivity {
                 Snackbar.make(binding.getRoot(), titulo + " eliminada.", Snackbar.LENGTH_LONG).show();
             }
         };
+    }
+
+    private void configurarFab() {
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAnchorView(binding.fab)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 }

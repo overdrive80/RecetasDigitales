@@ -43,9 +43,5 @@ public class RecetarioRepositorio {
         Recetario.servicioExecutor.execute(
                 () -> mRecetaDAO.borrarReceta(receta)
         );
-
     }
-
-
-
 }

@@ -3,10 +3,12 @@ package org.overdrive.recetasdigitales.view.listarecetas;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.overdrive.recetasdigitales.databinding.RecyclerRecetasItemBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.viewmodel.RecetarioViewModel;
 
 /**
  * Esta clase representa un contenedor que almacena las referencias a las vistas del ITEM
