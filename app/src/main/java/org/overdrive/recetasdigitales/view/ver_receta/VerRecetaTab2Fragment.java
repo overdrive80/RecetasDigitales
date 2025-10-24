@@ -25,8 +25,8 @@ public class VerRecetaTab2Fragment extends Fragment {
      * Utilice este metodo de fábrica para crear una nueva instancia de
      * este fragmento utilizando los parámetros proporcionados.
      */
-    public static VerRecetaFragment newInstance(String param1, String param2) {
-        VerRecetaFragment fragment = new VerRecetaFragment();
+    public static VerRecetaTab2Fragment newInstance(String param1, String param2) {
+        VerRecetaTab2Fragment fragment = new VerRecetaTab2Fragment();
 
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);

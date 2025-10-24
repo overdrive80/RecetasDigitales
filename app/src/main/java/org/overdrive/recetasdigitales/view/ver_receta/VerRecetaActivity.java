@@ -1,5 +1,8 @@
 package org.overdrive.recetasdigitales.view.ver_receta;
 
+import static org.overdrive.recetasdigitales.Constantes.RECETA_ID;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +23,21 @@ public class VerRecetaActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         inicializarViewModel();
+        recuperarReceta();
         configurarToolbar();
         habilitarBotonRetroceso();
+    }
+
+    private void recuperarReceta() {
+        Intent intent = getIntent();
+
+        if (intent == null) return; //Si no tiene receta, es complicado que ocurra pero por si.
+
+        long idReceta = intent.getLongExtra(RECETA_ID, 0);
+
+        //Pasamos el idReceta al viewModel. La idea es que si se reconstruye sepa que receta mostrar
+        viewModel.init(idReceta);
+
     }
 
     private void inicializarViewModel() {

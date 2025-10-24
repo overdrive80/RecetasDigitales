@@ -34,7 +34,7 @@ import java.util.concurrent.Executors;
         exportSchema = false)
 public abstract class Recetario extends RoomDatabase {
     private static final String TAG = "RecetarioBBDD";
-
+    private Context contexto;
     // Exponer DAO
     public abstract RecetaDAO recetaDAO();
 
@@ -78,11 +78,14 @@ public abstract class Recetario extends RoomDatabase {
     // Metodo para crear la instancia
     private static Recetario crearInstancia(Context context) {
         Log.d(TAG, "Creando instancia de la base de datos");
-        return Room.databaseBuilder(context, Recetario.class, Constantes.BASEDATOS)
+        Recetario db = Room.databaseBuilder(context, Recetario.class, Constantes.BASEDATOS)
                 .allowMainThreadQueries()
                 .addCallback(accionesCicloVida)
                 //.fallbackToDestructiveMigrationOnDowngrade(true)
                 .build();
+
+        db.contexto = context.getApplicationContext(); // Guardamos el contexto
+        return db;
     }
 
     // Interceptar el ciclo de vida BBDD mediante callback
@@ -112,7 +115,10 @@ public abstract class Recetario extends RoomDatabase {
 
         try {
             /** Primero entidades fuertes. Recetas **/
-            Receta r1 = new Receta("Receta 1", "Descripción 1", "Sin imagen", 0);
+            String uriImg1 = "android.resource://" +
+                    database.contexto.getPackageName() + "/drawable/tortilla_patatas";
+
+            Receta r1 = new Receta("Receta 1", "Descripción 1", uriImg1, 0);
             Receta r2 = new Receta("Receta 2", "Descripción 2", "Sin imagen", 0);
 
             // Insertar recetas
