@@ -58,8 +58,6 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.viewpager2)
 
-    implementation(libs.core.ktx)
 
-    //Glide
-    implementation ("com.github.bumptech.glide:glide:5.0.5")
+    implementation(libs.core.ktx)
 }

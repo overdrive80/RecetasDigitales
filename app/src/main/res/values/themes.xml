@@ -90,9 +90,4 @@
     <style name="Theme.RecetasDigitales.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.RecetasDigitales.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="FormaRedonda">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
 </resources>

@@ -17,9 +17,5 @@
     <string name="portada">Portada</string>
     <string name="ingredientes">Ingredientes</string>
     <string name="pasos">Pasos</string>
-    <string name="imagen_de_la_receta">Imagen de la receta</string>
-    <string name="descripcion_breve_receta">Descripción breve de la receta</string>
-    <string name="tiempo_elaboracion">Tiempo elaboración</string>
-    <string name="titulo">Título</string>
 
 </resources>

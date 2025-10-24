@@ -1,33 +1,19 @@
 package org.overdrive.recetasdigitales.view.ver_receta;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.bumptech.glide.Glide;
-import com.google.android.material.imageview.ShapeableImageView;
-
-import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentVerRecetaTab1Binding;
-import org.overdrive.recetasdigitales.model.entidades.Receta;
-import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
-import org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel;
 
 public class VerRecetaTab1Fragment extends Fragment {
 
     private FragmentVerRecetaTab1Binding binding;
-    private VerRecetaViewModel viewModel;
+
     private static final String ARG_PARAM1 = "param1";
-    private Receta receta;
 
     private String mParam1;
 
@@ -39,8 +25,8 @@ public class VerRecetaTab1Fragment extends Fragment {
      * Utilice este metodo de fábrica para crear una nueva instancia de
      * este fragmento utilizando los parámetros proporcionados.
      */
-    public static VerRecetaTab1Fragment newInstance(String param1, String param2) {
-        VerRecetaTab1Fragment fragment = new VerRecetaTab1Fragment();
+    public static VerRecetaFragment newInstance(String param1, String param2) {
+        VerRecetaFragment fragment = new VerRecetaFragment();
 
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -57,64 +43,11 @@ public class VerRecetaTab1Fragment extends Fragment {
         }
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Infla el diseño de este fragmento.
         binding = FragmentVerRecetaTab1Binding.inflate(inflater, container, false);
-
-        configurarViewModel();
-        configurarObservadores();
-
-
         return binding.getRoot();
-
-    }
-
-    private void configurarObservadores() {
-
-        viewModel.getRecetaCompleta().observe(getViewLifecycleOwner(), new Observer<RecetaCompleta>() {
-            @Override
-            public void onChanged(RecetaCompleta recetaCompleta) {
-                if (recetaCompleta != null) {
-                    receta = recetaCompleta.receta;
-                    actualizarUI(receta);
-                }
-            }
-        });
-
-    }
-
-    private void actualizarUI(Receta receta) {
-        binding.tvTitulo.setText(receta.getTitulo());
-        binding.tvDescripcion.setText(receta.getDescripcion());
-        binding.tvTiempo.setText(""+receta.getTiempo());
-
-        //Gestion de la imagen
-        ShapeableImageView ivImagen = binding.ivImagen;
-        if (receta.getImagenUri() == null || receta.getImagenUri().isEmpty() ||
-                receta.getImagenUri().equals("Sin imagen")) {
-
-            ColorStateList transparentColor = ColorStateList.valueOf(Color.TRANSPARENT);
-            ivImagen.setStrokeColor(transparentColor);
-            ivImagen.setImageResource(R.drawable.outline_broken_image_24);
-        } else {
-            int colorAzulOriginal = ContextCompat.getColor(requireContext(), R.color.blue_800);
-            binding.ivImagen.setStrokeColor(ColorStateList.valueOf(colorAzulOriginal));
-
-            Glide.with(this)
-                    .load(Uri.parse(receta.getImagenUri()))
-                    //.placeholder(R.drawable.outline_broken_image_24)
-                    .error(R.drawable.outline_broken_image_24)
-                    .dontAnimate()
-                    .into(ivImagen);
-        }
-    }
-
-    private void configurarViewModel() {
-
-        // Obtenemos instancia del viewModel compartido
-        viewModel = new ViewModelProvider(requireActivity()).get(VerRecetaViewModel.class);
     }
 }
