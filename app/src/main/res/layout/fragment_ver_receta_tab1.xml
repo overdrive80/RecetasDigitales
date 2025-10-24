@@ -1,15 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.ver_receta.VerRecetaTab1Fragment">
+    android:padding="24dp">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:id="@+id/tvTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tortilla de patatas"
         android:textSize="24sp"
-        android:text="Tab A" />
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/deep_orange_900"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivImagen"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        app:shapeAppearanceOverlay="@style/FormaRedonda"
+        app:strokeColor="@color/blue_800"
+        app:strokeWidth="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        app:layout_constraintBottom_toTopOf="@id/labelDescripcion" />
+
+
+    <TextView
+        android:id="@+id/labelDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="DESCRIPCIÓN"
+        android:textColor="@color/blue_800"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivImagen" />
+
+    <View
+        android:id="@+id/lineaDescripcion"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/deep_orange_900"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelDescripcion" />
+
+    <TextView
+        android:id="@+id/tvDescripcion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Clásica receta española a base de patata y huevo."
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lineaDescripcion" />
+
+    <TextView
+        android:id="@+id/labelTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TIEMPO DE ELABORACIÓN"
+        android:textStyle="italic|bold"
+        android:textColor="@color/blue_800"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDescripcion" />
+
+    <View
+        android:id="@+id/lineaTiempo"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/deep_orange_900"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelTiempo" />
+
+    <TextView
+        android:id="@+id/tvTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="20 minutos"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lineaTiempo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
