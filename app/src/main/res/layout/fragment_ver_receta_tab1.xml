@@ -9,30 +9,30 @@
         android:id="@+id/tvTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Tortilla de patatas"
+        android:textColor="@color/deep_orange_900"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@color/deep_orange_900"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivImagen"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
         android:padding="4dp"
         android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@id/labelDescripcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
         app:shapeAppearanceOverlay="@style/FormaRedonda"
         app:strokeColor="@color/blue_800"
-        app:strokeWidth="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
-        app:layout_constraintBottom_toTopOf="@id/labelDescripcion" />
+        app:strokeWidth="2dp" />
 
 
     <TextView
@@ -74,9 +74,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="TIEMPO DE ELABORACIÓN"
-        android:textStyle="italic|bold"
         android:textColor="@color/blue_800"
         android:textSize="20sp"
+        android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDescripcion" />
 
@@ -89,15 +89,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelTiempo" />
 
-    <TextView
-        android:id="@+id/tvTiempo"
+    <LinearLayout
+        android:id="@+id/layoutTiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="20 minutos"
-        android:textColor="?attr/colorOnSurface"
-        android:textSize="20sp"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineaTiempo" />
+        app:layout_constraintTop_toBottomOf="@id/lineaTiempo">
+
+        <TextView
+            android:id="@+id/tvHoras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:text="1 h"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="20sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvMinutos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 min"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="20sp"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

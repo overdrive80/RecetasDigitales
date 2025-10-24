@@ -118,8 +118,9 @@ public abstract class Recetario extends RoomDatabase {
             String uriImg1 = "android.resource://" +
                     database.contexto.getPackageName() + "/drawable/tortilla_patatas";
 
-            Receta r1 = new Receta("Receta 1", "Descripción 1", uriImg1, 0);
-            Receta r2 = new Receta("Receta 2", "Descripción 2", "Sin imagen", 0);
+            Receta r1 = new Receta("Tortilla de patatas",
+                    "Clásica receta española a base de patata y huevo.", uriImg1, 45);
+            Receta r2 = new Receta("Receta 2", "Descripción 2", "Sin imagen", 75);
 
             // Insertar recetas
             long rowId1 = database.recetaDAO().insertarReceta(r1);
@@ -127,8 +128,10 @@ public abstract class Recetario extends RoomDatabase {
 
             /** Segundo entidades débiles. Ingredientes **/
             List<Ingrediente> ingredientes = Arrays.asList(
-                    new Ingrediente("R1_Ingrediente 1", 100.0, "g", rowId1),
-                    new Ingrediente("R1_Ingrediente 2", 1.0, "ud", rowId1),
+                    new Ingrediente("Huevos", 6.0, "ud/s", rowId1),
+                    new Ingrediente("Patatas", 3.0, "ud/s", rowId1),
+                    new Ingrediente("Aceite", 50.0, "ml", rowId1),
+                    new Ingrediente("Sal", 3.0, "g", rowId1),
                     new Ingrediente("R2_Ingrediente 1", 50.0, "ml", rowId2),
                     new Ingrediente("R2_Ingrediente 2", 2, "cucharadas", rowId2)
             );

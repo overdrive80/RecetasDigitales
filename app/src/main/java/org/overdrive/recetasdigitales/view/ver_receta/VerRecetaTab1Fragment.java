@@ -20,6 +20,7 @@ import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentVerRecetaTab1Binding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
+import org.overdrive.recetasdigitales.tools.GestorTiempo;
 import org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel;
 
 public class VerRecetaTab1Fragment extends Fragment {
@@ -89,9 +90,38 @@ public class VerRecetaTab1Fragment extends Fragment {
     private void actualizarUI(Receta receta) {
         binding.tvTitulo.setText(receta.getTitulo());
         binding.tvDescripcion.setText(receta.getDescripcion());
-        binding.tvTiempo.setText(""+receta.getTiempo());
+
+        //En base al long configuramos la salida mostrada
+        formatearTiempo(receta);
 
         //Gestion de la imagen
+        cargarImagen(receta);
+    }
+
+    private void formatearTiempo(Receta receta) {
+        GestorTiempo t = new GestorTiempo(receta.getTiempo());
+
+        if (!t.hayTiempo()) {
+            binding.layoutTiempo.setVisibility(View.GONE);
+        } else {
+            binding.layoutTiempo.setVisibility(View.VISIBLE);
+
+            binding.tvHoras.setVisibility(t.getHoras() > 0 ? View.VISIBLE : View.GONE);
+            binding.tvMinutos.setVisibility(t.getMinutos() > 0 ? View.VISIBLE : View.GONE);
+
+            binding.tvHoras.setText(t.getHoras() + " h");
+            binding.tvMinutos.setText(t.getMinutos() + " min");
+        }
+    }
+
+
+    private void configurarViewModel() {
+
+        // Obtenemos instancia del viewModel compartido
+        viewModel = new ViewModelProvider(requireActivity()).get(VerRecetaViewModel.class);
+    }
+
+    private void cargarImagen(Receta receta) {
         ShapeableImageView ivImagen = binding.ivImagen;
         if (receta.getImagenUri() == null || receta.getImagenUri().isEmpty() ||
                 receta.getImagenUri().equals("Sin imagen")) {
@@ -112,9 +142,4 @@ public class VerRecetaTab1Fragment extends Fragment {
         }
     }
 
-    private void configurarViewModel() {
-
-        // Obtenemos instancia del viewModel compartido
-        viewModel = new ViewModelProvider(requireActivity()).get(VerRecetaViewModel.class);
-    }
 }
