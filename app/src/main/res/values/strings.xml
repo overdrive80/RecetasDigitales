@@ -21,5 +21,11 @@
     <string name="descripcion_breve_receta">Descripción breve de la receta</string>
     <string name="tiempo_elaboracion">Tiempo elaboración</string>
     <string name="titulo">Título</string>
+    <string name="descripcion">DESCRIPCIÓN</string>
+    <string name="tiempo_de_elaboracion">TIEMPO DE ELABORACIÓN</string>
+    <string name="receta_tortilla">Clásica receta española a base de patata y huevo.</string>
+    <string name="horas">1 h</string>
+    <string name="minutos">30 min</string>
+    <string name="titulo_tortilla">Tortilla de patatas</string>
 
 </resources>

@@ -1,15 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.ver_receta.VerRecetaTab2Fragment">
+    tools:context="view.ver_receta.VerRecetaTab2Fragment"
+    android:padding="24dp">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/tvIngTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="Lista de ingredientes"
+        android:textColor="@color/deep_orange_900"
         android:textSize="24sp"
-        android:text="Tab B" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ScrollView
+        android:id="@+id/scrollIngredientes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvIngTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TableLayout
+            android:id="@+id/tablaIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:stretchColumns="*"
+            android:shrinkColumns="*"
+            android:showDividers="middle"
+            android:divider="?android:attr/dividerHorizontal">
+
+            <TableRow android:paddingVertical="8dp">
+
+                <TextView
+                    android:text="Producto"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="start"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="Cantidad"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="end"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

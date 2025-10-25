@@ -35,6 +35,7 @@ import java.util.concurrent.Executors;
 public abstract class Recetario extends RoomDatabase {
     private static final String TAG = "RecetarioBBDD";
     private Context contexto;
+
     // Exponer DAO
     public abstract RecetaDAO recetaDAO();
 

@@ -23,7 +23,12 @@ public class GestorTiempo {
         return minutos + " min";
     }
 
-    public long getHoras() { return horas; }
-    public long getMinutos() { return minutos; }
+    public long getHoras() {
+        return horas;
+    }
+
+    public long getMinutos() {
+        return minutos;
+    }
 }
 

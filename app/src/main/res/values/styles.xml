@@ -1,0 +1,70 @@
+<resources>
+
+    <!--
+       Estilo visual para el BottomSheet
+       - Cambia el color de fondo
+       - Aplica esquinas redondeadas personalizadas
+    -->
+    <style name="EstiloBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="shapeAppearance">@style/ShapeAppearance.BordesBottomSheet</item>
+        <item name="backgroundTint">@color/blue_25</item>
+    </style>
+
+    <!--
+       Define cómo son las esquinas del BottomSheet.
+       Solo redondea las superiores.
+    -->
+    <style name="ShapeAppearance.BordesBottomSheet" parent="ShapeAppearance.Material3.Corner.None">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">32dp</item>
+        <item name="cornerSizeTopRight">32dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Forma genérica redondeada (50% = círculo/óvalo) -->
+    <style name="FormaRedonda">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- TextView usado para nombres de ingredientes -->
+    <style name="EstiloTextView_Ingrediente" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!-- TextView usado para cantidades de ingredientes -->
+    <style name="EstiloTextView_Cantidad" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!-- Estilo del texto del título de la ActionBar -->
+    <style name="ActionBarTexto" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Estilo del subtítulo de la ActionBar -->
+    <style name="ActionBarSubtitulo" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Estilo aplicado a la ActionBar como barra -->
+    <style name="ActionBar" parent="Widget.Material3.ActionBar.Solid">
+        <item name="background">?attr/colorPrimary</item>
+        <item name="titleTextStyle">@style/ActionBarTexto</item>
+        <item name="subtitleTextStyle">@style/ActionBarSubtitulo</item>
+    </style>
+
+    <!-- Estilo para el botón de "tres puntos" de menú -->
+    <style name="OverflowButton" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">?attr/colorOnPrimary</item>
+    </style>
+
+</resources>

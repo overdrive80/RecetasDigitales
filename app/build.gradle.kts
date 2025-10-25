@@ -61,5 +61,5 @@ dependencies {
     implementation(libs.core.ktx)
 
     //Glide
-    implementation ("com.github.bumptech.glide:glide:5.0.5")
+    implementation("com.github.bumptech.glide:glide:5.0.5")
 }

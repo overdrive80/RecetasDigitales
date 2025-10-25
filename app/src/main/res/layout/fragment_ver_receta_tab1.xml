@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="view.ver_receta.VerRecetaTab1Fragment"
     android:padding="24dp">
 
     <TextView
@@ -10,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Tortilla de patatas"
+        android:text="@string/titulo_tortilla"
         android:textColor="@color/deep_orange_900"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -40,9 +42,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="DESCRIPCIÓN"
+        android:text="@string/descripcion"
         android:textColor="@color/blue_800"
         android:textSize="20sp"
+        app:drawableStartCompat="@drawable/outline_description_24"
+        android:drawablePadding="8dp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivImagen" />
@@ -61,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Clásica receta española a base de patata y huevo."
+        android:text="@string/receta_tortilla"
         android:textColor="?attr/colorOnSurface"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,10 +77,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="TIEMPO DE ELABORACIÓN"
+        android:text="@string/tiempo_de_elaboracion"
         android:textColor="@color/blue_800"
         android:textSize="20sp"
         android:textStyle="italic|bold"
+        app:drawableStartCompat="@drawable/baseline_access_time_24"
+        android:drawablePadding="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDescripcion" />
 
@@ -104,8 +110,8 @@
             android:id="@+id/tvHoras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:text="1 h"
+            android:layout_marginEnd="6dp"
+            android:text="@string/horas"
             android:textColor="?attr/colorOnSurface"
             android:textSize="20sp"
             android:visibility="visible" />
@@ -114,7 +120,7 @@
             android:id="@+id/tvMinutos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="30 min"
+            android:text="@string/minutos"
             android:textColor="?attr/colorOnSurface"
             android:textSize="20sp"
             android:visibility="visible" />
