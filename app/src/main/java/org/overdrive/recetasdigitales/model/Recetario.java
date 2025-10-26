@@ -34,7 +34,6 @@ import java.util.concurrent.Executors;
         exportSchema = false)
 public abstract class Recetario extends RoomDatabase {
     private static final String TAG = "RecetarioBBDD";
-    private Context contexto;
 
     // Exponer DAO
     public abstract RecetaDAO recetaDAO();
@@ -81,43 +80,42 @@ public abstract class Recetario extends RoomDatabase {
         Log.d(TAG, "Creando instancia de la base de datos");
         Recetario db = Room.databaseBuilder(context, Recetario.class, Constantes.BASEDATOS)
                 .allowMainThreadQueries()
-                .addCallback(accionesCicloVida)
+                .addCallback(crearCallback(context))
                 //.fallbackToDestructiveMigrationOnDowngrade(true)
                 .build();
 
-        db.contexto = context.getApplicationContext(); // Guardamos el contexto
         return db;
     }
 
-    // Interceptar el ciclo de vida BBDD mediante callback
-    static RoomDatabase.Callback accionesCicloVida = new RoomDatabase.Callback() {
+    private static RoomDatabase.Callback crearCallback(Context appContext) {
+        return new RoomDatabase.Callback() {
 
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            Log.d(TAG, "Base de datos creada, poblando datos...");
+            @Override
+            public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                super.onCreate(db);
+                Log.d(TAG, "Base de datos creada, poblando datos...");
 
-            // Poblar la base de datos en un hilo worker
-            // para evitar bloquear el hilo principal
-            servicioExecutor.execute(() -> {
-                poblarBaseDatos(Recetario.INSTANCIA);
-            });
-        }
+                servicioExecutor.execute(() -> {
+                    poblarBaseDatos(INSTANCIA, appContext);
+                });
+            }
 
-        @Override
-        public void onOpen(@NonNull SupportSQLiteDatabase db) {
-            super.onOpen(db);
-            Log.d(TAG, "Base de datos abierta");
-        }
-    };
+            @Override
+            public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                super.onOpen(db);
+                Log.d(TAG, "Base de datos abierta");
+            }
+        };
+    }
 
-    private static void poblarBaseDatos(Recetario database) {
+
+    private static void poblarBaseDatos(Recetario database, Context applicationContext) {
         if (database == null) return;
 
         try {
             /** Primero entidades fuertes. Recetas **/
             String uriImg1 = "android.resource://" +
-                    database.contexto.getPackageName() + "/drawable/tortilla_patatas";
+                    applicationContext.getPackageName() + "/drawable/tortilla_patatas";
 
             Receta r1 = new Receta("Tortilla de patatas",
                     "Clásica receta española a base de patata y huevo.", uriImg1, 45);
@@ -142,9 +140,17 @@ public abstract class Recetario extends RoomDatabase {
 
             /** Pasos **/
             List<Paso> pasos = Arrays.asList(
-                    new Paso(1, "Mezclar ingredientes", rowId1),
-                    new Paso(2, "Hornear 30 minutos", rowId1),
-                    new Paso(1, "Batir los huevos", rowId2)
+                    //Receta 1
+                    new Paso(1, "Batir los huevos en un bol de crista y sazonar.", rowId1),
+                    new Paso(2, "Freir las patatas en una sartén con abundante aceite. La temperatura del aceite debe estar media-baja" +
+                            "para evitar crear corteza dura en la patata y no pueda absorber el huevo batido.", rowId1),
+                    new Paso(3, "Incorporar la patata al bol con el huevo y remover hasta crear una mezcla homogénea", rowId1),
+                    new Paso(4, "En caso de que la mezcla sea muy densa, echamos dos yemas batidas para dar cremosidad.", rowId1),
+                    new Paso(5, "En un sartén con aceite caliente, incorporar la mezcla de huevo y patatas. " +
+                            "Cuando veamos en los bordes como el huevo a cuajado, la damos la vuelta ayudandonos de un util que abarque" +
+                            "el diametro de la sarten. La volvemos a incorporar con cuidado por el lado que no esta cuajada.", rowId1),
+
+                    new Paso(1, "Mezclar ingredientes", rowId2)
             );
 
             // Insertar pasos

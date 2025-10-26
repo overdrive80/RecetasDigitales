@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import org.overdrive.recetasdigitales.databinding.FilaIngredienteBinding;
+import org.overdrive.recetasdigitales.databinding.VerFilaIngredienteBinding;
 import org.overdrive.recetasdigitales.databinding.FragmentVerRecetaTab2Binding;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
@@ -86,7 +86,7 @@ public class VerRecetaTab2Fragment extends Fragment {
 
         for (Ingrediente ingrediente : ingredientes) {
             // Inflar la fila desde XML
-            FilaIngredienteBinding filaBinding = FilaIngredienteBinding.inflate(inflater, binding.tablaIngredientes, false);
+            VerFilaIngredienteBinding filaBinding = VerFilaIngredienteBinding.inflate(inflater, binding.tablaIngredientes, false);
 
             // Configurar los textos y agregarlos
             String nombre = ingrediente.getNombre();

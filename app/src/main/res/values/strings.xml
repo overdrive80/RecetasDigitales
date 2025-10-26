@@ -27,5 +27,7 @@
     <string name="horas">1 h</string>
     <string name="minutos">30 min</string>
     <string name="titulo_tortilla">Tortilla de patatas</string>
+    <string name="paso_num">Paso %s</string>
+    <string name="descripcion_del_paso">Descripcion del paso</string>
 
 </resources>
