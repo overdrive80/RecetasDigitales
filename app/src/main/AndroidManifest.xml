@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecetasDigitales">
         <activity
+            android:name=".view.crear_receta.CrearRecetaActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ver_receta.VerRecetaActivity"
             android:exported="false"
             android:label="@string/title_activity_ver_receta"

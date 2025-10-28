@@ -29,5 +29,7 @@
     <string name="titulo_tortilla">Tortilla de patatas</string>
     <string name="paso_num">Paso %s</string>
     <string name="descripcion_del_paso">Descripcion del paso</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
