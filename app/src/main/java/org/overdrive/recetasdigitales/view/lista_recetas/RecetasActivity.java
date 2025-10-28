@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.overdrive.recetasdigitales.databinding.ActivityRecetasBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.view.crear_receta.CrearRecetaActivity;
 import org.overdrive.recetasdigitales.view.ver_receta.VerRecetaActivity;
 import org.overdrive.recetasdigitales.viewmodel.RecetasViewModel;
 
@@ -130,9 +131,9 @@ public class RecetasActivity extends AppCompatActivity {
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(binding.fab)
-                        .setAction("Action", null).show();
+                //Abrir activity para crear receta
+                Intent intent = new Intent(RecetasActivity.this, CrearRecetaActivity.class);
+                startActivity(intent);
             }
         });
     }
