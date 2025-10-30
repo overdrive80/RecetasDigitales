@@ -37,8 +37,8 @@
 
             <!-- Permite previsualizar el layout -->
             <include
-                layout="@layout/ver_fila_paso"
-                tools:visibility="visible"/>
+                layout="@layout/fila_ver_paso"
+                tools:visibility="visible" />
 
         </LinearLayout>
 

@@ -29,7 +29,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     @NonNull
     @Override
     public RecetasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d(TAG, "parent: " + parent.toString());
+        Log.d(TAG, "parent: " + parent);
 
         //El LayoutInflater nos permite convertir el archivo XML del layout
         // en objetos View que Android puede mostrar
@@ -59,7 +59,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
      * <p>
      * Permite optimizar el uso del recyclerview.
      *
-     * @param nuevasRecetas
+     * @param nuevasRecetas Lista de nuevas recetas
      */
     public void actualizarDatos(List<Receta> nuevasRecetas) {
         this.recetas = nuevasRecetas;

@@ -1,45 +1,37 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentPasosBinding;
 
 public class PasosFragment extends Fragment {
     private FragmentPasosBinding binding;
-
-    private static final String ARG_PARAM1 = "param1";
-
-    private String mParam1;
+    private NavController navController;
 
     public PasosFragment() {
         // Required empty public constructor
     }
 
-    public static PasosFragment newInstance(String param1, String param2) {
-        PasosFragment fragment = new PasosFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-        }
     }
 
     @Override
@@ -50,20 +42,45 @@ public class PasosFragment extends Fragment {
         return binding.getRoot();
 
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        configurarListeners();
+
+        navController = Navigation.findNavController(view); // View: es el elemento raiz del layout del fragment
+        configurarMenuProvider();
     }
 
-    private void configurarListeners() {
-        binding.btnGuardar.setOnClickListener(new View.OnClickListener() {
+    private void configurarMenuProvider() {
+        requireActivity().addMenuProvider(new MenuProvider() {
+
             @Override
-            public void onClick(View v) {
-                //Pendiente: llamar en el viewmodel compartido metodo para guardar receta
-                requireActivity().finish();
+            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+                menuInflater.inflate(R.menu.menu_guardar, menu);
             }
-        });
+
+            @Override
+            public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+                // Item: guardar
+                if (menuItem.getItemId() == R.id.action_guardar) {
+                    guardarReceta();
+                    return true; // Le dice que ha consumido el evento y no lo propage
+                }
+                return false;
+            }
+        }, getViewLifecycleOwner(), Lifecycle.State.RESUMED); // Esta parte hace que se reutilize el menu
     }
+
+    private void guardarReceta() {
+        Toast.makeText(getContext(), "Receta guardada", Toast.LENGTH_SHORT).show();
+        getActivity().finish();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
 
 }

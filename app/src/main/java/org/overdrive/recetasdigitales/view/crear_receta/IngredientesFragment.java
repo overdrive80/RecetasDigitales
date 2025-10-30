@@ -2,12 +2,17 @@ package org.overdrive.recetasdigitales.view.crear_receta;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -17,29 +22,15 @@ import org.overdrive.recetasdigitales.databinding.FragmentIngredientesBinding;
 
 public class IngredientesFragment extends Fragment {
     private FragmentIngredientesBinding binding;
-
-    private static final String ARG_PARAM1 = "param1";
-
-    private String mParam1;
+    private NavController navController;
 
     public IngredientesFragment() {
         // Required empty public constructor
     }
 
-    public static IngredientesFragment newInstance(String param1, String param2) {
-        IngredientesFragment fragment = new IngredientesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-        }
     }
 
     @Override
@@ -52,16 +43,34 @@ public class IngredientesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        configurarListeners();
+
+        navController = Navigation.findNavController(view);
+        configurarMenuProvider();
     }
 
-    private void configurarListeners() {
-        binding.btnSiguiente.setOnClickListener(new View.OnClickListener() {
+    private void configurarMenuProvider() {
+        requireActivity().addMenuProvider(new MenuProvider() {
+
             @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.action_ingredientes_a_pasos);
+            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+                menuInflater.inflate(R.menu.menu_siguiente, menu);
             }
-        });
+
+            @Override
+            public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+                // Item: siguiente
+                if (menuItem.getItemId() == R.id.action_siguiente) {
+                    navController.navigate(R.id.action_ingredientes_a_pasos);
+                    return true; // Le dice que ha consumido el evento y no lo propage
+                }
+                return false;
+            }
+        }, getViewLifecycleOwner(), Lifecycle.State.RESUMED); // Esta parte hace que se reutilize el menu
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

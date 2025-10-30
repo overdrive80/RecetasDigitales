@@ -75,6 +75,8 @@
         <item name="background">?attr/colorPrimary</item>
         <item name="titleTextStyle">@style/ActionBarTexto</item>
         <item name="subtitleTextStyle">@style/ActionBarSubtitulo</item>
+        <item name="navigationIconTint">?attr/colorOnPrimary</item>
+        <item name="android:tint">?attr/colorOnPrimary</item>
     </style>
 
     <!-- Estilo para el botón de "tres puntos" de menú -->

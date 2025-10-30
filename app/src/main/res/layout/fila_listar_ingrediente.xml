@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/tvIngrediente"
+        style="@style/EstiloTextView_Ingrediente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Ingrediente"
+        android:gravity="start" />
+
+    <TextView
+        android:id="@+id/tvCantidad"
+        style="@style/EstiloTextView_Cantidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Cantidad"
+        android:gravity="end" />
+
+</TableRow>

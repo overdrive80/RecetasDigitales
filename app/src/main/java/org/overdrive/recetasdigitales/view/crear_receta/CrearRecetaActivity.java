@@ -2,12 +2,7 @@ package org.overdrive.recetasdigitales.view.crear_receta;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -18,7 +13,6 @@ import androidx.navigation.ui.NavigationUI;
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.ActivityCrearRecetaBinding;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
-import org.overdrive.recetasdigitales.viewmodel.RecetasViewModel;
 
 public class CrearRecetaActivity extends AppCompatActivity {
     private ActivityCrearRecetaBinding binding;

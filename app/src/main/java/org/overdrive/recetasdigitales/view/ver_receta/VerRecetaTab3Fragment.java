@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,11 +12,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.overdrive.recetasdigitales.R;
-import org.overdrive.recetasdigitales.databinding.FragmentVerRecetaTab1Binding;
+import org.overdrive.recetasdigitales.databinding.FilaVerPasoBinding;
 import org.overdrive.recetasdigitales.databinding.FragmentVerRecetaTab3Binding;
-import org.overdrive.recetasdigitales.databinding.VerFilaIngredienteBinding;
-import org.overdrive.recetasdigitales.databinding.VerFilaPasoBinding;
-import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 import org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel;
@@ -97,8 +93,8 @@ public class VerRecetaTab3Fragment extends Fragment {
         for (Paso paso : pasos) {
 
             // Inflar fila
-            VerFilaPasoBinding filaBinding =
-                    VerFilaPasoBinding.inflate(inflater, binding.contenedorPasos, false);
+            FilaVerPasoBinding filaBinding =
+                    FilaVerPasoBinding.inflate(inflater, binding.contenedorPasos, false);
 
             // Establecer datos
             String pasoNum = getString(R.string.paso_num, String.valueOf(paso.getOrden()));

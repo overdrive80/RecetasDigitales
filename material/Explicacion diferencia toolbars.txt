@@ -1,0 +1,61 @@
+A. ViewPager2. La Activity gestiona directamente los fragments,
+   por lo que el botón Up debe delegar al OnBackPressedDispatcher
+
+	// Establece el Toolbar como ActionBar de la Activity
+	private void configurarToolbar() {
+		setSupportActionBar(binding.appBarLayout.toolbar);
+		setTitle("Ver receta");
+	}
+
+	// Habilita la flecha de retroceso en el Toolbar
+	private void habilitarBotonRetroceso() {
+		// Habilitar botón de retroceso
+		if (getSupportActionBar() != null) {
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		}
+	}
+
+	// Método que gestiona el comportamiento del botón de navegación (flecha atrás).
+	// Delegamos el comportamiento al sistema de retroceso de la Activity mediante el OnBackPressedDispatcher.
+	// Esto equivale a pulsar el botón físico/gestual de atrás.
+	// Devolver 'true' indica que el evento ya ha sido procesado y no debe propagarse.
+	@Override
+	public boolean onSupportNavigateUp() {
+		// Equivale a pulsar el botón atrás del dispositivo
+		getOnBackPressedDispatcher().onBackPressed();
+		return true;
+	}
+	
+B. Navigation Component. 
+
+Aquí la navegación la controla el NavController, por lo que la flecha no 
+debe llamar a getOnBackPressedDispatcher, sino a navController.navigateUp()
+
+	//Delega la responsabilidad del Evento UpButton al NavController
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavDestination destination = navController.getCurrentDestination();
+
+        return navController.navigateUp() || super.onSupportNavigateUp();
+    }
+	
+	    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_recipe);
+
+        // 1) Convertir el Toolbar en ActionBar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // 2) Obtener el NavController del NavHostFragment
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        // 3) AppBarConfiguration sin destinos raíz: la flecha aparece siempre
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder().build();
+
+        // 4) Conectar Toolbar + NavController (delega títulos y botón Up)
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+    }
+	
+	No se necesitaría habilitarBotonRetroceso() con Navigation.

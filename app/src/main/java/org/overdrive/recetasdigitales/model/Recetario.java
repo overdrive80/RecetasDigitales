@@ -87,7 +87,7 @@ public abstract class Recetario extends RoomDatabase {
         return db;
     }
 
-    private static RoomDatabase.Callback crearCallback(Context appContext) {
+    private static RoomDatabase.Callback crearCallback(Context context) {
         return new RoomDatabase.Callback() {
 
             @Override
@@ -96,7 +96,7 @@ public abstract class Recetario extends RoomDatabase {
                 Log.d(TAG, "Base de datos creada, poblando datos...");
 
                 servicioExecutor.execute(() -> {
-                    poblarBaseDatos(INSTANCIA, appContext);
+                    poblarBaseDatos(INSTANCIA, context);
                 });
             }
 
@@ -109,13 +109,13 @@ public abstract class Recetario extends RoomDatabase {
     }
 
 
-    private static void poblarBaseDatos(Recetario database, Context applicationContext) {
+    private static void poblarBaseDatos(Recetario database, Context appContext) {
         if (database == null) return;
 
         try {
             /** Primero entidades fuertes. Recetas **/
             String uriImg1 = "android.resource://" +
-                    applicationContext.getPackageName() + "/drawable/tortilla_patatas";
+                    appContext.getPackageName() + "/drawable/tortilla_patatas";
 
             Receta r1 = new Receta("Tortilla de patatas",
                     "Clásica receta española a base de patata y huevo.", uriImg1, 45);
