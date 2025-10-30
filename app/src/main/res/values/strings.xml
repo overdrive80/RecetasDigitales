@@ -35,5 +35,10 @@
         <item>kg</item>
         <item>ml</item>
         <item>l</item>
+        <item>cda</item>
+        <item>cdta</item>
+        <item>unidad</item>
+        <item>pieza</item>
+        <item>pizca</item>
     </string-array>
 </resources>

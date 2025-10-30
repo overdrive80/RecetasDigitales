@@ -1,0 +1,31 @@
+Al definir temas en Themes.xml tenemos que tener en cuenta la herencia.
+
+Por ejemplo:
+
+Si defino en mi tema principal el color primario:
+
+<style name="AppBaseTheme" parent="Theme.Material3.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/blue_500</item> 
+
+</style>
+
+Y defino un tema para un bottomSheet:
+
+<style name="ThemeBottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/EstiloBottomSheet</item>
+</style>
+
+Como mi tema hereda de "Theme.Material3.DayNight.BottomSheetDialog" no tendrá en cuenta
+los items declarados en "AppBaseTheme". 
+
+Por lo tanto, en el tema del bottomSheet también tendremos que especificar los valores
+de los colores. En este caso, el color primario:
+
+<style name="ThemeBottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/EstiloBottomSheet</item>
+	<item name="colorPrimary">@color/blue_800</item> 
+</style>
+
+Si no lo definimos, el sistema de temas busca el color primario en el atributo ?attr/colorPrimary del tema activo.
+Este tema sería el definido por nosotros, y si no encuentra ese atributo seguirá la jerarquía de herencia 
+buscando en otros temas hasta que lo encuentre y aplique.
