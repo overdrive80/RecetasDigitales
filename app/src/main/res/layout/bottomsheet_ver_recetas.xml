@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <!-- Opción: Ver -->
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/opcion_ver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,8 +29,7 @@
         app:drawableTint="@color/black"
         app:tint="@color/black" />
 
-    <!-- Opción: Modificar -->
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/opcion_modificar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,8 +46,7 @@
         app:drawableTint="@color/black"
         app:tint="@color/black" />
 
-    <!-- Opción: Eliminar -->
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/opcion_eliminar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

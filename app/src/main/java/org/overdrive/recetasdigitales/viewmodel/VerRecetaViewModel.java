@@ -26,16 +26,18 @@ public class VerRecetaViewModel extends AndroidViewModel {
         repo = new RecetarioRepositorio(application);
 
         //Al reconstruir el fragment se recupera el id de la receta y la receta completa.
-        if (savedStateHandle.contains(RECETA_ID)) {
-            long idReceta = savedStateHandle.get(RECETA_ID);
-            recetaCompleta = repo.getRecetaCompleta(idReceta);
+        if (!savedStateHandle.contains(RECETA_ID)) {
+            return;
         }
+
+        long idReceta = savedStateHandle.get(RECETA_ID);
+        recetaCompleta = repo.getRecetaCompleta(idReceta);
     }
 
-    public VerRecetaViewModel(Application application) {
-        super(application);
-        repo = new RecetarioRepositorio(application);
-    }
+//    public VerRecetaViewModel(Application application) {
+//        super(application);
+//        repo = new RecetarioRepositorio(application);
+//    }
 
     public void cargarRecetaCompleta(long recetaId) {
         recetaCompleta = repo.getRecetaCompleta(recetaId);

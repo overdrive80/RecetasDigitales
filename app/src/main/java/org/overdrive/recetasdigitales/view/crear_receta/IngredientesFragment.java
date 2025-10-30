@@ -1,5 +1,6 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +20,8 @@ import androidx.navigation.Navigation;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentIngredientesBinding;
+import org.overdrive.recetasdigitales.view.lista_recetas.RecetasActivity;
+import org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet;
 
 
 public class IngredientesFragment extends Fragment {
@@ -46,6 +50,7 @@ public class IngredientesFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         configurarMenuProvider();
+        configurarFab();
     }
 
     private void configurarMenuProvider() {
@@ -72,5 +77,17 @@ public class IngredientesFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+
+    private void configurarFab() {
+        binding.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                IngredientesBottomSheet bottomSheet = new IngredientesBottomSheet();
+                bottomSheet.show(getParentFragmentManager(), IngredientesBottomSheet.TAG);
+            }
+        });
     }
 }

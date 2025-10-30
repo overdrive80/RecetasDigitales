@@ -91,7 +91,7 @@ public class RecetasActivity extends AppCompatActivity {
                 // Android recomienda no crear constructores con parametros en Fragments
                 RecetasBottomSheet bottomSheet = new RecetasBottomSheet();
                 bottomSheet.setOnClickOpcionListener(getOnClickOpcionListener());
-                bottomSheet.show(getSupportFragmentManager(), "RecetasBottomSheet");
+                bottomSheet.show(getSupportFragmentManager(), RecetasBottomSheet.TAG);
             }
         };
     }

@@ -1,22 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppBaseTheme" parent="Theme.Material3.DayNight.NoActionBar">
+
         <item name="colorPrimary">@color/blue_500</item>
-        <item name="colorPrimaryDark">@color/blue_200</item>
-        <item name="colorAccent">@color/blue_200</item>
         <item name="colorPrimaryVariant">@color/blue_700</item>
+        <item name="rippleColor">@color/blue_50</item>
 
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnSecondary">@color/white</item>
-
-        <item name="colorOnPrimaryContainer">@color/blue_50</item>
-
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="containerColor">@color/blue_800</item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <item name="android:windowBackground">@color/white</item>
+
 
     </style>
 
@@ -32,8 +25,16 @@
         <item name="android:elevation">0dp</item>
     </style>
 
+
+    <!--
+    Redefinimos los atributos clave de color (colorPrimary) DENTRO del tema
+    del BottomSheet para que los botones y otros widgets usen el color correcto.
+-->
     <style name="ThemeBottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/EstiloBottomSheet</item>
+
+        <item name="colorPrimary">@color/blue_800</item>
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 
     <style name="Theme.RecetasDigitales.NoActionBar">

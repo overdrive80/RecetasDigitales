@@ -95,6 +95,6 @@
         app:srcCompat="@drawable/rounded_add_2_48"
         app:tint="@android:color/white"
         app:backgroundTint="?attr/colorPrimary"
-        app:rippleColor="?attr/colorOnPrimaryContainer"
+        app:rippleColor="?attr/rippleColor"
         tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

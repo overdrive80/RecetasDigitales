@@ -12,12 +12,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.overdrive.recetasdigitales.R;
-import org.overdrive.recetasdigitales.databinding.RecetasBottomSheetBinding;
+import org.overdrive.recetasdigitales.databinding.BottomsheetVerRecetasBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.viewmodel.RecetasViewModel;
 
 public class RecetasBottomSheet extends BottomSheetDialogFragment {
-    private RecetasBottomSheetBinding binding;
+    public static final String TAG = "RecetasBottomSheet";
+    private BottomsheetVerRecetasBinding binding;
     private OnClickOpcionListener listener;
     private RecetasViewModel viewModel;
     private Receta recetaSeleccionada;
@@ -37,7 +38,7 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //Obtenemos la vista del layout del bottomSheet mediante el inflater del metodo
-        binding = RecetasBottomSheetBinding.inflate(inflater, container, false);
+        binding = BottomsheetVerRecetasBinding.inflate(inflater, container, false);
 
         //Obtenemos la vista raiz del layout para el BottomSheet
         View view = binding.getRoot();
