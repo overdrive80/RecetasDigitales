@@ -7,6 +7,8 @@ import androidx.lifecycle.LiveData;
 import org.overdrive.recetasdigitales.model.dao.IngredienteDAO;
 import org.overdrive.recetasdigitales.model.dao.PasoDAO;
 import org.overdrive.recetasdigitales.model.dao.RecetaDAO;
+import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
+import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 
@@ -51,5 +53,33 @@ public class RecetarioRepositorio {
 
     public long insertarReceta(Receta receta) {
         return mRecetaDAO.insertarReceta(receta);
+    }
+
+    public void insertarRecetaCompleta(Receta receta, List<Ingrediente> ingredientes, List<Paso> pasos) {
+
+        Recetario.servicioExecutor.execute(() -> {
+            mdb.runInTransaction(() -> {
+
+                long recetaId = mRecetaDAO.insertarReceta(receta);
+                receta.setIdReceta(recetaId);
+
+                // Ingredientes: Asignar rowID en la clave foranea
+                for (Ingrediente ing : ingredientes) {
+                    ing.setIdReceta(recetaId);
+                }
+
+                // Insertar lista de ingredientes
+                mIngredienteDAO.insertarIngredientes(ingredientes);
+
+                // Pasos: Asignar rowID en la clave foranea
+                int orden = 1;
+                for (Paso paso : pasos) {
+                    paso.setIdReceta(recetaId);
+                    paso.setOrden(orden++);
+                }
+                mPasoDAO.insertarPasos(pasos);
+
+            });
+        });
     }
 }

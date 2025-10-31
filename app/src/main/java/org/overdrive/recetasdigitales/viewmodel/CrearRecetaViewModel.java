@@ -20,7 +20,6 @@ import java.util.List;
 public class CrearRecetaViewModel extends AndroidViewModel {
 
     private final RecetarioRepositorio repo;
-    private LiveData<RecetaCompleta> recetaCompleta;
     private MutableLiveData<Receta> receta = new MutableLiveData<>();
     private MutableLiveData<List<Ingrediente>> ingredientes = new MutableLiveData<>(new ArrayList<>());
     private MutableLiveData<List<Paso>> pasos = new MutableLiveData<>(new ArrayList<>());
@@ -38,4 +37,10 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     public void setReceta(Receta receta) {
         this.receta.setValue(receta);
     }
+
+    public MutableLiveData<Receta> getReceta() {
+        return receta;
+    }
+
+
 }

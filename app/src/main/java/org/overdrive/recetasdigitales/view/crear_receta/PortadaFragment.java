@@ -1,6 +1,9 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +23,8 @@ import androidx.navigation.Navigation;
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentPortadaBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.tools.GestorTiempo;
+import org.overdrive.recetasdigitales.tools.TextWatcherSimple;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 public class PortadaFragment extends Fragment {
@@ -27,6 +32,9 @@ public class PortadaFragment extends Fragment {
     private FragmentPortadaBinding binding;
     private NavController navController;
     private CrearRecetaViewModel viewModel;
+    private int horas, minutos;
+    private final int horaMax = 23, horaMin = 0;
+    private final int minutoMax = 59, minutoMin = 0;
 
 
     public PortadaFragment() {
@@ -53,7 +61,76 @@ public class PortadaFragment extends Fragment {
 
         navController = Navigation.findNavController(view); // View: es el elemento raiz del layout del fragment
         configurarMenuProvider();
+        configurarTextWatchers();
+        configurarObservers();
 
+    }
+
+    private void configurarObservers() {
+
+        viewModel.getReceta().observe(getViewLifecycleOwner(), receta -> {
+            binding.etNombreReceta.setText(receta.getTitulo());
+            binding.etDescripcionReceta.setText(receta.getDescripcion());
+            binding.ivImagenReceta.setImageURI(Uri.parse(receta.getImagenUri()));
+
+            int horas = GestorTiempo.getHoras(receta.getTiempo());
+            int minutos = GestorTiempo.getMinutos(receta.getTiempo());
+            binding.etHoras.setText(String.valueOf(horas));
+            binding.etMinutos.setText(String.valueOf(minutos));
+
+            this.horas = horas;
+            this.minutos = minutos;
+        });
+
+    }
+
+    private void configurarTextWatchers() {
+
+        binding.etHoras.addTextChangedListener(new TextWatcherSimple() {
+            @Override
+            public void afterTextChanged(android.text.Editable s) {
+                horas = StringToInt(s.toString(), 0);
+
+                if (!validarTiempo(horas, horaMin, horaMax)) {
+                    binding.etHoras.setError("Valor entre " + horaMin + " y " + horaMax);
+                    binding.etHoras.requestFocus();
+                } else {
+                    binding.etHoras.setError(null);
+                }
+            }
+        });
+
+        binding.etMinutos.addTextChangedListener(new TextWatcherSimple() {
+
+            @Override
+            public void afterTextChanged(android.text.Editable s) {
+                minutos = StringToInt(s.toString(), 0);
+
+                if (!validarTiempo(minutos, minutoMin, minutoMax)) {
+                    binding.etMinutos.setError("Valor entre " + minutoMin + " y " + minutoMax);
+                    binding.etMinutos.requestFocus();
+                } else {
+                    binding.etMinutos.setError(null);
+                }
+
+            }
+        });
+    }
+
+    private boolean validarTiempo(int tiempo, int min, int max) {
+        return tiempo >= min && tiempo <= max;
+    }
+
+    private int StringToInt(String tiempo, int valorDefecto) {
+        int numero;
+
+        try {
+            numero = Integer.parseInt(tiempo);
+        } catch (NumberFormatException e) {
+            return valorDefecto;
+        }
+
+        return numero;
     }
 
     private void inicializarViewModel() {
@@ -74,19 +151,28 @@ public class PortadaFragment extends Fragment {
                 // Item: siguiente
                 if (menuItem.getItemId() == R.id.action_siguiente) {
 
-                    if (binding.etNombreReceta.getText().toString().isEmpty()) {
+                    // Validar nombre obligatorio
+                    if (binding.etNombreReceta.getText().toString().trim().isEmpty()) {
                         binding.etNombreReceta.setError("El nombre de la receta es obligatorio");
+                        binding.etNombreReceta.requestFocus();
                         return true;
                     }
 
-                    insertarReceta();
-
-                    navController.navigate(R.id.action_portada_a_ingredientes);
-                    return true; // Le dice que ha consumido el evento y no lo propage
+                    if (contenidoCorrecto()) {
+                        insertarReceta();
+                        navController.navigate(R.id.action_portada_a_ingredientes);
+                        return true; // Le dice que ha consumido el evento y no lo propage
+                    }
                 }
                 return false;
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED); // Esta parte hace que se reutilize el menu
+    }
+
+    private boolean contenidoCorrecto() {
+        return binding.etNombreReceta.getError() == null &&
+                binding.etHoras.getError() == null &&
+                binding.etMinutos.getError() == null;
     }
 
     private void insertarReceta() {
@@ -94,11 +180,11 @@ public class PortadaFragment extends Fragment {
         receta.setTitulo(binding.etNombreReceta.getText().toString());
         receta.setDescripcion(binding.etDescripcionReceta.getText().toString());
         receta.setImagenUri("");
-        receta.setTiempo(0);
+        receta.setTiempo(GestorTiempo.getTiempoMinutos(horas, minutos));
 
         viewModel.setReceta(receta);
-
     }
+
 
     @Override
     public void onDestroyView() {

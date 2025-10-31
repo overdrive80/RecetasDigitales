@@ -21,4 +21,7 @@ public interface IngredienteDAO {
     @Transaction
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
     LiveData<RecetaIngredientes> getRecetaConIngredientes(long id);
+
+    @Insert
+    void insertarIngrediente(Ingrediente ing);
 }

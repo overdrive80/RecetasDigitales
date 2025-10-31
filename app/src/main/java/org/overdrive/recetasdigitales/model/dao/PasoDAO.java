@@ -21,4 +21,7 @@ public interface PasoDAO {
     @Transaction
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
     LiveData<RecetaPasos> getRecetaConPasos(long id);
+
+    @Insert
+    void insertarPaso(Paso paso);
 }
