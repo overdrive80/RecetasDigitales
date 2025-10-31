@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context="view.crear_receta.PortadaFragment">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivImagenReceta"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@color/blue_50"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:tooltipText="Haz clic para añadir imagen"
+        app:layout_constraintBottom_toTopOf="@id/lblNombreReceta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/FormaRedonda"
+        app:strokeColor="@color/blue_800"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:id="@+id/lblNombreReceta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="8dp"
+        android:text="NOMBRE"
+        android:textColor="@color/blue_800"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        app:drawableStartCompat="@drawable/outline_description_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivImagenReceta" />
+
+    <View
+        android:id="@+id/separador0"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/deep_orange_900"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblNombreReceta" />
+
+    <EditText
+        android:id="@+id/etNombreReceta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext"
+        android:gravity="top|start"
+        android:hint="Nombre de la receta"
+        android:inputType="text"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separador0" />
+
+    <TextView
+        android:id="@+id/lblDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="8dp"
+        android:text="@string/descripcion"
+        android:textColor="@color/blue_800"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        app:drawableStartCompat="@drawable/outline_description_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNombreReceta" />
+
+    <View
+        android:id="@+id/separador1"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/deep_orange_900"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblDescripcion" />
+
+    <EditText
+        android:id="@+id/etDescripcionReceta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edittext"
+        android:gravity="top|start"
+        android:hint="Breve descripción"
+        android:inputType="textMultiLine"
+        android:maxLines="6"
+        android:minHeight="96dp"
+        android:padding="12dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separador1" />
+
+    <TextView
+        android:id="@+id/lblTiempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="8dp"
+        android:text="@string/tiempo_de_elaboracion"
+        android:textColor="@color/blue_800"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        app:drawableStartCompat="@drawable/baseline_access_time_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDescripcionReceta" />
+
+    <View
+        android:id="@+id/separador2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/deep_orange_900"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblTiempo" />
+
+    <LinearLayout
+        android:id="@+id/layoutTiempoElaboracion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false"
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:weightSum="8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separador2">
+
+        <EditText
+            android:id="@+id/tvHoras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="2"
+            android:background="@drawable/bg_edittext"
+            android:hint="@string/horas"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="20sp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/tvMinutos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:hint="@string/minutos"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="20sp"
+            android:visibility="visible" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

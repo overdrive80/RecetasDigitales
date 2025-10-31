@@ -9,7 +9,7 @@
         android:id="@+id/portadaFragment"
         android:name="org.overdrive.recetasdigitales.view.crear_receta.PortadaFragment"
         android:label="Portada"
-        tools:layout="@layout/fragment_portada_receta">
+        tools:layout="@layout/fragment_portada">
         <action
             android:id="@+id/action_portada_a_ingredientes"
             app:destination="@id/IngredientesFragment" />

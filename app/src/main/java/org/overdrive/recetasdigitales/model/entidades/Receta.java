@@ -2,6 +2,7 @@ package org.overdrive.recetasdigitales.model.entidades;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.overdrive.recetasdigitales.Constantes;
@@ -31,6 +32,9 @@ public class Receta {
     private long tiempo;
 
     //Constructores
+    @Ignore
+    public Receta() {
+    }
 
     public Receta(String titulo, String descripcion, String imagenUri, long tiempo) {
         this.titulo = titulo;
@@ -43,6 +47,10 @@ public class Receta {
     //Getter-Setters
     public String getTitulo() {
         return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescripcion() {

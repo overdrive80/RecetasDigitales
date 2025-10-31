@@ -1,7 +1,6 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.button.MaterialButton;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.BottomsheetNuevoIngredienteBinding;
-import org.overdrive.recetasdigitales.databinding.BottomsheetVerRecetasBinding;
-import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
-import org.overdrive.recetasdigitales.viewmodel.RecetasViewModel;
-
-import java.util.List;
 
 public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     public static final String TAG = "IngredientesBottomSheet";
@@ -34,6 +28,8 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         super.onCreate(savedInstanceState);
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
         setCancelable(false);
+
+        inicializarViewModel();
 
     }
 
@@ -47,9 +43,6 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         //Obtenemos la vista raiz del layout para el BottomSheet
         View view = binding.getRoot();
 
-
-
-
         return view;
     }
 
@@ -61,6 +54,11 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         configurarAutocompletadoUnidades();
 
 
+    }
+
+    private void inicializarViewModel() {
+        this.viewModel = new ViewModelProvider(getActivity())
+                .get(CrearRecetaViewModel.class);
     }
 
     private void configurarListeners() {
@@ -76,6 +74,8 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
                 }
 
                 Toast.makeText(requireContext(), "Ingrediente agregado", Toast.LENGTH_SHORT).show();
+
+                agregarIngrediente();
                 dismiss();
             }
         });
@@ -87,6 +87,15 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
                 dismiss();
             }
         });
+    }
+
+    private void agregarIngrediente() {
+        Ingrediente ingrediente = new Ingrediente();
+        ingrediente.setNombre(binding.etNombre.getText().toString());
+        ingrediente.setUnidad(binding.etUnidad.getText().toString());
+        ingrediente.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
+
+        viewModel.agregarIngrediente(ingrediente);
     }
 
     private void configurarAutocompletadoUnidades() {

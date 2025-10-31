@@ -48,4 +48,8 @@ public class RecetarioRepositorio {
     public LiveData<RecetaCompleta> getRecetaCompleta(long recetaId) {
         return mRecetaDAO.getRecetaCompleta(recetaId);
     }
+
+    public long insertarReceta(Receta receta) {
+        return mRecetaDAO.insertarReceta(receta);
+    }
 }

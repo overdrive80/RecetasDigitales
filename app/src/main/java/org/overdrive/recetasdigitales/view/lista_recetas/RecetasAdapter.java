@@ -1,6 +1,5 @@
 package org.overdrive.recetasdigitales.view.lista_recetas;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -29,8 +28,6 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     @NonNull
     @Override
     public RecetasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d(TAG, "parent: " + parent);
-
         //El LayoutInflater nos permite convertir el archivo XML del layout
         // en objetos View que Android puede mostrar
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());

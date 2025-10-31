@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.overdrive.recetasdigitales.Constantes;
@@ -45,6 +46,10 @@ public class Ingrediente {
     private long idReceta;
 
     //Constructor
+    @Ignore
+    public Ingrediente() {
+    }
+
     public Ingrediente(String nombre, double cantidad, String unidad, long idReceta) {
         this.nombre = nombre;
         this.cantidad = cantidad;

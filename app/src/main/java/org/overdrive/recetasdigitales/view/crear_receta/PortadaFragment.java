@@ -13,16 +13,21 @@ import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import org.overdrive.recetasdigitales.R;
-import org.overdrive.recetasdigitales.databinding.FragmentPortadaRecetaBinding;
+import org.overdrive.recetasdigitales.databinding.FragmentPortadaBinding;
+import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 public class PortadaFragment extends Fragment {
 
-    private FragmentPortadaRecetaBinding binding;
+    private FragmentPortadaBinding binding;
     private NavController navController;
+    private CrearRecetaViewModel viewModel;
+
 
     public PortadaFragment() {
         // Required empty public constructor
@@ -31,13 +36,14 @@ public class PortadaFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        inicializarViewModel();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentPortadaRecetaBinding.inflate(inflater, container, false);
+        binding = FragmentPortadaBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -48,6 +54,11 @@ public class PortadaFragment extends Fragment {
         navController = Navigation.findNavController(view); // View: es el elemento raiz del layout del fragment
         configurarMenuProvider();
 
+    }
+
+    private void inicializarViewModel() {
+        this.viewModel = new ViewModelProvider(getActivity())
+                .get(CrearRecetaViewModel.class);
     }
 
     private void configurarMenuProvider() {
@@ -62,12 +73,31 @@ public class PortadaFragment extends Fragment {
             public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
                 // Item: siguiente
                 if (menuItem.getItemId() == R.id.action_siguiente) {
+
+                    if (binding.etNombreReceta.getText().toString().isEmpty()) {
+                        binding.etNombreReceta.setError("El nombre de la receta es obligatorio");
+                        return true;
+                    }
+
+                    insertarReceta();
+
                     navController.navigate(R.id.action_portada_a_ingredientes);
                     return true; // Le dice que ha consumido el evento y no lo propage
                 }
                 return false;
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED); // Esta parte hace que se reutilize el menu
+    }
+
+    private void insertarReceta() {
+        Receta receta = new Receta();
+        receta.setTitulo(binding.etNombreReceta.getText().toString());
+        receta.setDescripcion(binding.etDescripcionReceta.getText().toString());
+        receta.setImagenUri("");
+        receta.setTiempo(0);
+
+        viewModel.setReceta(receta);
+
     }
 
     @Override

@@ -1,6 +1,5 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,25 +7,25 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentIngredientesBinding;
-import org.overdrive.recetasdigitales.view.lista_recetas.RecetasActivity;
-import org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet;
+import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 
 public class IngredientesFragment extends Fragment {
     private FragmentIngredientesBinding binding;
     private NavController navController;
+    private CrearRecetaViewModel viewModel;
 
     public IngredientesFragment() {
         // Required empty public constructor
@@ -35,6 +34,7 @@ public class IngredientesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        inicializarViewModel();
     }
 
     @Override
@@ -51,6 +51,12 @@ public class IngredientesFragment extends Fragment {
         navController = Navigation.findNavController(view);
         configurarMenuProvider();
         configurarFab();
+
+    }
+
+    private void inicializarViewModel() {
+        this.viewModel = new ViewModelProvider(getActivity())
+                .get(CrearRecetaViewModel.class);
     }
 
     private void configurarMenuProvider() {
