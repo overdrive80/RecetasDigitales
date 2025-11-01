@@ -1,6 +1,8 @@
 package org.overdrive.recetasdigitales.viewmodel;
 
 import android.app.Application;
+import android.content.Context;
+import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -23,10 +25,12 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     private MutableLiveData<Receta> receta = new MutableLiveData<>();
     private MutableLiveData<List<Ingrediente>> ingredientes = new MutableLiveData<>(new ArrayList<>());
     private MutableLiveData<List<Paso>> pasos = new MutableLiveData<>(new ArrayList<>());
+    private MutableLiveData<Uri> imagenUriTemporal = new MutableLiveData<>();
+    private final Context appContext;
 
     public CrearRecetaViewModel(@NonNull Application application) {
         super(application);
-
+        appContext = application;
         repo = new RecetarioRepositorio(application);
     }
 
@@ -43,4 +47,12 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     }
 
 
+    public void setImagenUri(Uri uri) {
+        imagenUriTemporal.setValue(uri);
+    }
+
+    public MutableLiveData<Uri> getImagenUri() {
+        return imagenUriTemporal;
+
+    }
 }

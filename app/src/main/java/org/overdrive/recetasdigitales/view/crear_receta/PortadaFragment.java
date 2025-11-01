@@ -2,8 +2,6 @@ package org.overdrive.recetasdigitales.view.crear_receta;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
@@ -20,12 +21,19 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.bumptech.glide.Glide;
+
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentPortadaBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.tools.GestorTiempo;
 import org.overdrive.recetasdigitales.tools.TextWatcherSimple;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class PortadaFragment extends Fragment {
 
@@ -35,7 +43,21 @@ public class PortadaFragment extends Fragment {
     private int horas, minutos;
     private final int horaMax = 23, horaMin = 0;
     private final int minutoMax = 59, minutoMin = 0;
+    // Launcher para obtener la imagen
+    private ActivityResultLauncher<String> lanzadorImagen = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
 
+                    if (uri != null) {
+                        // Guardar URI en ViewModel
+                        viewModel.setImagenUri(uri);
+                        //La imagen se almacena cuando se guarde la receta
+                    }
+                }
+            }
+    );
 
     public PortadaFragment() {
         // Required empty public constructor
@@ -60,10 +82,18 @@ public class PortadaFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view); // View: es el elemento raiz del layout del fragment
+
         configurarMenuProvider();
         configurarTextWatchers();
+        configurarListeners();
         configurarObservers();
 
+    }
+
+    private void configurarListeners() {
+        binding.ivImagenReceta.setOnClickListener(v -> {
+            lanzadorImagen.launch("image/*");
+        });
     }
 
     private void configurarObservers() {
@@ -71,8 +101,6 @@ public class PortadaFragment extends Fragment {
         viewModel.getReceta().observe(getViewLifecycleOwner(), receta -> {
             binding.etNombreReceta.setText(receta.getTitulo());
             binding.etDescripcionReceta.setText(receta.getDescripcion());
-            binding.ivImagenReceta.setImageURI(Uri.parse(receta.getImagenUri()));
-
             int horas = GestorTiempo.getHoras(receta.getTiempo());
             int minutos = GestorTiempo.getMinutos(receta.getTiempo());
             binding.etHoras.setText(String.valueOf(horas));
@@ -82,6 +110,14 @@ public class PortadaFragment extends Fragment {
             this.minutos = minutos;
         });
 
+        // Observar cambios en la URI de la imagen
+        viewModel.getImagenUri().observe(getViewLifecycleOwner(), uri -> {
+            if (uri != null) {
+                Glide.with(requireContext())
+                        .load(uri)
+                        .into(binding.ivImagenReceta);
+            }
+        });
     }
 
     private void configurarTextWatchers() {
@@ -159,7 +195,7 @@ public class PortadaFragment extends Fragment {
                     }
 
                     if (contenidoCorrecto()) {
-                        insertarReceta();
+                        setRecetaViewModel();
                         navController.navigate(R.id.action_portada_a_ingredientes);
                         return true; // Le dice que ha consumido el evento y no lo propage
                     }
@@ -175,21 +211,21 @@ public class PortadaFragment extends Fragment {
                 binding.etMinutos.getError() == null;
     }
 
-    private void insertarReceta() {
+    private void setRecetaViewModel() {
         Receta receta = new Receta();
         receta.setTitulo(binding.etNombreReceta.getText().toString());
         receta.setDescripcion(binding.etDescripcionReceta.getText().toString());
-        receta.setImagenUri("");
+        //La imagen se establecerá en el ViewModel
         receta.setTiempo(GestorTiempo.getTiempoMinutos(horas, minutos));
 
         viewModel.setReceta(receta);
     }
-
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
 }
 

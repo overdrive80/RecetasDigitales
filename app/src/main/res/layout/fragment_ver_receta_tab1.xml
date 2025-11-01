@@ -26,6 +26,7 @@
         android:layout_height="250dp"
         android:layout_marginTop="32dp"
         android:adjustViewBounds="true"
+        android:cropToPadding="true"
         android:padding="4dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@id/labelDescripcion"
@@ -33,6 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo"
         app:shapeAppearanceOverlay="@style/FormaRedonda"
+        app:srcCompat="@drawable/tortilla_patatas"
         app:strokeColor="@color/blue_800"
         app:strokeWidth="2dp" />
 
