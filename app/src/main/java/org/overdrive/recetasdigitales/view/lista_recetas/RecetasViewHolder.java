@@ -24,17 +24,8 @@ public class RecetasViewHolder extends RecyclerView.ViewHolder {
     }
 
     // Aqui se vinculan los datos con las vistas
-    public void bind(Receta receta, RecetasAdapter.OnClickItemListener listener) {
+    public void bind(Receta receta) {
         binding.tvTituloReceta.setText(receta.getTitulo());
         binding.tvDescripcion.setText(receta.getDescripcion());
-
-        // Listener
-        binding.getRoot().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Notificamos al listener
-                listener.onClickReceta(receta);
-            }
-        });
     }
 }

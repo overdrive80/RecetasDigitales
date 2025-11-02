@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/IngredientesFragment"
-        android:name="org.overdrive.recetasdigitales.view.crear_receta.IngredientesFragment"
+        android:name="org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesFragment"
         android:label="Ingredientes"
         tools:layout="@layout/fragment_ingredientes">
         <action

@@ -1,4 +1,4 @@
-package org.overdrive.recetasdigitales.view.crear_receta;
+package org.overdrive.recetasdigitales.view.crear_receta.ingredientes;
 
 import android.view.View;
 

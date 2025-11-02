@@ -1,4 +1,4 @@
-package org.overdrive.recetasdigitales.view.crear_receta;
+package org.overdrive.recetasdigitales.view.crear_receta.ingredientes;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,16 +8,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.overdrive.recetasdigitales.databinding.RecyclerIngredientesItemBinding;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
+import org.overdrive.recetasdigitales.model.entidades.Receta;
 
 import java.util.List;
 
 public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHolder> {
     private List<Ingrediente> ingredientes;
+    private OnClickIngredienteListener listener;
     private static final String TAG = "IngredientesAdapter";
 
 
-    public IngredientesAdapter(List<Ingrediente> ingredientes) {
+    public IngredientesAdapter(List<Ingrediente> ingredientes, OnClickIngredienteListener listener) {
         this.ingredientes = ingredientes;
+        this.listener = listener;
     }
 
     @NonNull
@@ -52,5 +55,9 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
         notifyDataSetChanged();
     }
 
+
+    public interface OnClickIngredienteListener {
+        void onClickIngrediente(Ingrediente ingrediente);
+    }
 }
 

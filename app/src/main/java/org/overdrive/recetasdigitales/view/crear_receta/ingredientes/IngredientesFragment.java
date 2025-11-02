@@ -1,4 +1,4 @@
-package org.overdrive.recetasdigitales.view.crear_receta;
+package org.overdrive.recetasdigitales.view.crear_receta.ingredientes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ import androidx.navigation.Navigation;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentIngredientesBinding;
-import org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter;
+import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 import java.util.ArrayList;
@@ -72,7 +72,23 @@ public class IngredientesFragment extends Fragment {
     }
 
     private void configurarRecyclerView() {
-        adapter = new IngredientesAdapter(new ArrayList<>());
+        adapter = new IngredientesAdapter(new ArrayList<>(), new IngredientesAdapter.OnClickIngredienteListener(){
+
+            @Override
+            public void onClickIngrediente(Ingrediente ingrediente) {
+
+
+
+
+
+
+
+
+
+
+
+            }
+        });
         binding.rvIngredientes.setAdapter(adapter);
 
     }

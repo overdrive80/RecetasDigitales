@@ -1,6 +1,7 @@
 package org.overdrive.recetasdigitales.view.lista_recetas;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -42,7 +43,17 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     public void onBindViewHolder(@NonNull RecetasViewHolder holder, int position) {
         // Aqui pasamos cada objeto al ViewHolder
         Receta receta = recetas.get(position);
-        holder.bind(receta, listener);
+        holder.bind(receta);
+
+        //Mejor no propagar el listener al holder
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onClickReceta(receta);
+                }
+            }
+        });
 
     }
 
