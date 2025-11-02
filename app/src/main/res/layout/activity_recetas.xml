@@ -46,7 +46,6 @@
         tools:ignore="ImageContrastCheck" />
 
     <androidx.appcompat.widget.SearchView
-        android:theme="@style/ThemeOverlay.SearchView.DarkIcons"
         android:id="@+id/svRecetas"
         android:layout_width="0dp"
         android:layout_height="50dp"

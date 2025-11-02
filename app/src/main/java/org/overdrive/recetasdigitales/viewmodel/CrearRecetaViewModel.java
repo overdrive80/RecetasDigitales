@@ -36,7 +36,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     }
 
 
-
     public void setReceta(Receta receta) {
         this.receta.setValue(receta);
     }
@@ -55,7 +54,9 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     }
 
-    /** Lista de ingredientes  **/
+    /**
+     * Lista de ingredientes
+     **/
     public MutableLiveData<List<Ingrediente>> getIngredientes() {
         return ingredientes;
     }
@@ -73,7 +74,9 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         this.ingredientes = ingredientes;
     }
 
-    /** Seleccion de ingrediente en el Recycler **/
+    /**
+     * Seleccion de ingrediente en el Recycler
+     **/
     public void setIngredienteSeleccionado(Ingrediente ingrediente) {
         ingredienteSeleccionado.setValue(ingrediente);
     }
@@ -99,5 +102,17 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     public MutableLiveData<Integer> getPosicionIngredienteEditando() {
         return posicionIngredienteEditando;
+    }
+
+    public void eliminarIngrediente(int posicion) {
+        List<Ingrediente> listaActual = ingredientes.getValue();
+
+        if (listaActual != null && posicion >= 0 && posicion < listaActual.size()) {
+            // Creamos una nueva lista para que LiveData detecte el cambio y actualice la UI
+            List<Ingrediente> listaModificada = new ArrayList<>(listaActual);
+            listaModificada.remove(posicion);
+
+            ingredientes.setValue(listaModificada);
+        }
     }
 }

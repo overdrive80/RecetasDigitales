@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -67,6 +68,7 @@ public class IngredientesFragment extends Fragment {
         viewModel.getIngredientes().observe(getViewLifecycleOwner(), ingredientes -> {
             if (ingredientes != null) {
                 adapter.actualizarDatos(ingredientes);
+
             }
         });
     }
@@ -81,6 +83,19 @@ public class IngredientesFragment extends Fragment {
                 //El bottomSheet observara este elemento y lo mostrara
                 IngredientesBottomSheet bottomSheet = new IngredientesBottomSheet();
                 bottomSheet.show(IngredientesFragment.this.getParentFragmentManager(), IngredientesBottomSheet.TAG);
+
+            }
+
+            @Override
+            public void onEliminarIngrediente(int posicion) {
+                // Si estamos en la portada mostrar dialogo
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Eliminar")
+                        .setMessage("¿Está seguro de borrar el ingrediente?")
+                        .setNegativeButton("No", null)
+                        .setPositiveButton("Si", (dialog, which) -> viewModel.eliminarIngrediente(posicion))
+                        .show();
+
 
             }
         });

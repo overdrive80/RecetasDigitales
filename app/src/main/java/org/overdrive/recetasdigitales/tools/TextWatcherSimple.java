@@ -1,6 +1,5 @@
 package org.overdrive.recetasdigitales.tools;
 
-import android.text.Editable;
 import android.text.TextWatcher;
 
 public abstract class TextWatcherSimple implements TextWatcher {

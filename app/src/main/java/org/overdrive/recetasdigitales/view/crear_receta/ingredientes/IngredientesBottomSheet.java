@@ -114,7 +114,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         binding.btnCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(requireContext(), "Operacion cancelada", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(requireContext(), "Operacion cancelada", Toast.LENGTH_SHORT).show();
                 dismiss();
             }
         });

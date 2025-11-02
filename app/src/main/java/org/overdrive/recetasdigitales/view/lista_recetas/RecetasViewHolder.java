@@ -17,10 +17,25 @@ import org.overdrive.recetasdigitales.model.entidades.Receta;
 public class RecetasViewHolder extends RecyclerView.ViewHolder {
     private RecyclerRecetasItemBinding binding;
 
-    public RecetasViewHolder(@NonNull RecyclerRecetasItemBinding binding) {
+    public RecetasViewHolder(@NonNull RecyclerRecetasItemBinding binding, RecetasAdapter.RecetasCallback callback) {
         super(binding.getRoot());
         this.binding = binding;
 
+        configurarListeners(callback);
+
+    }
+
+    private void configurarListeners(RecetasAdapter.RecetasCallback callback) {
+        // Listener del item completo
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int posicion = getBindingAdapterPosition();
+                if (posicion != RecyclerView.NO_POSITION) {
+                    callback.onClicItem(posicion);
+                }
+            }
+        });
     }
 
     // Aqui se vinculan los datos con las vistas

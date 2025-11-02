@@ -5,6 +5,7 @@
     android:id="@+id/ConstraintIngredientes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:focusedByDefault="true"
@@ -12,13 +13,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvIngredientes"
+        android:background="@android:color/white"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:elevation="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/fab"
         app:layout_constraintEnd_toEndOf="parent"

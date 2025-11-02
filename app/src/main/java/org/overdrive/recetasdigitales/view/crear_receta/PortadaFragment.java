@@ -30,11 +30,6 @@ import org.overdrive.recetasdigitales.tools.GestorTiempo;
 import org.overdrive.recetasdigitales.tools.TextWatcherSimple;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 public class PortadaFragment extends Fragment {
 
     private FragmentPortadaBinding binding;
@@ -101,10 +96,16 @@ public class PortadaFragment extends Fragment {
         viewModel.getReceta().observe(getViewLifecycleOwner(), receta -> {
             binding.etNombreReceta.setText(receta.getTitulo());
             binding.etDescripcionReceta.setText(receta.getDescripcion());
+
             int horas = GestorTiempo.getHoras(receta.getTiempo());
+            if (horas != 0) {
+                binding.etHoras.setText(String.valueOf(horas));
+            }
+
             int minutos = GestorTiempo.getMinutos(receta.getTiempo());
-            binding.etHoras.setText(String.valueOf(horas));
-            binding.etMinutos.setText(String.valueOf(minutos));
+            if (minutos != 0) {
+                binding.etMinutos.setText(String.valueOf(minutos));
+            }
 
             this.horas = horas;
             this.minutos = minutos;

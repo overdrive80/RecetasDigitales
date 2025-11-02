@@ -33,7 +33,7 @@
                 android:minHeight="36dp"
                 android:paddingTop="2dp"
                 android:text="Nombre del ingrediente"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/tvCantidad"
                 app:layout_constraintEnd_toStartOf="@+id/barrierIngrediente"

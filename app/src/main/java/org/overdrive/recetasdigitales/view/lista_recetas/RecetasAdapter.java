@@ -19,6 +19,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     private List<Receta> recetas;
     private static final String TAG = "RecetasAdapter";
     private OnClickItemListener listener;
+    private RecetasCallback callback;
 
 
     public RecetasAdapter(List<Receta> recetas, OnClickItemListener listener) {
@@ -36,7 +37,17 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
         //El metodo estático inflate() del binding nos permite construir la vista del ítem a partir del XML.
         RecyclerRecetasItemBinding binding = RecyclerRecetasItemBinding.inflate(inflater, parent, false);
 
-        return new RecetasViewHolder(binding);
+        return new RecetasViewHolder(binding, getCallback());
+    }
+
+    private RecetasCallback getCallback() {
+        return new RecetasCallback(){
+
+            @Override
+            public void onClicItem(int position) {
+                listener.onClickReceta(recetas.get(position));
+            }
+        };
     }
 
     @Override
@@ -44,16 +55,6 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
         // Aqui pasamos cada objeto al ViewHolder
         Receta receta = recetas.get(position);
         holder.bind(receta);
-
-        //No propagar el listener al holder. Es el adapter quien debe controlar los clic.
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onClickReceta(receta);
-                }
-            }
-        });
 
     }
 
@@ -74,6 +75,9 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
         notifyDataSetChanged();
     }
 
+    public interface RecetasCallback {
+        void onClicItem(int position);
+    }
     public interface OnClickItemListener {
         void onClickReceta(Receta receta);
     }

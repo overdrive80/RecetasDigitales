@@ -84,8 +84,5 @@
         <item name="android:tint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="EstiloBoton_BottomSheet" parent="Widget.Material3.Button">
-        <item name="backgroundTint">@color/blue_800</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
+
 </resources>
