@@ -23,6 +23,10 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     private MutableLiveData<List<Ingrediente>> ingredientes = new MutableLiveData<>(new ArrayList<>());
     private MutableLiveData<List<Paso>> pasos = new MutableLiveData<>(new ArrayList<>());
     private MutableLiveData<Uri> imagenUriTemporal = new MutableLiveData<>();
+
+    //Editando elemento recyclerview de Ingredientes
+    private MutableLiveData<Ingrediente> ingredienteSeleccionado = new MutableLiveData<>();
+    private MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
     private final Context appContext;
 
     public CrearRecetaViewModel(@NonNull Application application) {
@@ -67,5 +71,33 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     public void setIngredientes(MutableLiveData<List<Ingrediente>> ingredientes) {
         this.ingredientes = ingredientes;
+    }
+
+    /** Seleccion de ingrediente en el Recycler **/
+    public void setIngredienteSeleccionado(Ingrediente ingrediente) {
+        ingredienteSeleccionado.setValue(ingrediente);
+    }
+
+    public MutableLiveData<Ingrediente> getIngredienteSeleccionado() {
+        return ingredienteSeleccionado;
+    }
+
+
+    public void actualizarIngrediente(Ingrediente ingredienteEditado) {
+        Integer pos = posicionIngredienteEditando.getValue();
+
+        if (pos != null && pos >= 0) {
+            List<Ingrediente> listaActual = new ArrayList<>(ingredientes.getValue());
+            listaActual.set(pos, ingredienteEditado);
+            ingredientes.setValue(listaActual);
+        }
+    }
+
+    public void setPosicionIngredienteEditando(int pos) {
+        posicionIngredienteEditando.setValue(pos);
+    }
+
+    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
+        return posicionIngredienteEditando;
     }
 }

@@ -132,7 +132,7 @@ public abstract class Recetario extends RoomDatabase {
                     new Ingrediente("Aceite", 50.0, "ml", rowId1),
                     new Ingrediente("Sal", 3.0, "g", rowId1),
                     new Ingrediente("R2_Ingrediente 1", 50.0, "ml", rowId2),
-                    new Ingrediente("R2_Ingrediente 2", 2, "cucharadas", rowId2)
+                    new Ingrediente("R2_Ingrediente 2", 2D, "cucharadas", rowId2)
             );
 
             // Insertar ingredientes

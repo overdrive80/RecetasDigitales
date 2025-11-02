@@ -45,7 +45,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
         Receta receta = recetas.get(position);
         holder.bind(receta);
 
-        //Mejor no propagar el listener al holder
+        //No propagar el listener al holder. Es el adapter quien debe controlar los clic.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

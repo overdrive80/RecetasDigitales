@@ -22,7 +22,7 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
         Double cantidad = ingrediente.getCantidad();
         String unidad = ingrediente.getUnidad();
 
-        if (cantidad != 0){
+        if (cantidad != null){
             binding.tvCantidad.setVisibility(View.VISIBLE);
 
             String cantidadFormateada = (cantidad % 1 == 0)

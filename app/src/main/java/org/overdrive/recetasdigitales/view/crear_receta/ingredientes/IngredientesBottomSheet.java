@@ -22,6 +22,9 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     public static final String TAG = "IngredientesBottomSheet";
     private BottomsheetNuevoIngredienteBinding binding;
     private CrearRecetaViewModel viewModel;
+    private boolean esEdicion = false;
+    private Ingrediente ingredienteEditado;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,10 +53,33 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        esEdicion = false;
+        ingredienteEditado = null;
+
         configurarListeners();
+        configurarObservadores();
         configurarAutocompletadoUnidades();
 
 
+    }
+
+    private void configurarObservadores() {
+        viewModel.getIngredienteSeleccionado().observe(getViewLifecycleOwner(), ingrediente -> {
+            ingredienteEditado = ingrediente;
+
+            if (ingrediente != null) {
+                binding.etNombre.setText(ingrediente.getNombre());
+                binding.etUnidad.setText(ingrediente.getUnidad());
+
+                if (ingrediente.getCantidad() != null) {
+                    binding.etCantidad.setText(String.valueOf(ingrediente.getCantidad()));
+                } else {
+                    binding.etCantidad.setText("");
+                }
+
+                esEdicion = true;
+            }
+        });
     }
 
     private void inicializarViewModel() {
@@ -75,7 +101,12 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
 
                 Toast.makeText(requireContext(), "Ingrediente agregado", Toast.LENGTH_SHORT).show();
 
-                agregarIngrediente();
+                if (esEdicion) {
+                    actualizarIngrediente();
+                } else {
+                    agregarIngrediente();
+                }
+
                 dismiss();
             }
         });
@@ -89,6 +120,21 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         });
     }
 
+    private void actualizarIngrediente() {
+
+        ingredienteEditado.setNombre(binding.etNombre.getText().toString());
+        ingredienteEditado.setUnidad(binding.etUnidad.getText().toString());
+
+        if (!binding.etCantidad.getText().toString().isEmpty()) {
+            ingredienteEditado.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
+        } else {
+            ingredienteEditado.setCantidad(null);
+        }
+
+
+        viewModel.actualizarIngrediente(ingredienteEditado);
+    }
+
     private void agregarIngrediente() {
         Ingrediente ingrediente = new Ingrediente();
         ingrediente.setNombre(binding.etNombre.getText().toString());
@@ -96,6 +142,8 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
 
         if (!binding.etCantidad.getText().toString().isEmpty()) {
             ingrediente.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
+        } else {
+            ingrediente.setCantidad(null);
         }
 
         viewModel.setIngrediente(ingrediente);

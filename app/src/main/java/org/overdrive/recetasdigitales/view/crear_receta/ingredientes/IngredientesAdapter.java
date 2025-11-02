@@ -43,6 +43,10 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
         Ingrediente ingrediente = ingredientes.get(position);
         holder.bind(ingrediente);
 
+        holder.itemView.setOnClickListener(v -> {
+            listener.onClickIngrediente(ingrediente, position);
+        });
+
     }
 
     @Override
@@ -57,7 +61,7 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
 
 
     public interface OnClickIngredienteListener {
-        void onClickIngrediente(Ingrediente ingrediente);
+        void onClickIngrediente(Ingrediente ingrediente, int posicion);
     }
 }
 

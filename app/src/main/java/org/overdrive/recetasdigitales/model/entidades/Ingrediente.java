@@ -30,27 +30,27 @@ import org.overdrive.recetasdigitales.Constantes;
 public class Ingrediente {
 
     @PrimaryKey(autoGenerate = true)
-    private long idIngrediente;
+    private Long idIngrediente;
 
     @ColumnInfo
     private String nombre;
 
     @ColumnInfo(defaultValue = "0")
-    private double cantidad;
+    private Double cantidad;
 
     @ColumnInfo
     private String unidad;
 
     @NonNull
     @ColumnInfo(name = "idReceta_fk", index = true)
-    private long idReceta;
+    private Long idReceta;
 
     //Constructor
     @Ignore
     public Ingrediente() {
     }
 
-    public Ingrediente(String nombre, double cantidad, String unidad, long idReceta) {
+    public Ingrediente(String nombre, Double cantidad, String unidad, Long idReceta) {
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.unidad = unidad;
@@ -58,11 +58,11 @@ public class Ingrediente {
     }
 
     //Getter-Setter
-    public long getIdIngrediente() {
+    public Long getIdIngrediente() {
         return idIngrediente;
     }
 
-    public void setIdIngrediente(long idIngrediente) {
+    public void setIdIngrediente(Long idIngrediente) {
         this.idIngrediente = idIngrediente;
     }
 
@@ -74,11 +74,11 @@ public class Ingrediente {
         this.nombre = nombre;
     }
 
-    public double getCantidad() {
+    public Double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(double cantidad) {
+    public void setCantidad(Double cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -90,11 +90,11 @@ public class Ingrediente {
         this.unidad = unidad;
     }
 
-    public long getIdReceta() {
+    public Long getIdReceta() {
         return idReceta;
     }
 
-    public void setIdReceta(long idReceta) {
+    public void setIdReceta(Long idReceta) {
         this.idReceta = idReceta;
     }
 }
