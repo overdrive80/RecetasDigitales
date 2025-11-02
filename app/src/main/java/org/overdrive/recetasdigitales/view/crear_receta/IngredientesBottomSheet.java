@@ -68,7 +68,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
             public void onClick(View v) {
 
                 //Solo se valida un campo, el nombre del ingrediente
-                if (binding.etNombre.getText().length() == 0) {
+                if (binding.etNombre.getText().toString().isEmpty()) {
                     binding.etNombre.setError("Este campo es obligatorio");
                     return;
                 }
@@ -93,9 +93,12 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         Ingrediente ingrediente = new Ingrediente();
         ingrediente.setNombre(binding.etNombre.getText().toString());
         ingrediente.setUnidad(binding.etUnidad.getText().toString());
-        ingrediente.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
 
-        viewModel.agregarIngrediente(ingrediente);
+        if (!binding.etCantidad.getText().toString().isEmpty()) {
+            ingrediente.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
+        }
+
+        viewModel.setIngrediente(ingrediente);
     }
 
     private void configurarAutocompletadoUnidades() {

@@ -1,5 +1,7 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,23 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
 
     // Aqui se vinculan los datos con las vistas
     public void bind(Ingrediente ingrediente) {
+        Double cantidad = ingrediente.getCantidad();
+        String unidad = ingrediente.getUnidad();
 
+        if (cantidad != 0){
+            binding.tvCantidad.setVisibility(View.VISIBLE);
+
+            String cantidadFormateada = (cantidad % 1 == 0)
+                    ? String.valueOf(cantidad.intValue())
+                    : String.valueOf(cantidad);
+
+            binding.tvCantidad.setText(cantidadFormateada);
+        } else {
+            binding.tvCantidad.setVisibility(View.GONE);
+        }
+
+        binding.tvUnidad.setText(unidad);
+
+        binding.tvNombreIngrediente.setText(ingrediente.getNombre());
     }
 }

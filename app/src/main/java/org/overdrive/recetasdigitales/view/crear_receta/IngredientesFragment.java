@@ -19,13 +19,18 @@ import androidx.navigation.Navigation;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentIngredientesBinding;
+import org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
+
+import java.util.ArrayList;
 
 
 public class IngredientesFragment extends Fragment {
     private FragmentIngredientesBinding binding;
     private NavController navController;
     private CrearRecetaViewModel viewModel;
+    private IngredientesAdapter adapter;
+
 
     public IngredientesFragment() {
         // Required empty public constructor
@@ -50,12 +55,30 @@ public class IngredientesFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         configurarMenuProvider();
+        configurarRecyclerView();
+        configurarObservers();
         configurarFab();
+
+
+    }
+
+    private void configurarObservers() {
+
+        viewModel.getIngredientes().observe(getViewLifecycleOwner(), ingredientes -> {
+            if (ingredientes != null) {
+                adapter.actualizarDatos(ingredientes);
+            }
+        });
+    }
+
+    private void configurarRecyclerView() {
+        adapter = new IngredientesAdapter(new ArrayList<>());
+        binding.rvIngredientes.setAdapter(adapter);
 
     }
 
     private void inicializarViewModel() {
-        this.viewModel = new ViewModelProvider(getActivity())
+        this.viewModel = new ViewModelProvider(requireActivity())
                 .get(CrearRecetaViewModel.class);
     }
 

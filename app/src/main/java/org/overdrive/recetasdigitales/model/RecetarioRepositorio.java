@@ -23,7 +23,10 @@ public class RecetarioRepositorio {
     private final RecetaDAO mRecetaDAO;
     private final PasoDAO mPasoDAO;
 
+    private final Context appContext;
+
     public RecetarioRepositorio(Context contexto) {
+        this.appContext = contexto;
         this.mdb = Recetario.getInstance(contexto);
 
         // Invocamos la implementación interna de los DAO por Room

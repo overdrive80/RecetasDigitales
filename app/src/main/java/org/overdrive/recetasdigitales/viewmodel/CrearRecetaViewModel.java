@@ -6,15 +6,12 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
 import org.overdrive.recetasdigitales.model.RecetarioRepositorio;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
-import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +31,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         repo = new RecetarioRepositorio(application);
     }
 
-    public void agregarIngrediente(Ingrediente ingrediente) {
-        ingredientes.getValue().add(ingrediente);
-    }
+
 
     public void setReceta(Receta receta) {
         this.receta.setValue(receta);
@@ -54,5 +49,23 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     public MutableLiveData<Uri> getImagenUri() {
         return imagenUriTemporal;
 
+    }
+
+    /** Lista de ingredientes  **/
+    public MutableLiveData<List<Ingrediente>> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngrediente(Ingrediente ingrediente) {
+        List<Ingrediente> listaActual = ingredientes.getValue();
+
+        listaActual.add(ingrediente);
+
+        // Para realizar la notificacion se debe pasar la lista al MutableLiveData
+        ingredientes.setValue(listaActual);
+    }
+
+    public void setIngredientes(MutableLiveData<List<Ingrediente>> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 }
