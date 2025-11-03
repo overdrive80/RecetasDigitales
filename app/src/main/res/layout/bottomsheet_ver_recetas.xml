@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottomSheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/opcion_ver"
+        android:id="@+id/opcionVerReceta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/ver_receta_icono_24"
@@ -30,7 +29,7 @@
         app:tint="@color/black" />
 
     <TextView
-        android:id="@+id/opcion_modificar"
+        android:id="@+id/opcionModificarReceta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/editar_receta_icono_24"
@@ -47,7 +46,7 @@
         app:tint="@color/black" />
 
     <TextView
-        android:id="@+id/opcion_eliminar"
+        android:id="@+id/opcionEliminarReceta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:drawableStartCompat="@drawable/eliminar_receta_icono_24"

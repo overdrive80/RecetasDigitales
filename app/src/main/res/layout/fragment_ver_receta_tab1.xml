@@ -8,7 +8,7 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/tvTituloPaso"
+        android:id="@+id/tvTituloTab1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivImagen"
+        android:id="@+id/ivImagenTab1"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="32dp"
@@ -29,10 +29,10 @@
         android:cropToPadding="true"
         android:padding="4dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@id/labelDescripcion"
+        app:layout_constraintBottom_toTopOf="@id/lblDescripcionTab1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloPaso"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloTab1"
         app:shapeAppearanceOverlay="@style/FormaRedonda"
         app:srcCompat="@drawable/tortilla_patatas"
         app:strokeColor="@color/blue_800"
@@ -40,7 +40,7 @@
 
 
     <TextView
-        android:id="@+id/labelDescripcion"
+        android:id="@+id/lblDescripcionTab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -51,19 +51,19 @@
         android:drawablePadding="8dp"
         android:textStyle="italic|bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivImagen" />
+        app:layout_constraintTop_toBottomOf="@id/ivImagenTab1" />
 
     <View
-        android:id="@+id/lineaDescripcion"
+        android:id="@+id/lineaDescripcionTab1"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/deep_orange_900"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelDescripcion" />
+        app:layout_constraintTop_toBottomOf="@id/lblDescripcionTab1" />
 
     <TextView
-        android:id="@+id/tvDescripcion"
+        android:id="@+id/tvDescripcionTab1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -72,10 +72,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineaDescripcion" />
+        app:layout_constraintTop_toBottomOf="@id/lineaDescripcionTab1" />
 
     <TextView
-        android:id="@+id/labelTiempo"
+        android:id="@+id/lblTiempoTab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -86,19 +86,19 @@
         app:drawableStartCompat="@drawable/baseline_access_time_24"
         android:drawablePadding="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDescripcion" />
+        app:layout_constraintTop_toBottomOf="@id/tvDescripcionTab1" />
 
     <View
-        android:id="@+id/lineaTiempo"
+        android:id="@+id/lineaTiempoTab1"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/deep_orange_900"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelTiempo" />
+        app:layout_constraintTop_toBottomOf="@id/lblTiempoTab1" />
 
     <LinearLayout
-        android:id="@+id/layoutTiempo"
+        android:id="@+id/layoutTiempoTab1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -106,10 +106,10 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineaTiempo">
+        app:layout_constraintTop_toBottomOf="@id/lineaTiempoTab1">
 
         <TextView
-            android:id="@+id/tvHoras"
+            android:id="@+id/tvHorasTab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
@@ -119,7 +119,7 @@
             android:visibility="visible" />
 
         <TextView
-            android:id="@+id/tvMinutos"
+            android:id="@+id/tvMinutosTab1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/minutos"

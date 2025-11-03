@@ -14,15 +14,21 @@ import androidx.annotation.Nullable;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentPasosBinding;
+import org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesBottomSheet;
+import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 public class PasosFragment extends Fragment {
     private FragmentPasosBinding binding;
     private NavController navController;
+    private CrearRecetaViewModel viewModel;
 
     public PasosFragment() {
         // Required empty public constructor
@@ -32,6 +38,7 @@ public class PasosFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        inicializarViewModel();
     }
 
     @Override
@@ -49,6 +56,13 @@ public class PasosFragment extends Fragment {
 
         navController = Navigation.findNavController(view); // View: es el elemento raiz del layout del fragment
         configurarMenuProvider();
+        configurarFab();
+
+    }
+
+    private void inicializarViewModel() {
+        this.viewModel = new ViewModelProvider(requireActivity())
+                .get(CrearRecetaViewModel.class);
     }
 
     private void configurarMenuProvider() {
@@ -82,5 +96,14 @@ public class PasosFragment extends Fragment {
         binding = null;
     }
 
+    private void configurarFab() {
+        binding.fabPasos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                PasosBottomSheet bottomSheet = new PasosBottomSheet();
+                bottomSheet.show(getParentFragmentManager(), PasosBottomSheet.TAG);
+            }
+        });
+    }
 }

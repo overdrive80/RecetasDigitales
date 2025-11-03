@@ -11,17 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.BottomsheetNuevoIngredienteBinding;
+import org.overdrive.recetasdigitales.databinding.BottomsheetNuevoPasoBinding;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 public class PasosBottomSheet extends BottomSheetDialogFragment{
     public static final String TAG = "PasosBottomSheet";
-    private BottomsheetNuevoIngredienteBinding binding;
+    private BottomsheetNuevoPasoBinding binding;
     private CrearRecetaViewModel viewModel;
     private boolean esEdicion = false;
     private Paso pasoEditado;
@@ -32,7 +34,6 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
         super.onCreate(savedInstanceState);
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
         setCancelable(false);
-
         inicializarViewModel();
 
     }
@@ -42,7 +43,7 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //Obtenemos la vista del layout del bottomSheet mediante el inflater del metodo
-        binding = BottomsheetNuevoIngredienteBinding.inflate(inflater, container, false);
+        binding = BottomsheetNuevoPasoBinding.inflate(inflater, container, false);
 
         //Obtenemos la vista raiz del layout para el BottomSheet
         View view = binding.getRoot();
@@ -60,7 +61,6 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
         configurarListeners();
         configurarObservadores();
 
-
     }
 
     private void configurarObservadores() {
@@ -76,21 +76,15 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
     }
 
     private void inicializarViewModel() {
-        this.viewModel = new ViewModelProvider(getActivity())
+        this.viewModel = new ViewModelProvider(requireActivity())
                 .get(CrearRecetaViewModel.class);
     }
 
     private void configurarListeners() {
 
-        binding.btnAceptar.setOnClickListener(new View.OnClickListener() {
+        binding.btnAceptarPaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                //Solo se valida un campo, el nombre del ingrediente
-//                if (binding.etNombre.getText().toString().isEmpty()) {
-//                    binding.etNombre.setError("Este campo es obligatorio");
-//                    return;
-//                }
 
                 Toast.makeText(requireContext(), "Paso agregado", Toast.LENGTH_SHORT).show();
 
@@ -104,7 +98,7 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
             }
         });
 
-        binding.btnCancelar.setOnClickListener(new View.OnClickListener() {
+        binding.btnCancelarPaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(requireContext(), "Operacion cancelada", Toast.LENGTH_SHORT).show();

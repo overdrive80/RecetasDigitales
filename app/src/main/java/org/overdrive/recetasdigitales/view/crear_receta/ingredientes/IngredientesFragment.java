@@ -136,7 +136,7 @@ public class IngredientesFragment extends Fragment {
 
 
     private void configurarFab() {
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        binding.fabIngredientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

@@ -128,7 +128,7 @@ public class RecetasActivity extends AppCompatActivity {
     }
 
     private void configurarFab() {
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        binding.fabCrearReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Abrir activity para crear receta

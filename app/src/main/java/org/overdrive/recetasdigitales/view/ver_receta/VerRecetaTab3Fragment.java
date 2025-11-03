@@ -98,8 +98,8 @@ public class VerRecetaTab3Fragment extends Fragment {
 
             // Establecer datos
             String pasoNum = getString(R.string.paso_num, String.valueOf(paso.getOrden()));
-            filaBinding.tvPasoNum.setText(pasoNum);
-            filaBinding.tvPasoDescripcion.setText(paso.getDescripcion());
+            filaBinding.tvPasoNumItem.setText(pasoNum);
+            filaBinding.tvPasoDescripcionItem.setText(paso.getDescripcion());
 
             // Añadir al LinearLayout
             binding.contenedorPasos.addView(filaBinding.getRoot());

@@ -91,8 +91,8 @@ public class VerRecetaTab1Fragment extends Fragment {
     }
 
     private void actualizarUI(Receta receta) {
-        binding.tvTitulo.setText(receta.getTitulo());
-        binding.tvDescripcion.setText(receta.getDescripcion());
+        binding.tvTituloTab1.setText(receta.getTitulo());
+        binding.tvDescripcionTab1.setText(receta.getDescripcion());
 
         //En base al long configuramos la salida mostrada
         formatearTiempo(receta);
@@ -105,15 +105,15 @@ public class VerRecetaTab1Fragment extends Fragment {
         GestorTiempo t = new GestorTiempo(receta.getTiempo());
 
         if (!t.hayTiempo()) {
-            binding.layoutTiempo.setVisibility(View.GONE);
+            binding.layoutTiempoTab1.setVisibility(View.GONE);
         } else {
-            binding.layoutTiempo.setVisibility(View.VISIBLE);
+            binding.layoutTiempoTab1.setVisibility(View.VISIBLE);
 
-            binding.tvHoras.setVisibility(t.getHoras() > 0 ? View.VISIBLE : View.GONE);
-            binding.tvMinutos.setVisibility(t.getMinutos() > 0 ? View.VISIBLE : View.GONE);
+            binding.tvHorasTab1.setVisibility(t.getHoras() > 0 ? View.VISIBLE : View.GONE);
+            binding.tvMinutosTab1.setVisibility(t.getMinutos() > 0 ? View.VISIBLE : View.GONE);
 
-            binding.tvHoras.setText(t.getHoras() + " h");
-            binding.tvMinutos.setText(t.getMinutos() + " min");
+            binding.tvHorasTab1.setText(t.getHoras() + " h");
+            binding.tvMinutosTab1.setText(t.getMinutos() + " min");
         }
     }
 
@@ -125,7 +125,7 @@ public class VerRecetaTab1Fragment extends Fragment {
     }
 
     private void cargarImagen(Receta receta) {
-        ShapeableImageView ivImagen = binding.ivImagen;
+        ShapeableImageView ivImagen = binding.ivImagenTab1;
         if (receta.getImagenUri() == null || receta.getImagenUri().isEmpty() ||
                 receta.getImagenUri().equals("Sin imagen")) {
 
@@ -134,7 +134,7 @@ public class VerRecetaTab1Fragment extends Fragment {
             ivImagen.setImageResource(R.drawable.outline_broken_image_24);
         } else {
             int colorAzulOriginal = ContextCompat.getColor(requireContext(), R.color.blue_800);
-            binding.ivImagen.setStrokeColor(ColorStateList.valueOf(colorAzulOriginal));
+            binding.ivImagenTab1.setStrokeColor(ColorStateList.valueOf(colorAzulOriginal));
 
             Glide.with(this)
                     .load(Uri.parse(receta.getImagenUri()))

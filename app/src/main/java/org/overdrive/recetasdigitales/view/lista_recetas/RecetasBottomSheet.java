@@ -48,7 +48,7 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
         recetaSeleccionada = viewModel.getRecetaSeleccionada().getValue();
 
         // Esta opcion abre una nueva actividad para mostrar la receta
-        binding.opcionVer.setOnClickListener(new View.OnClickListener() {
+        binding.opcionVerReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Notificamos a los oyentes del evento
@@ -61,7 +61,7 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
 
         // Esta opcion abre la actividad que permite editar la receta.
         // Debe pasar un id de la receta para recuperar los datos
-        binding.opcionModificar.setOnClickListener(new View.OnClickListener() {
+        binding.opcionModificarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Notificamos a los oyentes del evento
@@ -72,7 +72,7 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
 
         // Esta acción elimina la receta. Lo ideal es un callback para la actividad
         // sea la responsable de eliminar la receta a través del ViewModel
-        binding.opcionEliminar.setOnClickListener(new View.OnClickListener() {
+        binding.opcionEliminarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Notificamos a los oyentes del evento

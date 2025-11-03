@@ -120,7 +120,7 @@
         android:textStyle="italic|bold"
         app:drawableStartCompat="@drawable/baseline_access_time_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDescripcionReceta" />
+        app:layout_constraintTop_toBottomOf="@id/etDescripcionReceta" />
 
     <View
         android:id="@+id/separador2"
@@ -132,7 +132,6 @@
         app:layout_constraintTop_toBottomOf="@id/lblTiempo" />
 
     <LinearLayout
-        android:id="@+id/layoutTiempoElaboracion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

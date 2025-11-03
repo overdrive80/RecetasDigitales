@@ -6,14 +6,14 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvPasoNum"
+        android:id="@+id/tvPasoNumItem"
         style="@style/EstiloTextView_NumPaso"
         android:text="@string/paso_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/tvPasoDescripcion"
+        android:id="@+id/tvPasoDescripcionItem"
         style="@style/EstiloTextView_Paso"
         android:text="@string/descripcion_del_paso"
         android:layout_width="match_parent"

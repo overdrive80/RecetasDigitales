@@ -68,13 +68,13 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
             ingredienteEditado = ingrediente;
 
             if (ingrediente != null) {
-                binding.etNombre.setText(ingrediente.getNombre());
-                binding.etUnidad.setText(ingrediente.getUnidad());
+                binding.etNombreIngrediente.setText(ingrediente.getNombre());
+                binding.etUnidadIngrediente.setText(ingrediente.getUnidad());
 
                 if (ingrediente.getCantidad() != null) {
-                    binding.etCantidad.setText(String.valueOf(ingrediente.getCantidad()));
+                    binding.etCantidadIngrediente.setText(String.valueOf(ingrediente.getCantidad()));
                 } else {
-                    binding.etCantidad.setText("");
+                    binding.etCantidadIngrediente.setText("");
                 }
 
                 esEdicion = true;
@@ -83,19 +83,19 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     }
 
     private void inicializarViewModel() {
-        this.viewModel = new ViewModelProvider(getActivity())
+        this.viewModel = new ViewModelProvider(requireActivity())
                 .get(CrearRecetaViewModel.class);
     }
 
     private void configurarListeners() {
 
-        binding.btnAceptar.setOnClickListener(new View.OnClickListener() {
+        binding.btnAceptarIngrediente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Solo se valida un campo, el nombre del ingrediente
-                if (binding.etNombre.getText().toString().isEmpty()) {
-                    binding.etNombre.setError("Este campo es obligatorio");
+                if (binding.etNombreIngrediente.getText().toString().isEmpty()) {
+                    binding.etNombreIngrediente.setError("Este campo es obligatorio");
                     return;
                 }
 
@@ -111,7 +111,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
             }
         });
 
-        binding.btnCancelar.setOnClickListener(new View.OnClickListener() {
+        binding.btnCancelarIngrediente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(requireContext(), "Operacion cancelada", Toast.LENGTH_SHORT).show();
@@ -122,11 +122,11 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
 
     private void actualizarIngrediente() {
 
-        ingredienteEditado.setNombre(binding.etNombre.getText().toString());
-        ingredienteEditado.setUnidad(binding.etUnidad.getText().toString());
+        ingredienteEditado.setNombre(binding.etNombreIngrediente.getText().toString());
+        ingredienteEditado.setUnidad(binding.etUnidadIngrediente.getText().toString());
 
-        if (!binding.etCantidad.getText().toString().isEmpty()) {
-            ingredienteEditado.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
+        if (!binding.etCantidadIngrediente.getText().toString().isEmpty()) {
+            ingredienteEditado.setCantidad(Double.parseDouble(binding.etCantidadIngrediente.getText().toString()));
         } else {
             ingredienteEditado.setCantidad(null);
         }
@@ -137,11 +137,11 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
 
     private void agregarIngrediente() {
         Ingrediente ingrediente = new Ingrediente();
-        ingrediente.setNombre(binding.etNombre.getText().toString());
-        ingrediente.setUnidad(binding.etUnidad.getText().toString());
+        ingrediente.setNombre(binding.etNombreIngrediente.getText().toString());
+        ingrediente.setUnidad(binding.etUnidadIngrediente.getText().toString());
 
-        if (!binding.etCantidad.getText().toString().isEmpty()) {
-            ingrediente.setCantidad(Double.parseDouble(binding.etCantidad.getText().toString()));
+        if (!binding.etCantidadIngrediente.getText().toString().isEmpty()) {
+            ingrediente.setCantidad(Double.parseDouble(binding.etCantidadIngrediente.getText().toString()));
         } else {
             ingrediente.setCantidad(null);
         }
@@ -152,8 +152,8 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     private void configurarAutocompletadoUnidades() {
         String[] sugerencias = getResources().getStringArray(R.array.unidades);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, sugerencias);
-        binding.etUnidad.setAdapter(adapter);
-        binding.etUnidad.setThreshold(1);
+        binding.etUnidadIngrediente.setAdapter(adapter);
+        binding.etUnidadIngrediente.setThreshold(1);
     }
 
     @Override

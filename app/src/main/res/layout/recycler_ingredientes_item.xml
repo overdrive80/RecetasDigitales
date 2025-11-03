@@ -19,13 +19,12 @@
         app:contentPaddingTop="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/ConstraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp">
 
             <TextView
-                android:id="@+id/tvNombreIngrediente"
+                android:id="@+id/tvNombreIngredienteItem"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -35,24 +34,22 @@
                 android:text="Nombre del ingrediente"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/layoutCantidadUnidad"
-                app:layout_constraintEnd_toStartOf="@+id/barrierIngrediente"
+                app:layout_constraintEnd_toStartOf="@id/barrierIngredienteItem"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize" />
 
             <LinearLayout
-                android:id="@+id/layoutCantidadUnidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/tvNombreIngrediente"
+                app:layout_constraintTop_toBottomOf="@id/tvNombreIngredienteItem"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
-                    android:id="@+id/tvCantidad"
+                    android:id="@+id/tvCantidadItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
@@ -62,7 +59,7 @@
                     tools:text="250" />
 
                 <TextView
-                    android:id="@+id/tvUnidad"
+                    android:id="@+id/tvUnidadItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
@@ -73,14 +70,14 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/barrierIngrediente"
+                android:id="@+id/barrierIngredienteItem"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 app:barrierDirection="start"
-                app:constraint_referenced_ids="ibBorrar" />
+                app:constraint_referenced_ids="ibBorrarIngredienteItem" />
 
             <ImageButton
-                android:id="@+id/ibBorrar"
+                android:id="@+id/ibBorrarIngredienteItem"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
@@ -94,7 +91,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/barrierIngrediente"
+                app:layout_constraintStart_toEndOf="@id/barrierIngredienteItem"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/outline_delete_24" />
 

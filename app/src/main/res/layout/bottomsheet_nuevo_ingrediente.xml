@@ -6,7 +6,7 @@
     android:padding="24dp">
 
     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
-        android:id="@+id/bottomSheetDragHandleView2"
+        android:id="@+id/dragHandleViewIngrediente"
         android:focusable="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,10 +25,10 @@
         android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottomSheetDragHandleView2" />
+        app:layout_constraintTop_toBottomOf="@id/dragHandleViewIngrediente" />
 
     <EditText
-        android:id="@+id/etNombre"
+        android:id="@+id/etNombreIngrediente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvTituloIngrediente" />
 
     <EditText
-        android:id="@+id/etCantidad"
+        android:id="@+id/etCantidadIngrediente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -52,12 +52,12 @@
         android:inputType="numberDecimal"
         android:minHeight="48dp"
         android:padding="12dp"
-        app:layout_constraintEnd_toStartOf="@id/etUnidad"
+        app:layout_constraintEnd_toStartOf="@id/etUnidadIngrediente"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@id/etNombreIngrediente" />
 
     <AutoCompleteTextView
-        android:id="@+id/etUnidad"
+        android:id="@+id/etUnidadIngrediente"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -65,13 +65,12 @@
         android:hint="Unidad"
         android:maxLines="1"
         android:padding="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/etCantidad"
+        app:layout_constraintBottom_toBottomOf="@id/etCantidadIngrediente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/etCantidad"
-        app:layout_constraintTop_toTopOf="@+id/etCantidad" />
+        app:layout_constraintStart_toEndOf="@id/etCantidadIngrediente"
+        app:layout_constraintTop_toTopOf="@id/etCantidadIngrediente" />
 
     <LinearLayout
-        android:id="@+id/layoutBotones"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -81,10 +80,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etUnidad">
+        app:layout_constraintTop_toBottomOf="@id/etUnidadIngrediente">
 
         <Button
-            android:id="@+id/btnAceptar"
+            android:id="@+id/btnAceptarIngrediente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aceptar"
@@ -92,7 +91,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/btnCancelar"
+            android:id="@+id/btnCancelarIngrediente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

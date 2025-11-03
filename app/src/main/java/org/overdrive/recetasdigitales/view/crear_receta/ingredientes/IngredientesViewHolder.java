@@ -25,19 +25,19 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
         String unidad = ingrediente.getUnidad();
 
         if (cantidad != null) {
-            binding.tvCantidad.setVisibility(View.VISIBLE);
+            binding.tvCantidadItem.setVisibility(View.VISIBLE);
 
             String cantidadFormateada = (cantidad % 1 == 0)
                     ? String.valueOf(cantidad.intValue())
                     : String.valueOf(cantidad);
 
-            binding.tvCantidad.setText(cantidadFormateada);
+            binding.tvCantidadItem.setText(cantidadFormateada);
         } else {
-            binding.tvCantidad.setVisibility(View.GONE);
+            binding.tvCantidadItem.setVisibility(View.GONE);
         }
 
-        binding.tvUnidad.setText(unidad);
-        binding.tvNombreIngrediente.setText(ingrediente.getNombre());
+        binding.tvUnidadItem.setText(unidad);
+        binding.tvNombreIngredienteItem.setText(ingrediente.getNombre());
     }
 
     private void configurarListeners(IngredientesAdapter.ViewHolderCallback callback) {
@@ -50,7 +50,7 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
         });
 
         // Listener del botón borrar
-        binding.ibBorrar.setOnClickListener(v -> {
+        binding.ibBorrarIngredienteItem.setOnClickListener(v -> {
             int posicion = getBindingAdapterPosition();
             if (posicion != RecyclerView.NO_POSITION) {
                 callback.onBorrarItem(posicion);

@@ -96,8 +96,8 @@ public class VerRecetaTab2Fragment extends Fragment {
             String nombre = ingrediente.getNombre();
             String cantidad = ingrediente.getCantidad() + " " + ingrediente.getUnidad();
 
-            filaBinding.tvIngrediente.setText(nombre);
-            filaBinding.tvCantidad.setText(cantidad);
+            filaBinding.tvIngredienteItemTabla.setText(nombre);
+            filaBinding.tvCantidadItemTabla.setText(cantidad);
 
             // Añadir la fila a la tabla
             binding.tablaIngredientes.addView(filaBinding.getRoot());

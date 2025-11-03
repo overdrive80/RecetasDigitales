@@ -5,7 +5,7 @@
     android:paddingVertical="8dp">
 
     <TextView
-        android:id="@+id/tvIngrediente"
+        android:id="@+id/tvIngredienteItemTabla"
         style="@style/EstiloTextView_Ingrediente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         android:gravity="start" />
 
     <TextView
-        android:id="@+id/tvCantidad"
+        android:id="@+id/tvCantidadItemTabla"
         style="@style/EstiloTextView_Cantidad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
