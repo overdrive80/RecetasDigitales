@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvTitulo"
+        android:id="@+id/tvTituloIngrediente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Ingrediente"
@@ -34,11 +34,12 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/bg_edittext"
         android:hint="Nombre"
+        android:inputType="textCapSentences|textPersonName"
         android:maxHeight="48dp"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+        app:layout_constraintTop_toBottomOf="@id/tvTituloIngrediente" />
 
     <EditText
         android:id="@+id/etCantidad"

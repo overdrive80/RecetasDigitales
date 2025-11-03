@@ -6,6 +6,7 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import org.overdrive.recetasdigitales.model.RecetarioRepositorio;
@@ -27,6 +28,11 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     //Editando elemento recyclerview de Ingredientes
     private MutableLiveData<Ingrediente> ingredienteSeleccionado = new MutableLiveData<>();
     private MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
+
+    //Editando elemento recyclerview de Pasos
+    private MutableLiveData<Paso> pasoSeleccionado = new MutableLiveData<>();
+    private MutableLiveData<Integer> posicionPasoEditando = new MutableLiveData<>(-1);
+
     private final Context appContext;
 
     public CrearRecetaViewModel(@NonNull Application application) {
@@ -54,9 +60,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     }
 
-    /**
-     * Lista de ingredientes
-     **/
+    // Lista de ingredientes //
     public MutableLiveData<List<Ingrediente>> getIngredientes() {
         return ingredientes;
     }
@@ -74,9 +78,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         this.ingredientes = ingredientes;
     }
 
-    /**
-     * Seleccion de ingrediente en el Recycler
-     **/
+    // Seleccion de ingrediente en el Recycler //
     public void setIngredienteSeleccionado(Ingrediente ingrediente) {
         ingredienteSeleccionado.setValue(ingrediente);
     }
@@ -100,10 +102,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         posicionIngredienteEditando.setValue(pos);
     }
 
-    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
-        return posicionIngredienteEditando;
-    }
-
     public void eliminarIngrediente(int posicion) {
         List<Ingrediente> listaActual = ingredientes.getValue();
 
@@ -114,5 +112,29 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
             ingredientes.setValue(listaModificada);
         }
+    }
+
+    // Pasos del recyclerView //
+    public MutableLiveData<Paso> getPasoSeleccionado() {
+        return pasoSeleccionado;
+    }
+
+    public void actualizarPaso(Paso pasoEditado) {
+        Integer pos = posicionPasoEditando.getValue();
+
+        if (pos != null && pos >= 0) {
+            List<Paso> listaActual = new ArrayList<>(pasos.getValue());
+            listaActual.set(pos, pasoEditado);
+            pasos.setValue(listaActual);
+        }
+    }
+
+    public void setPaso(Paso paso) {
+        List<Paso> listaActual = pasos.getValue();
+
+        listaActual.add(paso);
+
+        // Para realizar la notificacion se debe pasar la lista al MutableLiveData
+        pasos.setValue(listaActual);
     }
 }

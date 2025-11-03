@@ -8,7 +8,7 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/tvTitulo"
+        android:id="@+id/tvTituloPaso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/labelDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloPaso"
         app:shapeAppearanceOverlay="@style/FormaRedonda"
         app:srcCompat="@drawable/tortilla_patatas"
         app:strokeColor="@color/blue_800"

@@ -3,6 +3,7 @@ package org.overdrive.recetasdigitales.model.entidades;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.overdrive.recetasdigitales.Constantes;
@@ -37,6 +38,9 @@ public class Paso {
     private long idReceta;
 
     //Constructor
+    @Ignore
+    public Paso() {    }
+
     public Paso(int orden, String descripcion, long idReceta) {
         this.orden = orden;
         this.descripcion = descripcion;

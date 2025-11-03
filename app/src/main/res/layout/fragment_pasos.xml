@@ -5,7 +5,7 @@
     android:id="@+id/ConstraintPasos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.crear_receta.PasosFragment">
+    tools:context=".view.crear_receta.pasos.PasosFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPasos"

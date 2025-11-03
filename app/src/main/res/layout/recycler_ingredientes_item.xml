@@ -35,7 +35,7 @@
                 android:text="Nombre del ingrediente"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/tvCantidad"
+                app:layout_constraintBottom_toTopOf="@+id/layoutCantidadUnidad"
                 app:layout_constraintEnd_toStartOf="@+id/barrierIngrediente"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

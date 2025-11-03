@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/portadaFragment"
-        android:name="org.overdrive.recetasdigitales.view.crear_receta.PortadaFragment"
+        android:name="org.overdrive.recetasdigitales.view.crear_receta.portada.PortadaFragment"
         android:label="Portada"
         tools:layout="@layout/fragment_portada">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/pasosFragment"
-        android:name="org.overdrive.recetasdigitales.view.crear_receta.PasosFragment"
+        android:name="org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosFragment"
         android:label="Pasos"
         tools:layout="@layout/fragment_pasos" />
 </navigation>
