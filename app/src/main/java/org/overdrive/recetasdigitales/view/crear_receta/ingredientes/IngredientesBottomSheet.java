@@ -1,5 +1,6 @@
 package org.overdrive.recetasdigitales.view.crear_receta.ingredientes;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,15 +28,12 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     private boolean esEdicion = false;
     private Ingrediente ingredienteEditando;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
         setCancelable(false);
-
         inicializarViewModel();
-
     }
 
     @Nullable
@@ -61,17 +59,17 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         configurarListeners();
         configurarObservadores();
         configurarAutocompletadoUnidades();
-
-
     }
 
     private void configurarObservadores() {
+        // El observador recibe siempre su último valor almacenado en cuando se suscribe al LiveData
         viewModel.getPosicionIngredienteEditando().observe(getViewLifecycleOwner(), posicion -> {
             List<Ingrediente> ingredientes = viewModel.getIngredientes().getValue();
 
-            // Comprobamos posicion valida
+            // No hacemos nada si no es válido. Si es -1 entonces no es edicion.
             if (posicion == null || posicion < 0 || ingredientes == null || posicion >= ingredientes.size()) {
-                return; // No hacemos nada si no es válido
+                esEdicion = false;
+                return;
             }
 
             ingredienteEditando = viewModel.getIngredientes().getValue().get(posicion);
@@ -168,6 +166,15 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        super.onDismiss(dialog);
+
+        // Resetear estado de edición
+        viewModel.setPosicionIngredienteEditando(-1);
+        esEdicion = false;
     }
 
 }

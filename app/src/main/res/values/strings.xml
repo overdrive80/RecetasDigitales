@@ -20,6 +20,7 @@
     <string name="titulo_tortilla">Tortilla de patatas</string>
     <string name="paso_num">Paso %s</string>
     <string name="descripcion_del_paso">Descripcion del paso</string>
+    <string name="num_paso_item">Paso %s</string>
 
     <string-array name="unidades">
         <item>g</item>

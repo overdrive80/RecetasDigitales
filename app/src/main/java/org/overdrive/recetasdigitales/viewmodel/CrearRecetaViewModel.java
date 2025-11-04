@@ -6,7 +6,6 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import org.overdrive.recetasdigitales.model.RecetarioRepositorio;
@@ -29,7 +28,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     private MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
 
     //Editando elemento recyclerview de Pasos
-    private MutableLiveData<Paso> pasoSeleccionado = new MutableLiveData<>();
     private MutableLiveData<Integer> posicionPasoEditando = new MutableLiveData<>(-1);
 
     private final Context appContext;
@@ -108,10 +106,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     }
 
     // METODOS: Paso
-    public MutableLiveData<Paso> getPasoSeleccionado() {
-        return pasoSeleccionado;
-    }
-
     public void actualizarPaso(Paso pasoEditado) {
         Integer pos = posicionPasoEditando.getValue();
 
@@ -131,4 +125,27 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         pasos.setValue(listaActual);
     }
 
+    public void setPosicionPasoEditando(int posicion) {
+        posicionPasoEditando.setValue(posicion);
+    }
+
+    public MutableLiveData<Integer> getPosicionPasoEditando() {
+        return posicionPasoEditando;
+    }
+
+    public MutableLiveData<List<Paso>> getPasos() {
+        return pasos;
+    }
+
+    public void eliminarPaso(int posicion) {
+        List<Paso> listaActual = pasos.getValue();
+
+        if (listaActual != null && posicion >= 0 && posicion < listaActual.size()) {
+            // Creamos una nueva lista para que LiveData detecte el cambio y actualice la UI
+            List<Paso> listaModificada = new ArrayList<>(listaActual);
+            listaModificada.remove(posicion);
+
+            pasos.setValue(listaModificada);
+        }
+    }
 }

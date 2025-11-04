@@ -1,7 +1,6 @@
 package org.overdrive.recetasdigitales.view.lista_recetas;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -41,7 +40,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     }
 
     private RecetasCallback getCallback() {
-        return new RecetasCallback(){
+        return new RecetasCallback() {
 
             @Override
             public void onClicItem(int position) {
@@ -78,6 +77,7 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     public interface RecetasCallback {
         void onClicItem(int position);
     }
+
     public interface OnClickItemListener {
         void onClickReceta(Receta receta);
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -18,56 +17,45 @@
         app:contentPaddingRight="10dp"
         app:contentPaddingTop="10dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvNumPasoItem"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:gravity="start"
-                android:minHeight="36dp"
-                android:paddingTop="2dp"
-                android:text="Paso %s"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/tvDescripcionPasoItem"
-                app:layout_constraintEnd_toStartOf="@id/barrierPasoItem"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="Autofill,LabelFor,VisualLintTextFieldSize" />
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvDescripcionPasoItem"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:enabled="false"
-                android:gravity="start"
-                android:inputType="text|textPersonName|textCapSentences|textMultiLine"
-                android:text="Descripcion"
-                android:textSize="20sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/barrierPasoItem"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvNumPasoItem" />
+                <TextView
+                    android:id="@+id/tvNumPasoItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:gravity="start"
+                    android:minHeight="36dp"
+                    android:paddingTop="2dp"
+                    android:text="Paso %s"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-            <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/barrierPasoItem"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:barrierDirection="start"
-                app:constraint_referenced_ids="ibBorrarPasoItem" />
+                <TextView
+                    android:id="@+id/tvDescripcionPasoItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="Descripción del paso..."
+                    android:textSize="20sp" />
+            </LinearLayout>
 
             <ImageButton
                 android:id="@+id/ibBorrarPasoItem"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="8dp"
@@ -75,15 +63,14 @@
                 android:adjustViewBounds="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:focusable="true"
+                android:padding="6dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/barrierPasoItem"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/outline_delete_24"
+                android:tint="@android:color/black"
                 app:srcCompat="@drawable/outline_delete_24" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>

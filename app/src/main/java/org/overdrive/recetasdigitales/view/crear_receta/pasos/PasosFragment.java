@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
@@ -18,22 +19,21 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentPasosBinding;
-import org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesBottomSheet;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
+
+import java.util.ArrayList;
 
 public class PasosFragment extends Fragment {
     private FragmentPasosBinding binding;
     private NavController navController;
     private CrearRecetaViewModel viewModel;
+    private PasosAdapter adapter;
 
     public PasosFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,44 @@ public class PasosFragment extends Fragment {
 
         navController = Navigation.findNavController(view); // View: es el elemento raiz del layout del fragment
         configurarMenuProvider();
+        configurarRecyclerView();
+        configurarObservers();
         configurarFab();
+    }
+
+    private void configurarObservers() {
+
+        viewModel.getPasos().observe(getViewLifecycleOwner(), pasos -> {
+            if (pasos != null) {
+                adapter.actualizarDatos(pasos);
+            }
+        });
+    }
+
+    private void configurarRecyclerView() {
+        adapter = new PasosAdapter(new ArrayList<>(), new PasosAdapter.OnClickPasoListener() {
+            @Override
+            public void onClickPaso(int position) {
+
+                viewModel.setPosicionPasoEditando(position);
+                //El bottomSheet observara este elemento y lo mostrara
+                PasosBottomSheet bottomSheet = new PasosBottomSheet();
+                bottomSheet.show(PasosFragment.this.getParentFragmentManager(), PasosBottomSheet.TAG);
+
+            }
+
+            @Override
+            public void onEliminarPaso(int posicion) {
+                // Si estamos en la portada mostrar dialogo
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Eliminar")
+                        .setMessage("¿Está seguro de borrar el paso?")
+                        .setNegativeButton("No", null)
+                        .setPositiveButton("Si", (dialog, which) -> viewModel.eliminarPaso(posicion))
+                        .show();
+            }
+        });
+        binding.rvPasos.setAdapter(adapter);
 
     }
 

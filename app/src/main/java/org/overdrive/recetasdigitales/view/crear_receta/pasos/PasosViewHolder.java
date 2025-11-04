@@ -1,28 +1,53 @@
 package org.overdrive.recetasdigitales.view.crear_receta.pasos;
 
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.overdrive.recetasdigitales.databinding.RecyclerIngredientesItemBinding;
+import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.RecyclerPasosItemBinding;
-import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
-import org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter;
 
-public class PasosViewHolder extends RecyclerView.ViewHolder  {
+public class PasosViewHolder extends RecyclerView.ViewHolder {
     private RecyclerPasosItemBinding binding;
+    private PasosAdapter.OnClickPasoListener listener;
 
-   public PasosViewHolder(@NonNull RecyclerPasosItemBinding binding) {
+    public PasosViewHolder(@NonNull RecyclerPasosItemBinding binding, PasosAdapter.OnClickPasoListener listener) {
         super(binding.getRoot());
+
+        this.listener = listener;
         this.binding = binding;
+
+        configurarListeners();
 
     }
 
     public void bind(Paso paso) {
         binding.tvDescripcionPasoItem.setText(paso.getDescripcion());
-        //El número del paso es el indice del adapter.
-        //Nos interesará recuperarlo para persistirlo cuando se guarde la receta
+
+        //Evitamos guardar contexto para no tener memoryleaks
+        String titulo = itemView.getContext()
+                .getString(R.string.num_paso_item,
+                        String.valueOf(paso.getOrden())
+                );
+        binding.tvNumPasoItem.setText(titulo);
+
+    }
+
+    private void configurarListeners() {
+        // Listener del item completo
+        itemView.setOnClickListener(v -> {
+            int posicion = getBindingAdapterPosition();
+            if (posicion != RecyclerView.NO_POSITION) {
+                listener.onClickPaso(posicion);
+            }
+        });
+
+        // Listener del botón borrar
+        binding.ibBorrarPasoItem.setOnClickListener(v -> {
+            int posicion = getBindingAdapterPosition();
+            if (posicion != RecyclerView.NO_POSITION) {
+                listener.onEliminarPaso(posicion);
+            }
+        });
     }
 }

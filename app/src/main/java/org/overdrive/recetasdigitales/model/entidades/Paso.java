@@ -39,7 +39,8 @@ public class Paso {
 
     //Constructor
     @Ignore
-    public Paso() {    }
+    public Paso() {
+    }
 
     public Paso(int orden, String descripcion, long idReceta) {
         this.orden = orden;

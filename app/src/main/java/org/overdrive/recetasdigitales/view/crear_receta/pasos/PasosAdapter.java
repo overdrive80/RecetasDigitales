@@ -6,12 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.overdrive.recetasdigitales.databinding.RecyclerIngredientesItemBinding;
 import org.overdrive.recetasdigitales.databinding.RecyclerPasosItemBinding;
-import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
-import org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter;
-import org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesViewHolder;
 
 import java.util.List;
 
@@ -34,7 +30,7 @@ public class PasosAdapter extends RecyclerView.Adapter<PasosViewHolder> {
         //El metodo estático inflate() del binding nos permite construir la vista del ítem a partir del XML.
         RecyclerPasosItemBinding binding = RecyclerPasosItemBinding.inflate(inflater, parent, false);
 
-        return new PasosViewHolder(binding);
+        return new PasosViewHolder(binding, listener);
     }
 
     @Override

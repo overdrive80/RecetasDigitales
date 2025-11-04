@@ -32,7 +32,7 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
         //El metodo estático inflate() del binding nos permite construir la vista del ítem a partir del XML.
         RecyclerIngredientesItemBinding binding = RecyclerIngredientesItemBinding.inflate(inflater, parent, false);
 
-        return new IngredientesViewHolder(binding,listener);
+        return new IngredientesViewHolder(binding, listener);
     }
 
     @Override
@@ -54,6 +54,7 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
 
     public interface OnClickIngredienteListener {
         void onClickIngrediente(int posicion);
+
         void onEliminarIngrediente(int posicion);
     }
 }

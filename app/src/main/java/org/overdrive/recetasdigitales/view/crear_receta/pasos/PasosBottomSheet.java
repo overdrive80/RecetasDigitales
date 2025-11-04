@@ -1,33 +1,31 @@
 package org.overdrive.recetasdigitales.view.crear_receta.pasos;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.overdrive.recetasdigitales.R;
-import org.overdrive.recetasdigitales.databinding.BottomsheetNuevoIngredienteBinding;
 import org.overdrive.recetasdigitales.databinding.BottomsheetNuevoPasoBinding;
-import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
-public class PasosBottomSheet extends BottomSheetDialogFragment{
+import java.util.List;
+
+public class PasosBottomSheet extends BottomSheetDialogFragment {
     public static final String TAG = "PasosBottomSheet";
     private BottomsheetNuevoPasoBinding binding;
     private CrearRecetaViewModel viewModel;
     private boolean esEdicion = false;
-    private Paso pasoEditado;
-
+    private Paso pasoEditando;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +33,6 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
         setCancelable(false);
         inicializarViewModel();
-
     }
 
     @Nullable
@@ -56,22 +53,34 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
         super.onViewCreated(view, savedInstanceState);
 
         esEdicion = false;
-        pasoEditado = null;
+        pasoEditando = null;
 
         configurarListeners();
         configurarObservadores();
-
     }
 
     private void configurarObservadores() {
-        viewModel.getPasoSeleccionado().observe(getViewLifecycleOwner(), paso -> {
-            pasoEditado = paso;
+        // El observador recibe siempre su último valor almacenado en cuando se suscribe al LiveData
+        viewModel.getPosicionPasoEditando().observe(getViewLifecycleOwner(), posicion -> {
+            List<Paso> pasos = viewModel.getPasos().getValue();
 
-            if (paso != null) {
-
-
-                esEdicion = true;
+            // No hacemos nada si no es válido. Si es -1 entonces no es edicion.
+            if (posicion == null || posicion < 0 || pasos == null || posicion >= pasos.size()) {
+                binding.tvTituloPaso.setText("Nuevo paso");
+                esEdicion = false;
+                return;
             }
+
+            pasoEditando = viewModel.getPasos().getValue().get(posicion);
+
+            binding.etDescripcionPaso.setText(pasoEditando.getDescripcion());
+            binding.tvTituloPaso.setText(
+                    requireContext().getString(R.string.num_paso_item,
+                            String.valueOf(pasoEditando.getOrden()))
+            );
+
+            esEdicion = true;
+
         });
     }
 
@@ -85,6 +94,12 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
         binding.btnAceptarPaso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Solo se valida la descripcion del paso
+                if (binding.etDescripcionPaso.getText().toString().isEmpty()) {
+                    binding.etDescripcionPaso.setError("Este campo es obligatorio");
+                    return;
+                }
 
                 Toast.makeText(requireContext(), "Paso agregado", Toast.LENGTH_SHORT).show();
 
@@ -109,14 +124,25 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
 
     private void actualizarPaso() {
 
-        viewModel.actualizarPaso(pasoEditado);
+        pasoEditando.setDescripcion(binding.etDescripcionPaso.getText().toString());
+        //El numero de paso se actualizaría mediante drag&drop
+        viewModel.actualizarPaso(pasoEditando);
     }
 
     private void agregarPaso() {
+        List<Paso> pasos = viewModel.getPasos().getValue();
+
         Paso paso = new Paso();
+        paso.setDescripcion(binding.etDescripcionPaso.getText().toString());
+
+        if (pasos != null) {
+            paso.setOrden(pasos.size() + 1);
+
+        }
 
         viewModel.setPaso(paso);
     }
+
 
     @Override
     public void onDestroyView() {
@@ -124,5 +150,13 @@ public class PasosBottomSheet extends BottomSheetDialogFragment{
         binding = null;
     }
 
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog) {
+        super.onDismiss(dialog);
+
+        // Resetear estado de edición
+        viewModel.setPosicionPasoEditando(-1);
+        esEdicion = false;
+    }
 }
 

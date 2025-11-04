@@ -51,7 +51,7 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(v -> {
             int posicion = getBindingAdapterPosition();
             if (posicion != RecyclerView.NO_POSITION) {
-                listener.onClickIngrediente( posicion);
+                listener.onClickIngrediente(posicion);
             }
         });
 
