@@ -1,0 +1,46 @@
+Es el holder (item del recyclerView), en tiempo de ejecución, el responsable de devolver
+la posicion el item dentro del adapter, aunque el adapter la conozca.
+
+Cuando RecyclerView va a mostrar un ítem, llama a onBindViewHolder(ViewHolder holder, int position).
+En ese instante, el valor de position es correcto.
+
+El problema es que a menudo usamos esa "position" para configurar un listener 
+que se ejecutará más tarde. Por ejemplo:
+
+	@Override
+    public void onBindViewHolder(@NonNull PasosViewHolder holder, int position) {
+
+		MiItem item = miLista.get(position);
+		holder.itemView.setOnClickListener(v -> {
+			// ESTO ES PELIGROSO
+			// 'position' podría estar obsoleto si el usuario
+			// hace clic 5 segundos después y la lista ha cambiado.
+			callback.onItemClicked(position); 
+		});
+	}
+
+La solución es preguntar en tiempo real dentro de la clase ViewHolder:
+
+El método getBindingAdapterPosition() no devuelve un valor guardado; 
+pregunta al RecyclerView cuál es su posición en ese instante.
+
+Este es el patrón correcto:
+
+	@Override
+    public void onBindViewHolder(@NonNull PasosViewHolder holder, int position) {
+
+		holder.itemView.setOnClickListener(v -> {
+			// Preguntamos la posición en el momento exacto del clic
+			int currentPosition = holder.getBindingAdapterPosition(); 
+			
+			// Si el ítem se está eliminando (p.ej. con una animación),
+			// getBindingAdapterPosition() puede devolver -1 (NO_POSITION).
+			// y SIEMPRE hay que verificarlo:
+			if (currentPosition != RecyclerView.NO_POSITION) {
+				callback.onItemClicked(currentPosition); // En el fragment o activity se realiza llamada al viewmodel cuando se implemente.
+			}
+		});
+	}
+	
+	https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView
+	

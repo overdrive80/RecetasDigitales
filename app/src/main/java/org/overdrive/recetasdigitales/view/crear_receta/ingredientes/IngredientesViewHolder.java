@@ -8,19 +8,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.overdrive.recetasdigitales.databinding.RecyclerIngredientesItemBinding;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 
+/**
+ * El ViewHolder notifica al listener que el Adapter le pasa. Y ese listener, es implementando
+ * por el Fragment/Activity para comunicar con el ViewModel
+ */
 public class IngredientesViewHolder extends RecyclerView.ViewHolder {
     private RecyclerIngredientesItemBinding binding;
+    private IngredientesAdapter.OnClickIngredienteListener listener;
 
     public IngredientesViewHolder(@NonNull RecyclerIngredientesItemBinding binding,
-                                  IngredientesAdapter.ViewHolderCallback callback) {
+                                  IngredientesAdapter.OnClickIngredienteListener listener) {
         super(binding.getRoot());
         this.binding = binding;
-
-        configurarListeners(callback);
+        this.listener = listener;
+        configurarListeners();
     }
 
     // Aqui se vinculan los datos con las vistas
     public void bind(Ingrediente ingrediente) {
+
         Double cantidad = ingrediente.getCantidad();
         String unidad = ingrediente.getUnidad();
 
@@ -40,12 +46,12 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
         binding.tvNombreIngredienteItem.setText(ingrediente.getNombre());
     }
 
-    private void configurarListeners(IngredientesAdapter.ViewHolderCallback callback) {
+    private void configurarListeners() {
         // Listener del item completo
         itemView.setOnClickListener(v -> {
             int posicion = getBindingAdapterPosition();
             if (posicion != RecyclerView.NO_POSITION) {
-                callback.onClicItem(posicion);
+                listener.onClickIngrediente( posicion);
             }
         });
 
@@ -53,7 +59,7 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
         binding.ibBorrarIngredienteItem.setOnClickListener(v -> {
             int posicion = getBindingAdapterPosition();
             if (posicion != RecyclerView.NO_POSITION) {
-                callback.onBorrarItem(posicion);
+                listener.onEliminarIngrediente(posicion);
             }
         });
     }

@@ -76,9 +76,8 @@ public class IngredientesFragment extends Fragment {
     private void configurarRecyclerView() {
         adapter = new IngredientesAdapter(new ArrayList<>(), new IngredientesAdapter.OnClickIngredienteListener() {
             @Override
-            public void onClickIngrediente(Ingrediente ingrediente, int position) {
+            public void onClickIngrediente(int position) {
 
-                viewModel.setIngredienteSeleccionado(ingrediente);
                 viewModel.setPosicionIngredienteEditando(position);
                 //El bottomSheet observara este elemento y lo mostrara
                 IngredientesBottomSheet bottomSheet = new IngredientesBottomSheet();

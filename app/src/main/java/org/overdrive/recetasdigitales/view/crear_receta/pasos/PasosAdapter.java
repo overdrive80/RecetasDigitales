@@ -17,10 +17,11 @@ import java.util.List;
 
 public class PasosAdapter extends RecyclerView.Adapter<PasosViewHolder> {
     private List<Paso> pasos;
+    private PasosAdapter.OnClickPasoListener listener;
 
-    public PasosAdapter(List<Paso> pasos) {
+    public PasosAdapter(List<Paso> pasos, PasosAdapter.OnClickPasoListener listener) {
         this.pasos = pasos;
-        //this.listener = listener;
+        this.listener = listener;
     }
 
     @NonNull
@@ -38,11 +39,25 @@ public class PasosAdapter extends RecyclerView.Adapter<PasosViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull PasosViewHolder holder, int position) {
+        holder.bind(pasos.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return pasos == null ? 0 : pasos.size();
     }
+
+    public void actualizarDatos(List<Paso> nuevosPasos) {
+        this.pasos = nuevosPasos;
+        notifyDataSetChanged();
+    }
+
+    public interface OnClickPasoListener {
+        void onClickPaso(int posicion);
+
+        void onEliminarPaso(int posicion);
+    }
+
+
 }

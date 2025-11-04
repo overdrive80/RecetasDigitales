@@ -26,7 +26,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     private MutableLiveData<Uri> imagenUriTemporal = new MutableLiveData<>();
 
     //Editando elemento recyclerview de Ingredientes
-    private MutableLiveData<Ingrediente> ingredienteSeleccionado = new MutableLiveData<>();
     private MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
 
     //Editando elemento recyclerview de Pasos
@@ -41,7 +40,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         repo = new RecetarioRepositorio(application);
     }
 
-
+    // METODOS: Receta
     public void setReceta(Receta receta) {
         this.receta.setValue(receta);
     }
@@ -60,7 +59,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     }
 
-    // Lista de ingredientes //
+    // METODOS: Ingrediente
     public MutableLiveData<List<Ingrediente>> getIngredientes() {
         return ingredientes;
     }
@@ -78,16 +77,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         this.ingredientes = ingredientes;
     }
 
-    // Seleccion de ingrediente en el Recycler //
-    public void setIngredienteSeleccionado(Ingrediente ingrediente) {
-        ingredienteSeleccionado.setValue(ingrediente);
-    }
-
-    public MutableLiveData<Ingrediente> getIngredienteSeleccionado() {
-        return ingredienteSeleccionado;
-    }
-
-
     public void actualizarIngrediente(Ingrediente ingredienteEditado) {
         Integer pos = posicionIngredienteEditando.getValue();
 
@@ -98,8 +87,12 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         }
     }
 
-    public void setPosicionIngredienteEditando(int pos) {
-        posicionIngredienteEditando.setValue(pos);
+    public void setPosicionIngredienteEditando(int posicion) {
+        posicionIngredienteEditando.setValue(posicion);
+    }
+
+    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
+        return posicionIngredienteEditando;
     }
 
     public void eliminarIngrediente(int posicion) {
@@ -114,7 +107,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         }
     }
 
-    // Pasos del recyclerView //
+    // METODOS: Paso
     public MutableLiveData<Paso> getPasoSeleccionado() {
         return pasoSeleccionado;
     }
@@ -137,4 +130,5 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         // Para realizar la notificacion se debe pasar la lista al MutableLiveData
         pasos.setValue(listaActual);
     }
+
 }

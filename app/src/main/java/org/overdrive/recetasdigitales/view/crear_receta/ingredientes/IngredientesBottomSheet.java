@@ -18,12 +18,14 @@ import org.overdrive.recetasdigitales.databinding.BottomsheetNuevoIngredienteBin
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
+import java.util.List;
+
 public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     public static final String TAG = "IngredientesBottomSheet";
     private BottomsheetNuevoIngredienteBinding binding;
     private CrearRecetaViewModel viewModel;
     private boolean esEdicion = false;
-    private Ingrediente ingredienteEditado;
+    private Ingrediente ingredienteEditando;
 
 
     @Override
@@ -54,7 +56,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         super.onViewCreated(view, savedInstanceState);
 
         esEdicion = false;
-        ingredienteEditado = null;
+        ingredienteEditando = null;
 
         configurarListeners();
         configurarObservadores();
@@ -64,21 +66,27 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
     }
 
     private void configurarObservadores() {
-        viewModel.getIngredienteSeleccionado().observe(getViewLifecycleOwner(), ingrediente -> {
-            ingredienteEditado = ingrediente;
+        viewModel.getPosicionIngredienteEditando().observe(getViewLifecycleOwner(), posicion -> {
+            List<Ingrediente> ingredientes = viewModel.getIngredientes().getValue();
 
-            if (ingrediente != null) {
-                binding.etNombreIngrediente.setText(ingrediente.getNombre());
-                binding.etUnidadIngrediente.setText(ingrediente.getUnidad());
-
-                if (ingrediente.getCantidad() != null) {
-                    binding.etCantidadIngrediente.setText(String.valueOf(ingrediente.getCantidad()));
-                } else {
-                    binding.etCantidadIngrediente.setText("");
-                }
-
-                esEdicion = true;
+            // Comprobamos posicion valida
+            if (posicion == null || posicion < 0 || ingredientes == null || posicion >= ingredientes.size()) {
+                return; // No hacemos nada si no es válido
             }
+
+            ingredienteEditando = viewModel.getIngredientes().getValue().get(posicion);
+
+            binding.etNombreIngrediente.setText(ingredienteEditando.getNombre());
+            binding.etUnidadIngrediente.setText(ingredienteEditando.getUnidad());
+
+            if (ingredienteEditando.getCantidad() != null) {
+                binding.etCantidadIngrediente.setText(String.valueOf(ingredienteEditando.getCantidad()));
+            } else {
+                binding.etCantidadIngrediente.setText("");
+            }
+
+            esEdicion = true;
+
         });
     }
 
@@ -122,17 +130,17 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
 
     private void actualizarIngrediente() {
 
-        ingredienteEditado.setNombre(binding.etNombreIngrediente.getText().toString());
-        ingredienteEditado.setUnidad(binding.etUnidadIngrediente.getText().toString());
+        ingredienteEditando.setNombre(binding.etNombreIngrediente.getText().toString());
+        ingredienteEditando.setUnidad(binding.etUnidadIngrediente.getText().toString());
 
         if (!binding.etCantidadIngrediente.getText().toString().isEmpty()) {
-            ingredienteEditado.setCantidad(Double.parseDouble(binding.etCantidadIngrediente.getText().toString()));
+            ingredienteEditando.setCantidad(Double.parseDouble(binding.etCantidadIngrediente.getText().toString()));
         } else {
-            ingredienteEditado.setCantidad(null);
+            ingredienteEditando.setCantidad(null);
         }
 
 
-        viewModel.actualizarIngrediente(ingredienteEditado);
+        viewModel.actualizarIngrediente(ingredienteEditando);
     }
 
     private void agregarIngrediente() {

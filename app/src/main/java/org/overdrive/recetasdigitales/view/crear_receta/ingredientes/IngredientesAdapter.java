@@ -14,9 +14,7 @@ import java.util.List;
 public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHolder> {
     private List<Ingrediente> ingredientes;
     private OnClickIngredienteListener listener;
-    private ViewHolderCallback callback;
     private static final String TAG = "IngredientesAdapter";
-
 
     public IngredientesAdapter(List<Ingrediente> ingredientes, OnClickIngredienteListener listener) {
         this.ingredientes = ingredientes;
@@ -34,7 +32,7 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
         //El metodo estático inflate() del binding nos permite construir la vista del ítem a partir del XML.
         RecyclerIngredientesItemBinding binding = RecyclerIngredientesItemBinding.inflate(inflater, parent, false);
 
-        return new IngredientesViewHolder(binding, getCallback());
+        return new IngredientesViewHolder(binding,listener);
     }
 
     @Override
@@ -54,33 +52,8 @@ public class IngredientesAdapter extends RecyclerView.Adapter<IngredientesViewHo
         notifyDataSetChanged();
     }
 
-
-    private ViewHolderCallback getCallback() {
-
-        return new ViewHolderCallback() {
-
-            @Override
-            public void onClicItem(int position) {
-                listener.onClickIngrediente(ingredientes.get(position), position);
-            }
-
-            @Override
-            public void onBorrarItem(int position) {
-                listener.onEliminarIngrediente(position);
-            }
-        };
-    }
-
-    // Interfaces para callback y listeners
-    public interface ViewHolderCallback {
-        void onClicItem(int position);
-
-        void onBorrarItem(int position);
-    }
-
     public interface OnClickIngredienteListener {
-        void onClickIngrediente(Ingrediente ingrediente, int posicion);
-
+        void onClickIngrediente(int posicion);
         void onEliminarIngrediente(int posicion);
     }
 }
