@@ -18,18 +18,22 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.FragmentPasosBinding;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PasosFragment extends Fragment {
     private FragmentPasosBinding binding;
     private NavController navController;
     private CrearRecetaViewModel viewModel;
     private PasosAdapter adapter;
+    private PasosItemTouchHelper touchCallback;
+    private ItemTouchHelper touchHelper;
 
     public PasosFragment() {
         // Required empty public constructor
@@ -58,7 +62,23 @@ public class PasosFragment extends Fragment {
         configurarMenuProvider();
         configurarRecyclerView();
         configurarObservers();
+        configurarTouchHelper();
         configurarFab();
+    }
+
+    private void configurarTouchHelper() {
+        // Inicializa con tamaño 0; lo ajustamos al recibir datos
+        touchCallback = new PasosItemTouchHelper(new PasosItemTouchHelper.OrdenarPasos() {
+
+
+            @Override
+            public void mover(int fromPos, int toPos) {
+
+            }
+        });
+
+        touchHelper = new ItemTouchHelper(touchCallback);
+        touchHelper.attachToRecyclerView(binding.rvPasos);
     }
 
     private void configurarObservers() {

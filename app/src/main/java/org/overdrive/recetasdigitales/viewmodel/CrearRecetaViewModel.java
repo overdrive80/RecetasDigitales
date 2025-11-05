@@ -14,6 +14,7 @@ import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CrearRecetaViewModel extends AndroidViewModel {
@@ -24,10 +25,8 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     private MutableLiveData<List<Paso>> pasos = new MutableLiveData<>(new ArrayList<>());
     private MutableLiveData<Uri> imagenUriTemporal = new MutableLiveData<>();
 
-    //Editando elemento recyclerview de Ingredientes
+    //Posiciones de objetos en modificacion
     private MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
-
-    //Editando elemento recyclerview de Pasos
     private MutableLiveData<Integer> posicionPasoEditando = new MutableLiveData<>(-1);
 
     private final Context appContext;
@@ -47,19 +46,21 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         return receta;
     }
 
-
     public void setImagenUri(Uri uri) {
         imagenUriTemporal.setValue(uri);
     }
 
     public MutableLiveData<Uri> getImagenUri() {
         return imagenUriTemporal;
-
     }
 
     // METODOS: Ingrediente
     public MutableLiveData<List<Ingrediente>> getIngredientes() {
         return ingredientes;
+    }
+
+    public void setIngredientes(MutableLiveData<List<Ingrediente>> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
     public void setIngrediente(Ingrediente ingrediente) {
@@ -71,10 +72,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         ingredientes.setValue(listaActual);
     }
 
-    public void setIngredientes(MutableLiveData<List<Ingrediente>> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
-
     public void actualizarIngrediente(Ingrediente ingredienteEditado) {
         Integer pos = posicionIngredienteEditando.getValue();
 
@@ -83,14 +80,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
             listaActual.set(pos, ingredienteEditado);
             ingredientes.setValue(listaActual);
         }
-    }
-
-    public void setPosicionIngredienteEditando(int posicion) {
-        posicionIngredienteEditando.setValue(posicion);
-    }
-
-    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
-        return posicionIngredienteEditando;
     }
 
     public void eliminarIngrediente(int posicion) {
@@ -105,15 +94,17 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         }
     }
 
-    // METODOS: Paso
-    public void actualizarPaso(Paso pasoEditado) {
-        Integer pos = posicionPasoEditando.getValue();
+    public void setPosicionIngredienteEditando(int posicion) {
+        posicionIngredienteEditando.setValue(posicion);
+    }
 
-        if (pos != null && pos >= 0) {
-            List<Paso> listaActual = new ArrayList<>(pasos.getValue());
-            listaActual.set(pos, pasoEditado);
-            pasos.setValue(listaActual);
-        }
+    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
+        return posicionIngredienteEditando;
+    }
+
+    // METODOS: Paso
+    public MutableLiveData<List<Paso>> getPasos() {
+        return pasos;
     }
 
     public void setPaso(Paso paso) {
@@ -125,16 +116,14 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         pasos.setValue(listaActual);
     }
 
-    public void setPosicionPasoEditando(int posicion) {
-        posicionPasoEditando.setValue(posicion);
-    }
+    public void actualizarPaso(Paso pasoEditado) {
+        Integer pos = posicionPasoEditando.getValue();
 
-    public MutableLiveData<Integer> getPosicionPasoEditando() {
-        return posicionPasoEditando;
-    }
-
-    public MutableLiveData<List<Paso>> getPasos() {
-        return pasos;
+        if (pos != null && pos >= 0) {
+            List<Paso> listaActual = new ArrayList<>(pasos.getValue());
+            listaActual.set(pos, pasoEditado);
+            pasos.setValue(listaActual);
+        }
     }
 
     public void eliminarPaso(int posicion) {
@@ -148,4 +137,25 @@ public class CrearRecetaViewModel extends AndroidViewModel {
             pasos.setValue(listaModificada);
         }
     }
+
+    public void setPosicionPasoEditando(int posicion) {
+        posicionPasoEditando.setValue(posicion);
+    }
+
+    public MutableLiveData<Integer> getPosicionPasoEditando() {
+        return posicionPasoEditando;
+    }
+
+    public void actualizarPasos(List<Paso> nuevaLista) {
+        pasos.setValue(nuevaLista);
+    }
+
+    public void moverPaso(int from, int to) {
+        List<Paso> lista = new ArrayList<>(pasos.getValue());
+        Paso movido = lista.remove(from);
+        lista.add(to, movido);
+        pasos.setValue(lista);
+    }
+
+
 }
