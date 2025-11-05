@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "org.overdrive.recetasdigitales"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "org.overdrive.recetasdigitales"
