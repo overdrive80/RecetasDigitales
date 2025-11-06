@@ -19,6 +19,7 @@
         <item name="rippleColor">@color/blue_50</item>
 
 
+
     </style>
 
     <style name="Theme.RecetasDigitales" parent="AppBaseTheme">

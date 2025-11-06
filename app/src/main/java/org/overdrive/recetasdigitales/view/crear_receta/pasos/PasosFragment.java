@@ -67,19 +67,19 @@ public class PasosFragment extends Fragment {
     }
 
     private void configurarTouchHelper() {
-        // Inicializa con tamaño 0; lo ajustamos al recibir datos
         touchCallback = new PasosItemTouchHelper(new PasosItemTouchHelper.OrdenarPasos() {
-
-
             @Override
             public void mover(int fromPos, int toPos) {
-
+                // Realizamos cambios en la lista del ViewModel, lo que notifica observer
+                // y actualiza el adapter
+                viewModel.moverPaso(fromPos, toPos);
             }
         });
 
         touchHelper = new ItemTouchHelper(touchCallback);
         touchHelper.attachToRecyclerView(binding.rvPasos);
     }
+
 
     private void configurarObservers() {
 

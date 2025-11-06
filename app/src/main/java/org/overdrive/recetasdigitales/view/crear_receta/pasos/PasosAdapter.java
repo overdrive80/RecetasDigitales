@@ -53,27 +53,7 @@ public class PasosAdapter extends RecyclerView.Adapter<PasosViewHolder> {
 
     public interface OnClickPasoListener {
         void onClickPaso(int posicion);
-
         void onEliminarPaso(int posicion);
-    }
-
-    public void moverEnAdapter(int fromPos, int toPos) {
-        // Mover en la lista local del adapter
-        Collections.swap(pasos, fromPos, toPos);
-
-        // Notificar el movimiento para animación suave
-        notifyItemMoved(fromPos, toPos);
-
-        // Actualizar los números de orden en todos los elementos
-        actualizarNumerosOrden();
-    }
-
-    private void actualizarNumerosOrden() {
-        for (int i = 0; i < pasos.size(); i++) {
-            pasos.get(i).setOrden(i + 1);
-        }
-        // Notificar que todos los items cambiaron para actualizar los números
-        notifyItemRangeChanged(0, pasos.size());
     }
 
 }

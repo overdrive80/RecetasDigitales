@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="fondoCardView">#4790CAF9</color>
+    <color name="dragCardView">#67FFAE31</color>
     <color name="blue_25">#EEF7FF</color>
     <color name="blue_50">#E3F2FD</color>
     <color name="blue_100">#BBDEFB</color>

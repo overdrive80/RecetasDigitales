@@ -5,9 +5,11 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPasos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#4790CAF9"
+        android:foreground="?selectableItemBackground"
+        app:cardBackgroundColor="@drawable/selector_paso_item"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
         app:cardPreventCornerOverlap="true"
@@ -66,7 +68,6 @@
                 android:padding="6dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/outline_delete_24"
-                android:tint="@android:color/black"
                 app:srcCompat="@drawable/outline_delete_24" />
 
         </LinearLayout>

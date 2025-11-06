@@ -20,135 +20,88 @@ import java.util.List;
 public class CrearRecetaViewModel extends AndroidViewModel {
 
     private final RecetarioRepositorio repo;
-    private MutableLiveData<Receta> receta = new MutableLiveData<>();
-    private MutableLiveData<List<Ingrediente>> ingredientes = new MutableLiveData<>(new ArrayList<>());
-    private MutableLiveData<List<Paso>> pasos = new MutableLiveData<>(new ArrayList<>());
-    private MutableLiveData<Uri> imagenUriTemporal = new MutableLiveData<>();
+    private final MutableLiveData<Receta> receta = new MutableLiveData<>();
+    private final MutableLiveData<List<Ingrediente>> ingredientes = new MutableLiveData<>(new ArrayList<>());
+    private final MutableLiveData<List<Paso>> pasos = new MutableLiveData<>(new ArrayList<>());
+    private final MutableLiveData<Uri> imagenUriTemporal = new MutableLiveData<>();
 
-    //Posiciones de objetos en modificacion
-    private MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
-    private MutableLiveData<Integer> posicionPasoEditando = new MutableLiveData<>(-1);
-
-    private final Context appContext;
+    private final MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
+    private final MutableLiveData<Integer> posicionPasoEditando = new MutableLiveData<>(-1);
 
     public CrearRecetaViewModel(@NonNull Application application) {
         super(application);
-        appContext = application;
         repo = new RecetarioRepositorio(application);
     }
 
-    // METODOS: Receta
-    public void setReceta(Receta receta) {
-        this.receta.setValue(receta);
-    }
+    // RECETA
+    public void setReceta(Receta receta) { this.receta.setValue(receta); }
+    public MutableLiveData<Receta> getReceta() { return receta; }
 
-    public MutableLiveData<Receta> getReceta() {
-        return receta;
-    }
+    public void setImagenUri(Uri uri) { imagenUriTemporal.setValue(uri); }
+    public MutableLiveData<Uri> getImagenUri() { return imagenUriTemporal; }
 
-    public void setImagenUri(Uri uri) {
-        imagenUriTemporal.setValue(uri);
-    }
-
-    public MutableLiveData<Uri> getImagenUri() {
-        return imagenUriTemporal;
-    }
-
-    // METODOS: Ingrediente
-    public MutableLiveData<List<Ingrediente>> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(MutableLiveData<List<Ingrediente>> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
+    // INGREDIENTES
+    public MutableLiveData<List<Ingrediente>> getIngredientes() { return ingredientes; }
 
     public void setIngrediente(Ingrediente ingrediente) {
-        List<Ingrediente> listaActual = ingredientes.getValue();
-
-        listaActual.add(ingrediente);
-
-        // Para realizar la notificacion se debe pasar la lista al MutableLiveData
-        ingredientes.setValue(listaActual);
+        //Creamos siempre una lista nueva. Eso asegura que el liveData notifique cambios.
+        List<Ingrediente> lista = new ArrayList<>(ingredientes.getValue());
+        lista.add(ingrediente);
+        ingredientes.setValue(lista);
     }
 
     public void actualizarIngrediente(Ingrediente ingredienteEditado) {
         Integer pos = posicionIngredienteEditando.getValue();
-
         if (pos != null && pos >= 0) {
-            List<Ingrediente> listaActual = new ArrayList<>(ingredientes.getValue());
-            listaActual.set(pos, ingredienteEditado);
-            ingredientes.setValue(listaActual);
+            List<Ingrediente> lista = new ArrayList<>(ingredientes.getValue());
+            lista.set(pos, ingredienteEditado);
+            ingredientes.setValue(lista);
         }
     }
 
     public void eliminarIngrediente(int posicion) {
         List<Ingrediente> listaActual = ingredientes.getValue();
+        if (listaActual == null || listaActual.isEmpty()) return;
+        if (posicion < 0 || posicion >= listaActual.size()) return;
 
-        if (listaActual != null && posicion >= 0 && posicion < listaActual.size()) {
-            // Creamos una nueva lista para que LiveData detecte el cambio y actualice la UI
-            List<Ingrediente> listaModificada = new ArrayList<>(listaActual);
-            listaModificada.remove(posicion);
-
-            ingredientes.setValue(listaModificada);
-        }
+        List<Ingrediente> nueva = new ArrayList<>(listaActual);
+        nueva.remove(posicion);
+        ingredientes.setValue(nueva);
     }
 
-    public void setPosicionIngredienteEditando(int posicion) {
-        posicionIngredienteEditando.setValue(posicion);
-    }
+    public void setPosicionIngredienteEditando(int posicion) { posicionIngredienteEditando.setValue(posicion); }
+    public MutableLiveData<Integer> getPosicionIngredienteEditando() { return posicionIngredienteEditando; }
 
-    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
-        return posicionIngredienteEditando;
-    }
-
-    // METODOS: Paso
-    public MutableLiveData<List<Paso>> getPasos() {
-        return pasos;
-    }
+    // PASOS
+    public MutableLiveData<List<Paso>> getPasos() { return pasos; }
 
     public void setPaso(Paso paso) {
-        List<Paso> listaActual = pasos.getValue();
-
-        listaActual.add(paso);
-
-        // Para realizar la notificacion se debe pasar la lista al MutableLiveData
-        pasos.setValue(listaActual);
+        List<Paso> lista = new ArrayList<>(pasos.getValue());
+        lista.add(paso);
+        pasos.setValue(lista);
     }
 
     public void actualizarPaso(Paso pasoEditado) {
         Integer pos = posicionPasoEditando.getValue();
-
         if (pos != null && pos >= 0) {
-            List<Paso> listaActual = new ArrayList<>(pasos.getValue());
-            listaActual.set(pos, pasoEditado);
-            pasos.setValue(listaActual);
+            List<Paso> lista = new ArrayList<>(pasos.getValue());
+            lista.set(pos, pasoEditado);
+            pasos.setValue(lista);
         }
     }
 
     public void eliminarPaso(int posicion) {
         List<Paso> listaActual = pasos.getValue();
+        if (listaActual == null || listaActual.isEmpty()) return;
+        if (posicion < 0 || posicion >= listaActual.size()) return;
 
-        if (listaActual != null && posicion >= 0 && posicion < listaActual.size()) {
-            // Creamos una nueva lista para que LiveData detecte el cambio y actualice la UI
-            List<Paso> listaModificada = new ArrayList<>(listaActual);
-            listaModificada.remove(posicion);
-
-            pasos.setValue(listaModificada);
-        }
+        List<Paso> nueva = new ArrayList<>(listaActual);
+        nueva.remove(posicion);
+        pasos.setValue(nueva);
     }
 
-    public void setPosicionPasoEditando(int posicion) {
-        posicionPasoEditando.setValue(posicion);
-    }
-
-    public MutableLiveData<Integer> getPosicionPasoEditando() {
-        return posicionPasoEditando;
-    }
-
-    public void actualizarPasos(List<Paso> nuevaLista) {
-        pasos.setValue(nuevaLista);
-    }
+    public void setPosicionPasoEditando(int posicion) { posicionPasoEditando.setValue(posicion); }
+    public MutableLiveData<Integer> getPosicionPasoEditando() { return posicionPasoEditando; }
 
     public void moverPaso(int from, int to) {
         List<Paso> lista = new ArrayList<>(pasos.getValue());
@@ -156,6 +109,5 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         lista.add(to, movido);
         pasos.setValue(lista);
     }
-
-
 }
+

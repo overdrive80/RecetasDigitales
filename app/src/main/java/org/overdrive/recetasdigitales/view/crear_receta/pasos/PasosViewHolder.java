@@ -25,9 +25,11 @@ public class PasosViewHolder extends RecyclerView.ViewHolder {
         binding.tvDescripcionPasoItem.setText(paso.getDescripcion());
 
         //Evitamos guardar contexto para no tener memoryleaks
+        int numero = getBindingAdapterPosition() + 1;
+
         String titulo = itemView.getContext()
                 .getString(R.string.num_paso_item,
-                        String.valueOf(paso.getOrden())
+                        String.valueOf(numero)
                 );
         binding.tvNumPasoItem.setText(titulo);
 
