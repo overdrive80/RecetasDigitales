@@ -6,6 +6,7 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import org.overdrive.recetasdigitales.model.RecetarioRepositorio;
@@ -108,6 +109,22 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         Paso movido = lista.remove(from);
         lista.add(to, movido);
         pasos.setValue(lista);
+    }
+
+    // Gestion de persistencia //
+    private final MutableLiveData<Boolean> recetaGuardada = new MutableLiveData<>();
+    public LiveData<Boolean> getRecetaGuardada() { return recetaGuardada; }
+
+    public void guardarRecetaCompleta() {
+        Receta r = receta.getValue();
+        List<Ingrediente> ing = ingredientes.getValue();
+        List<Paso> ps = pasos.getValue();
+        Uri uri = imagenUriTemporal.getValue();
+
+        repo.insertarRecetaCompleta(r, ing, ps, uri, () -> {
+            // Esto se ejecuta cuando el repo finaliza en background
+            recetaGuardada.postValue(true);
+        });
     }
 }
 

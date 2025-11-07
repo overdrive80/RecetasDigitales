@@ -1,6 +1,0 @@
-Al especificar minSdk 26 en Gradle implica que la aplicación 
-solo funcionará en dispositivos con Android 8.0 o superior.
-
-Elegir esta api me permite tener un código más limpio, sin 
-menos controles de compatibilidad y uso de APIS modernas.
-

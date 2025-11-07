@@ -1,7 +1,0 @@
-RecetaCompleta es un POJO de SOLO lectura, no sirve para insertar.
-
-Una clase con @Relation es para:
-
-	* Consultar una receta con sus ingredientes y pasos
-	* No persistirla directamente
-	* Room no sabe cómo insertar relaciones a partir de esta clase

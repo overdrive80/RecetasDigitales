@@ -88,6 +88,14 @@ public class PasosFragment extends Fragment {
                 adapter.actualizarDatos(pasos);
             }
         });
+
+        //  Observa el resultado de guardar la receta para finalizar el fragment
+        viewModel.getRecetaGuardada().observe(getViewLifecycleOwner(), guardada -> {
+            if (Boolean.TRUE.equals(guardada)) {
+                Toast.makeText(getContext(), "Receta guardada", Toast.LENGTH_SHORT).show();
+                requireActivity().finish();
+            }
+        });
     }
 
     private void configurarRecyclerView() {
@@ -143,8 +151,7 @@ public class PasosFragment extends Fragment {
     }
 
     private void guardarReceta() {
-        Toast.makeText(getContext(), "Receta guardada", Toast.LENGTH_SHORT).show();
-        getActivity().finish();
+        viewModel.guardarRecetaCompleta();
     }
 
     @Override

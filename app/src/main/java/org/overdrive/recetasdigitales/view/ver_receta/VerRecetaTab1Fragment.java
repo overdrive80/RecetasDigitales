@@ -25,6 +25,8 @@ import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 import org.overdrive.recetasdigitales.tools.GestorTiempo;
 import org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel;
 
+import java.io.File;
+
 public class VerRecetaTab1Fragment extends Fragment {
 
     private FragmentVerRecetaTab1Binding binding;
@@ -126,6 +128,7 @@ public class VerRecetaTab1Fragment extends Fragment {
 
     private void cargarImagen(Receta receta) {
         ShapeableImageView ivImagen = binding.ivImagenTab1;
+
         if (receta.getImagenUri() == null || receta.getImagenUri().isEmpty() ||
                 receta.getImagenUri().equals("Sin imagen")) {
 
@@ -137,7 +140,7 @@ public class VerRecetaTab1Fragment extends Fragment {
             binding.ivImagenTab1.setStrokeColor(ColorStateList.valueOf(colorAzulOriginal));
 
             Glide.with(this)
-                    .load(Uri.parse(receta.getImagenUri()))
+                    .load(receta.getImagenUri())
                     //.placeholder(R.drawable.outline_broken_image_24)
                     .error(R.drawable.outline_broken_image_24)
                     .dontAnimate()
