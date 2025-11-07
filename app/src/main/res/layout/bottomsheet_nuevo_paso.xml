@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="24dp">
@@ -25,7 +26,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dragHandleViewPaso" />
+        app:layout_constraintTop_toBottomOf="@+id/dragHandleViewPaso"
+        tools:ignore="VisualLintLocaleText" />
 
     <ScrollView
         android:id="@+id/scrollViewPaso"
@@ -41,14 +43,15 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_edittext"
             android:gravity="start"
-            android:hint="Descripción del paso"
+            android:hint="@string/descripcion_del_paso"
             android:inputType="text|textPersonName|textCapSentences|textMultiLine"
             android:maxHeight="256dp"
             android:minHeight="256dp"
             android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTituloPaso" />
+            app:layout_constraintTop_toBottomOf="@id/tvTituloPaso"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
 
     </ScrollView>
 
@@ -69,8 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Aceptar"
-            android:textSize="16sp" />
+            android:text="@string/aceptar"
+            android:textSize="16sp"
+            tools:ignore="ButtonStyle,TextContrastCheck" />
 
         <Button
             android:id="@+id/btnCancelarPaso"
@@ -78,8 +82,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:text="Cancelar"
-            android:textSize="16sp" />
+            android:text="@string/cancelar"
+            android:textSize="16sp"
+            tools:ignore="ButtonStyle,TextContrastCheck" />
 
     </LinearLayout>
 

@@ -1,0 +1,576 @@
+@startuml
+abstract class org.overdrive.recetasdigitales.model.Recetario {
+- {static} String TAG
+- {static} Recetario INSTANCIA
+- {static} int NUMBER_OF_THREADS
++ {static} ExecutorService servicioExecutor
++ {abstract}RecetaDAO recetaDAO()
++ {abstract}IngredienteDAO ingredienteDAO()
++ {abstract}PasoDAO pasoDAO()
++ {static} Recetario getInstance(Context)
+- {static} void inicializar()
+- {static} Recetario crearInstancia(Context)
+- {static} RoomDatabase.Callback crearCallback(Context)
+- {static} void poblarBaseDatos(Recetario,Context)
++ {static} void anularInstancia()
+}
+
+
+interface org.overdrive.recetasdigitales.model.dao.IngredienteDAO {
+~ void insertarIngredientes(List<Ingrediente>)
+~ LiveData<RecetaIngredientes> getRecetaConIngredientes(long)
+~ void insertarIngrediente(Ingrediente)
+}
+
+class org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosItemTouchHelper {
+- OrdenarPasos listener
+- int posicionInicial
+- int posicionFinal
++ boolean isLongPressDragEnabled()
++ boolean isItemViewSwipeEnabled()
++ int getMovementFlags(RecyclerView,RecyclerView.ViewHolder)
++ boolean onMove(RecyclerView,RecyclerView.ViewHolder,RecyclerView.ViewHolder)
++ void onSwiped(RecyclerView.ViewHolder,int)
++ void clearView(RecyclerView,RecyclerView.ViewHolder)
++ void onSelectedChanged(RecyclerView.ViewHolder,int)
+}
+
+
+interface org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosItemTouchHelper$OrdenarPasos {
+~ void mover(int,int)
+}
+
+class org.overdrive.recetasdigitales.view.crear_receta.portada.PortadaFragment {
+- FragmentPortadaBinding binding
+- NavController navController
+- CrearRecetaViewModel viewModel
+- int horas
+- int horaMax
+- int minutoMax
+- ActivityResultLauncher<String> lanzadorImagen
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarListeners()
+- void configurarObservers()
+- void configurarTextWatchers()
+- boolean validarTiempo(int,int,int)
+- int StringToInt(String,int)
+- void inicializarViewModel()
+- void configurarMenuProvider()
+- boolean contenidoCorrecto()
+- void setRecetaViewModel()
++ void onDestroyView()
+}
+
+
+class org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter {
+- List<Ingrediente> ingredientes
+- OnClickIngredienteListener listener
+- {static} String TAG
++ IngredientesViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(IngredientesViewHolder,int)
++ int getItemCount()
++ void actualizarDatos(List<Ingrediente>)
+}
+
+
+interface org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter$OnClickIngredienteListener {
+~ void onClickIngrediente(int)
+~ void onEliminarIngrediente(int)
+}
+
+class org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesBottomSheet {
++ {static} String TAG
+- BottomsheetNuevoIngredienteBinding binding
+- CrearRecetaViewModel viewModel
+- boolean esEdicion
+- Ingrediente ingredienteEditando
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarObservadores()
+- void inicializarViewModel()
+- void configurarListeners()
+- void actualizarIngrediente()
+- void agregarIngrediente()
+- void configurarAutocompletadoUnidades()
++ void onDestroyView()
++ void onDismiss(DialogInterface)
+}
+
+
+class org.overdrive.recetasdigitales.tools.GestorImagenes {
+- {static} String TAG
++ {static} Bitmap obtenerImagenDesdeUri(Context,Uri)
++ {static} byte[] convertBitmapToBytes(Bitmap)
+}
+
+
+class org.overdrive.recetasdigitales.view.lista_recetas.RecetasActivity {
+- RecetasViewModel viewModel
+- ActivityRecetasBinding binding
+- RecetasAdapter adapter
+# void onCreate(Bundle)
+- void configurarSearchView()
+- void configurarObservadores()
+- void configurarRecyclerView()
+- void inicializarViewModel()
+- RecetasAdapter.OnClickItemListener getOnClickRecetaListener()
+- RecetasBottomSheet.OnClickOpcionListener getOnClickOpcionListener()
+- void configurarFab()
+}
+
+
+class org.overdrive.recetasdigitales.view.ver_receta.VerRecetaFragment {
+- FragmentVerRecetaBinding binding
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+}
+
+
+class org.overdrive.recetasdigitales.view.ver_receta.VerRecetaTab2Fragment {
+- FragmentVerRecetaTab2Binding binding
+- VerRecetaViewModel viewModel
+- List<Ingrediente> ingredientes
+- {static} String ARG_PARAM1
+- String mParam1
++ {static} VerRecetaTab2Fragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarObservadores()
+- void actualizarUI(List<Ingrediente>)
+- void limpiarLista()
+- void configurarViewModel()
+}
+
+
+class org.overdrive.recetasdigitales.view.lista_recetas.RecetasViewHolder {
+- RecyclerRecetasItemBinding binding
+- void configurarListeners(RecetasAdapter.RecetasCallback)
++ void bind(Receta)
+}
+
+
+class org.overdrive.recetasdigitales.view.ver_receta.VerRecetaActivity {
+- VerRecetaViewModel viewModel
+- ActivityVerRecetaBinding binding
+# void onCreate(Bundle)
+- void recuperarReceta()
+- void inicializarViewModel()
+- void configurarToolbar()
+- void habilitarBotonRetroceso()
++ boolean onSupportNavigateUp()
+}
+
+
+class org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel {
+- RecetarioRepositorio repo
+- MutableLiveData<Receta> receta
+- MutableLiveData<List<Ingrediente>> ingredientes
+- MutableLiveData<List<Paso>> pasos
+- MutableLiveData<Uri> imagenUriTemporal
+- MutableLiveData<Integer> posicionIngredienteEditando
+- MutableLiveData<Integer> posicionPasoEditando
+- Long idRecetaEditando
+- MutableLiveData<Boolean> recetaGuardada
++ void setReceta(Receta)
++ MutableLiveData<Receta> getReceta()
++ void setImagenUri(Uri)
++ MutableLiveData<Uri> getImagenUri()
++ MutableLiveData<List<Ingrediente>> getIngredientes()
++ void setIngrediente(Ingrediente)
++ void actualizarIngrediente(Ingrediente)
++ void eliminarIngrediente(int)
++ void setPosicionIngredienteEditando(int)
++ MutableLiveData<Integer> getPosicionIngredienteEditando()
++ MutableLiveData<List<Paso>> getPasos()
++ void setPaso(Paso)
++ void actualizarPaso(Paso)
++ void eliminarPaso(int)
++ void setPosicionPasoEditando(int)
++ MutableLiveData<Integer> getPosicionPasoEditando()
++ void moverPaso(int,int)
++ LiveData<Boolean> getRecetaGuardada()
++ void guardarRecetaCompleta()
++ void cargarRecetaParaEditar(long,LifecycleOwner)
+}
+
+
+interface org.overdrive.recetasdigitales.model.dao.PasoDAO {
+~ void insertarPasos(List<Paso>)
+~ LiveData<RecetaPasos> getRecetaConPasos(long)
+~ void insertarPaso(Paso)
+}
+
+class org.overdrive.recetasdigitales.view.ver_receta.VerRecetaTab3Fragment {
+- FragmentVerRecetaTab3Binding binding
+- VerRecetaViewModel viewModel
+- List<Paso> pasos
+- {static} String ARG_PARAM1
+- String mParam1
++ {static} VerRecetaTab3Fragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarObservadores()
+- void actualizarUI(List<Paso>)
+- void limpiarLista()
+- void configurarViewModel()
+}
+
+
+class org.overdrive.recetasdigitales.model.relaciones.RecetaPasos {
++ Receta receta
++ List<Paso> pasos
+}
+
+class org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosAdapter {
+- List<Paso> pasos
+- PasosAdapter.OnClickPasoListener listener
++ PasosViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PasosViewHolder,int)
++ int getItemCount()
++ void actualizarDatos(List<Paso>)
+}
+
+
+interface org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosAdapter$OnClickPasoListener {
+~ void onClickPaso(int)
+~ void onEliminarPaso(int)
+}
+
+class org.overdrive.recetasdigitales.tools.GestorTiempo {
+- long horas
+- long minutos
++ long getHoras()
++ long getMinutos()
++ {static} int getHoras(long)
++ {static} int getMinutos(long)
++ boolean hayTiempo()
++ String toTextoReceta()
++ {static} long getTiempoMinutos(int,int)
++ {static} boolean validarTiempoString(String,int,int)
+}
+
+
+class org.overdrive.recetasdigitales.viewmodel.RecetasViewModel {
+- RecetarioRepositorio repo
+- MutableLiveData<String> filtroBusqueda
++ LiveData<List<Receta>> recetasFiltradas
+- MutableLiveData<Receta> recetaSeleccionada
++ LiveData<List<Receta>> getTodasRecetas()
++ void setFiltroBusqueda(String)
++ void setRecetaSeleccionada(Receta)
++ LiveData<Receta> getRecetaSeleccionada()
++ void borrarReceta(Receta)
+}
+
+
+class org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosBottomSheet {
++ {static} String TAG
+- BottomsheetNuevoPasoBinding binding
+- CrearRecetaViewModel viewModel
+- boolean esEdicion
+- Paso pasoEditando
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarObservadores()
+- void inicializarViewModel()
+- void configurarListeners()
+- void actualizarPaso()
+- void agregarPaso()
++ void onDestroyView()
++ void onDismiss(DialogInterface)
+}
+
+
+class org.overdrive.recetasdigitales.view.crear_receta.CrearRecetaActivity {
+- ActivityCrearRecetaBinding binding
+# CrearRecetaViewModel viewModel
+# NavController navController
+# void onCreate(Bundle)
+- void vincularToolbarConNavegacion()
+- void configurarNavegacion()
+- void inicializarViewModel()
+# void configurarToolbar()
++ boolean onSupportNavigateUp()
+}
+
+
+class org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesViewHolder {
+- RecyclerIngredientesItemBinding binding
+- IngredientesAdapter.OnClickIngredienteListener listener
++ void bind(Ingrediente)
+- void configurarListeners()
+}
+
+
+class org.overdrive.recetasdigitales.Constantes {
++ {static} String TABLA_RECETAS
++ {static} String TABLA_INGREDIENTES
++ {static} String TABLA_PASOS
++ {static} String BASEDATOS
++ {static} String RECETA_ID
+}
+
+class org.overdrive.recetasdigitales.model.relaciones.RecetaIngredientes {
++ Receta receta
++ List<Ingrediente> ingredientes
+}
+
+class org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet {
++ {static} String TAG
+- BottomsheetVerRecetasBinding binding
+- OnClickOpcionListener listener
+- RecetasViewModel viewModel
+- Receta recetaSeleccionada
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void setOnClickOpcionListener(OnClickOpcionListener)
++ void onDestroyView()
+}
+
+
+interface org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet$OnClickOpcionListener {
+~ void onVerReceta(Receta)
+~ void onModificarReceta(Receta)
+~ void onEliminarReceta(Receta)
+}
+
+class org.overdrive.recetasdigitales.model.RecetarioRepositorio {
+- {static} String TAG
+- Recetario mdb
+- IngredienteDAO mIngredienteDAO
+- RecetaDAO mRecetaDAO
+- PasoDAO mPasoDAO
+- Context appContext
++ LiveData<List<Receta>> getTodasRecetas()
++ LiveData<List<Receta>> buscarPortitulo(String)
++ void borrarReceta(Receta)
++ LiveData<RecetaCompleta> getRecetaCompleta(long)
++ long insertarReceta(Receta)
+- void persistirRecetaCompleta(Receta,List<Ingrediente>,List<Paso>,Uri)
++ void insertarRecetaCompleta(Receta,List<Ingrediente>,List<Paso>,Uri,Runnable)
++ void reemplazarRecetaCompleta(long,Receta,List<Ingrediente>,List<Paso>,Uri,Runnable)
+- String copiarImagenAlmacenamientoInterno(Uri)
++ void eliminarImagen(String)
+}
+
+
+class org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel {
+- RecetarioRepositorio repo
+- LiveData<RecetaCompleta> recetaCompleta
+- SavedStateHandle savedStateHandle
++ void cargarRecetaCompleta(long)
++ LiveData<RecetaCompleta> getRecetaCompleta()
++ void init(long)
+}
+
+
+class org.overdrive.recetasdigitales.view.editar_receta.EditarRecetaActivity {
+# void onCreate(Bundle)
+# void configurarToolbar()
++ boolean onSupportNavigateUp()
+}
+
+class org.overdrive.recetasdigitales.view.ver_receta.VerRecetaTab1Fragment {
+- FragmentVerRecetaTab1Binding binding
+- VerRecetaViewModel viewModel
+- {static} String ARG_PARAM1
+- Receta receta
+- String mParam1
++ {static} VerRecetaTab1Fragment newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarObservadores()
+- void actualizarUI(Receta)
+- void formatearTiempo(Receta)
+- void configurarViewModel()
+- void cargarImagen(Receta)
+}
+
+
+class org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesFragment {
+- FragmentIngredientesBinding binding
+- NavController navController
+- CrearRecetaViewModel viewModel
+- IngredientesAdapter adapter
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarObservers()
+- void configurarRecyclerView()
+- void inicializarViewModel()
+- void configurarMenuProvider()
++ void onDestroyView()
+- void configurarFab()
+}
+
+
+class org.overdrive.recetasdigitales.model.entidades.Receta {
+- long idReceta
+- String titulo
+- String descripcion
+- String imagenUri
+- long tiempo
++ String getTitulo()
++ void setTitulo(String)
++ String getDescripcion()
++ void setDescripcion(String)
++ String getImagenUri()
++ void setImagenUri(String)
++ long getTiempo()
++ void setTiempo(long)
++ long getIdReceta()
++ void setIdReceta(long)
+}
+
+
+interface org.overdrive.recetasdigitales.model.dao.RecetaDAO {
+~ LiveData<RecetaCompleta> getRecetaCompleta(long)
+~ LiveData<List<RecetaCompleta>> getTodasRecetasCompletas()
+~ Receta getReceta(long)
+~ LiveData<List<Receta>> getTodasRecetas()
+~ LiveData<List<Receta>> buscarPortitulo(String)
+~ long insertarReceta(Receta)
+~ void borrarRecetaPorId(long)
+~ void borrarReceta(Receta)
+~ String getUriImagen(long)
+}
+
+class org.overdrive.recetasdigitales.model.entidades.Ingrediente {
+- Long idIngrediente
+- String nombre
+- Double cantidad
+- String unidad
+- Long idReceta
++ Long getIdIngrediente()
++ void setIdIngrediente(Long)
++ String getNombre()
++ void setNombre(String)
++ Double getCantidad()
++ void setCantidad(Double)
++ String getUnidad()
++ void setUnidad(String)
++ Long getIdReceta()
++ void setIdReceta(Long)
+}
+
+
+class org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta {
++ Receta receta
++ List<Ingrediente> ingredientes
++ List<Paso> pasos
+}
+
+class org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter {
+- List<Receta> recetas
+- {static} String TAG
+- OnClickItemListener listener
+- RecetasCallback callback
++ RecetasViewHolder onCreateViewHolder(ViewGroup,int)
+- RecetasCallback getCallback()
++ void onBindViewHolder(RecetasViewHolder,int)
++ int getItemCount()
++ void actualizarDatos(List<Receta>)
+}
+
+
+interface org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter$RecetasCallback {
+~ void onClicItem(int)
+}
+
+interface org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter$OnClickItemListener {
+~ void onClickReceta(Receta)
+}
+
+abstract class org.overdrive.recetasdigitales.tools.TextWatcherSimple {
++ {abstract}void afterTextChanged(android.text.Editable)
++ void beforeTextChanged(CharSequence,int,int,int)
++ void onTextChanged(CharSequence,int,int,int)
+}
+
+class org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosViewHolder {
+- RecyclerPasosItemBinding binding
+- PasosAdapter.OnClickPasoListener listener
++ void bind(Paso)
+- void configurarListeners()
+}
+
+
+class org.overdrive.recetasdigitales.model.entidades.Paso {
+- long idPaso
+- int orden
+- String descripcion
+- long idReceta
++ long getIdPaso()
++ void setIdPaso(long)
++ int getOrden()
++ void setOrden(int)
++ String getDescripcion()
++ void setDescripcion(String)
++ long getIdReceta()
++ void setIdReceta(long)
+}
+
+
+class org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosFragment {
+- FragmentPasosBinding binding
+- NavController navController
+- CrearRecetaViewModel viewModel
+- PasosAdapter adapter
+- PasosItemTouchHelper touchCallback
+- ItemTouchHelper touchHelper
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void configurarTouchHelper()
+- void configurarObservers()
+- void configurarRecyclerView()
+- void inicializarViewModel()
+- void configurarMenuProvider()
+- void guardarReceta()
++ void onDestroyView()
+- void configurarFab()
+}
+
+
+
+
+androidx.room.RoomDatabase <|-- org.overdrive.recetasdigitales.model.Recetario
+org.overdrive.recetasdigitales.view.crear_receta.pasos.Callback <|-- org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosItemTouchHelper
+org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosItemTouchHelper +.. org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosItemTouchHelper$OrdenarPasos
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.crear_receta.portada.PortadaFragment
+org.overdrive.recetasdigitales.view.crear_receta.ingredientes.Adapter <|-- org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter
+org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter +.. org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesAdapter$OnClickIngredienteListener
+com.google.android.material.bottomsheet.BottomSheetDialogFragment <|-- org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesBottomSheet
+androidx.appcompat.app.AppCompatActivity <|-- org.overdrive.recetasdigitales.view.lista_recetas.RecetasActivity
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.ver_receta.VerRecetaFragment
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.ver_receta.VerRecetaTab2Fragment
+org.overdrive.recetasdigitales.view.lista_recetas.ViewHolder <|-- org.overdrive.recetasdigitales.view.lista_recetas.RecetasViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- org.overdrive.recetasdigitales.view.ver_receta.VerRecetaActivity
+androidx.lifecycle.AndroidViewModel <|-- org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.ver_receta.VerRecetaTab3Fragment
+org.overdrive.recetasdigitales.view.crear_receta.pasos.Adapter <|-- org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosAdapter
+org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosAdapter +.. org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosAdapter$OnClickPasoListener
+androidx.lifecycle.AndroidViewModel <|-- org.overdrive.recetasdigitales.viewmodel.RecetasViewModel
+com.google.android.material.bottomsheet.BottomSheetDialogFragment <|-- org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosBottomSheet
+androidx.appcompat.app.AppCompatActivity <|-- org.overdrive.recetasdigitales.view.crear_receta.CrearRecetaActivity
+org.overdrive.recetasdigitales.view.crear_receta.ingredientes.ViewHolder <|-- org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesViewHolder
+com.google.android.material.bottomsheet.BottomSheetDialogFragment <|-- org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet
+org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet +.. org.overdrive.recetasdigitales.view.lista_recetas.RecetasBottomSheet$OnClickOpcionListener
+androidx.lifecycle.AndroidViewModel <|-- org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel
+org.overdrive.recetasdigitales.view.crear_receta.CrearRecetaActivity <|-- org.overdrive.recetasdigitales.view.editar_receta.EditarRecetaActivity
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.ver_receta.VerRecetaTab1Fragment
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesFragment
+org.overdrive.recetasdigitales.view.lista_recetas.Adapter <|-- org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter
+org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter +.. org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter$RecetasCallback
+org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter +.. org.overdrive.recetasdigitales.view.lista_recetas.RecetasAdapter$OnClickItemListener
+android.text.TextWatcher <|.. org.overdrive.recetasdigitales.tools.TextWatcherSimple
+org.overdrive.recetasdigitales.view.crear_receta.pasos.ViewHolder <|-- org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosViewHolder
+androidx.fragment.app.Fragment <|-- org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosFragment
+@enduml

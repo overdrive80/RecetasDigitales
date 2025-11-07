@@ -39,7 +39,7 @@
                     android:gravity="start"
                     android:minHeight="36dp"
                     android:paddingTop="2dp"
-                    android:text="Paso %s"
+                    android:text="@string/paso_num"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -49,8 +49,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
+                    android:enabled="false"
                     android:maxLines="3"
-                    android:text="Descripción del paso..."
+                    android:text="@string/descripcion_del_paso"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -64,6 +65,7 @@
                 android:layout_marginBottom="12dp"
                 android:adjustViewBounds="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/boton_de_eliminar"
                 android:focusable="true"
                 android:padding="6dp"
                 android:scaleType="centerCrop"

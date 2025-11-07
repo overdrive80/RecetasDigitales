@@ -1,36 +1,37 @@
 <resources>
-    <string name="app_name">Recetas Digitales</string>
-    <string name="boton_nueva_receta">Botón nueva receta</string>
-    <string name="logo_app">logo_app</string>
-    <string name="semiesfera_decorativa">semiesfera_decorativa</string>
-    <string name="titulo_receta">Título de la receta</string>
-    <string name="breve_descripcion">Breve descripción de la receta</string>
-    <string name="modificar">Modificar</string>
-    <string name="eliminar">Eliminar</string>
-    <string name="ver">Ver receta</string>
-    <string name="title_activity_ver_receta">VerRecetaActivity</string>
-    <string name="portada">Portada</string>
-    <string name="ingredientes">Ingredientes</string>
-    <string name="pasos">Pasos</string>
-    <string name="descripcion">DESCRIPCIÓN</string>
-    <string name="tiempo_de_elaboracion">TIEMPO DE ELABORACIÓN</string>
-    <string name="receta_tortilla">Clásica receta española a base de patata y huevo.</string>
-    <string name="horas">horas</string>
-    <string name="minutos">minutos</string>
-    <string name="titulo_tortilla">Tortilla de patatas</string>
-    <string name="paso_num">Paso %s</string>
-    <string name="descripcion_del_paso">Descripcion del paso</string>
-    <string name="num_paso_item">Paso %s</string>
-
-    <string-array name="unidades">
-        <item>g</item>
-        <item>kg</item>
-        <item>ml</item>
-        <item>l</item>
-        <item>cda</item>
-        <item>cdta</item>
-        <item>unidad</item>
-        <item>pieza</item>
-        <item>pizca</item>
-    </string-array>
+    <string name="app_name">Digital Recipes</string>
+    <string name="boton_nueva_receta">New recipe button</string>
+    <string name="logo_app" translatable="false">logo_app</string>
+    <string name="semiesfera_decorativa">decorative_hemisphere</string>
+    <string name="titulo_receta">Recipe title</string>
+    <string name="breve_descripcion">Short description of the recipe</string>
+    <string name="modificar">Modify</string>
+    <string name="eliminar">Delete</string>
+    <string name="ver">Show recipe</string>
+    <string name="title_activity_ver_receta" translatable="false">VerRecetaActivity</string>
+    <string name="portada">Cover</string>
+    <string name="ingredientes">Ingredients</string>
+    <string name="pasos">Steps</string>
+    <string name="descripcion">DESCRIPTION</string>
+    <string name="tiempo_de_elaboracion">PREPARATION TIME</string>
+    <string name="receta_tortilla">Classic Spanish recipe made with potatoes and eggs.</string>
+    <string name="horas">Hours</string>
+    <string name="minutos">Minutes</string>
+    <string name="titulo_tortilla">Spanish omelette</string>
+    <string name="paso_num">Step %s</string>
+    <string name="descripcion_del_paso">Description of the step</string>
+    <string name="num_paso_item">Step %s</string>
+    <string name="aceptar">OK</string>
+    <string name="cancelar">Cancel</string>
+    <string name="cantidad">Quantity</string>
+    <string name="nombre">Name</string>
+    <string name="unidad">Unit</string>
+    <string name="ingrediente">Ingredient</string>
+    <string name="nombreMayus">NAME</string>
+    <string name="nombre_de_la_receta">Name of the recipe</string>
+    <string name="lista_de_ingredientes">List of ingredients</string>
+    <string name="producto">Product</string>
+    <string name="pasos_de_elaboracion">Production steps</string>
+    <string name="nombre_del_ingrediente">Ingredient name</string>
+    <string name="boton_de_eliminar">Delete button</string>
 </resources>

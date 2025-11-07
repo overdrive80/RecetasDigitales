@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Recetas Digitales</string>
+    <string name="boton_nueva_receta">Botón nueva receta</string>
+    <string name="logo_app">logo_app</string>
+    <string name="semiesfera_decorativa">semiesfera_decorativa</string>
+    <string name="titulo_receta">Título de la receta</string>
+    <string name="breve_descripcion">Breve descripción de la receta</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="ver">Ver receta</string>
+    <string name="title_activity_ver_receta">VerRecetaActivity</string>
+    <string name="portada">Portada</string>
+    <string name="ingredientes">Ingredientes</string>
+    <string name="pasos">Pasos</string>
+    <string name="descripcion">DESCRIPCIÓN</string>
+    <string name="tiempo_de_elaboracion">TIEMPO DE ELABORACIÓN</string>
+    <string name="receta_tortilla">Clásica receta española a base de patata y huevo.</string>
+    <string name="horas">Horas</string>
+    <string name="minutos">Minutos</string>
+    <string name="titulo_tortilla">Tortilla de patatas</string>
+    <string name="paso_num">Paso %s</string>
+    <string name="descripcion_del_paso">Descripción del paso</string>
+    <string name="num_paso_item">Paso %s</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="nombre">Nombre</string>
+    <string name="unidad">Unidad</string>
+    <string name="ingrediente">Ingrediente</string>
+    <string name="nombreMayus">NOMBRE</string>
+    <string name="nombre_de_la_receta">Nombre de la receta</string>
+    <string name="lista_de_ingredientes">Lista de ingredientes</string>
+    <string name="producto">Producto</string>
+    <string name="pasos_de_elaboracion">Pasos de elaboración</string>
+    <string name="nombre_del_ingrediente">Nombre del ingrediente</string>
+    <string name="boton_de_eliminar">Botón de eliminar</string>
+</resources>

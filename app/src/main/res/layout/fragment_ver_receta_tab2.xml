@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Lista de ingredientes"
+        android:text="@string/lista_de_ingredientes"
         android:textColor="@color/deep_orange_900"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -40,10 +40,11 @@
             android:showDividers="middle"
             android:divider="?android:attr/dividerHorizontal">
 
-            <TableRow android:paddingVertical="8dp">
+            <TableRow android:paddingVertical="8dp"
+                tools:ignore="UselessParent">
 
                 <TextView
-                    android:text="Producto"
+                    android:text="@string/producto"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:gravity="start"
@@ -52,7 +53,7 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:text="Cantidad"
+                    android:text="@string/cantidad"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:gravity="end"

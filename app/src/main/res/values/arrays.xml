@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="unidades">
+        <item>g</item>
+        <item>kg</item>
+        <item>ml</item>
+        <item>l</item>
+        <item>cda</item>
+        <item>cdta</item>
+        <item>unidad</item>
+        <item>pieza</item>
+        <item>pizca</item>
+    </string-array>
+</resources>
