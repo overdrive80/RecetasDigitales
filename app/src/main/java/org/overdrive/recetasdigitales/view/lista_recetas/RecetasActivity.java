@@ -1,5 +1,7 @@
 package org.overdrive.recetasdigitales.view.lista_recetas;
 
+import static org.overdrive.recetasdigitales.Constantes.RECETA_ID;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.overdrive.recetasdigitales.databinding.ActivityRecetasBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.view.crear_receta.CrearRecetaActivity;
+import org.overdrive.recetasdigitales.view.editar_receta.EditarRecetaActivity;
 import org.overdrive.recetasdigitales.view.ver_receta.VerRecetaActivity;
 import org.overdrive.recetasdigitales.viewmodel.RecetasViewModel;
 
@@ -103,15 +106,16 @@ public class RecetasActivity extends AppCompatActivity {
             public void onVerReceta(Receta receta) {
                 //Abrir activity para ver receta pasandole el id
                 Intent intent = new Intent(RecetasActivity.this, VerRecetaActivity.class);
-                intent.putExtra("RECETA_ID", receta.getIdReceta());
+                intent.putExtra(RECETA_ID, receta.getIdReceta());
                 startActivity(intent);
             }
 
             @Override
             public void onModificarReceta(Receta receta) {
                 //Abrir activity para modificar receta
-
-                Toast.makeText(RecetasActivity.this, "Modificar receta " + receta.getTitulo(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RecetasActivity.this, EditarRecetaActivity.class);
+                intent.putExtra(RECETA_ID, receta.getIdReceta());
+                startActivity(intent);
 
             }
 

@@ -3,16 +3,20 @@ package org.overdrive.recetasdigitales.viewmodel;
 import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import org.overdrive.recetasdigitales.model.RecetarioRepositorio;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
+import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -126,5 +130,26 @@ public class CrearRecetaViewModel extends AndroidViewModel {
             recetaGuardada.postValue(true);
         });
     }
+
+    // Cuando se modifica una receta
+    public void cargarRecetaParaEditar(long recetaId, @NonNull LifecycleOwner owner) {
+
+        repo.getRecetaCompleta(recetaId).observe(owner, recetaCompleta -> {
+            if (recetaCompleta == null) return;
+
+            // Muy importante: crear nuevos objetos para que LiveData emita
+            receta.setValue(recetaCompleta.receta);
+
+            ingredientes.setValue(new ArrayList<>(recetaCompleta.ingredientes));
+            pasos.setValue(new ArrayList<>(recetaCompleta.pasos));
+
+            if (recetaCompleta.receta.getImagenUri() != null) {
+                imagenUriTemporal.setValue(Uri.parse(recetaCompleta.receta.getImagenUri()));
+            }
+        });
+    }
+
+
+
 }
 

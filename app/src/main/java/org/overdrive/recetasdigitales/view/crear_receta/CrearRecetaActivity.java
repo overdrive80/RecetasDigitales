@@ -16,7 +16,7 @@ import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 public class CrearRecetaActivity extends AppCompatActivity {
     private ActivityCrearRecetaBinding binding;
-    private CrearRecetaViewModel viewModel;
+    protected CrearRecetaViewModel viewModel;
     private NavController navController;
 
 
@@ -56,7 +56,7 @@ public class CrearRecetaActivity extends AppCompatActivity {
                 .get(CrearRecetaViewModel.class);
     }
 
-    private void configurarToolbar() {
+    protected void configurarToolbar() {
         setSupportActionBar(binding.appBarLayout.toolbar);
     }
 
