@@ -2,6 +2,7 @@ package org.overdrive.recetasdigitales.view.crear_receta;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -17,7 +18,7 @@ import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 public class CrearRecetaActivity extends AppCompatActivity {
     private ActivityCrearRecetaBinding binding;
     protected CrearRecetaViewModel viewModel;
-    private NavController navController;
+    protected NavController navController;
 
 
     @Override
@@ -66,13 +67,13 @@ public class CrearRecetaActivity extends AppCompatActivity {
 
         if (destination != null && destination.getId() == R.id.portadaFragment) {
             // Si estamos en la portada mostrar dialogo
-//            new AlertDialog.Builder(this)
-//                    .setTitle("Cancelar creación")
-//                    .setMessage("¿Deseas salir del asistente?")
-//                    .setNegativeButton("No", null)
-//                    .setPositiveButton("Si", (dialog, which) -> finish())
-//                    .show();
-            finish();
+            new AlertDialog.Builder(this)
+                    .setTitle("Cancelar creación de receta")
+                    .setMessage("¿Deseas salir del asistente?")
+                    .setNegativeButton("No", null)
+                    .setPositiveButton("Si", (dialog, which) -> finish())
+                    .show();
+
             return true; //Evitamos que se siga propagando el evento
         }
 

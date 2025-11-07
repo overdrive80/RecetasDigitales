@@ -29,7 +29,7 @@ public interface RecetaDAO {
 
     // Obtener solo receta
     @Query("SELECT * FROM recetas WHERE idReceta = :id")
-    LiveData<Receta> getReceta(long id);
+    Receta getReceta(long id);
 
     // Obtener todas recetas
     @Query("SELECT * FROM recetas")
@@ -47,4 +47,7 @@ public interface RecetaDAO {
 
     @Delete
     void borrarReceta(Receta receta);
+
+    @Query("SELECT imagen FROM RECETAS WHERE idReceta = :id")
+    String getUriImagen(long id);
 }

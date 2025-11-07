@@ -32,6 +32,7 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     private final MutableLiveData<Integer> posicionIngredienteEditando = new MutableLiveData<>(-1);
     private final MutableLiveData<Integer> posicionPasoEditando = new MutableLiveData<>(-1);
+    private Long idRecetaEditando = null;
 
     public CrearRecetaViewModel(@NonNull Application application) {
         super(application);
@@ -125,17 +126,27 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         List<Paso> ps = pasos.getValue();
         Uri uri = imagenUriTemporal.getValue();
 
-        repo.insertarRecetaCompleta(r, ing, ps, uri, () -> {
-            // Esto se ejecuta cuando el repo finaliza en background
-            recetaGuardada.postValue(true);
-        });
+        if (idRecetaEditando == null) {
+            // Caso creación normal
+            repo.insertarRecetaCompleta(r, ing, ps, uri, () -> {
+                recetaGuardada.postValue(true);
+            });
+        } else {
+            // Caso edición
+            repo.reemplazarRecetaCompleta(idRecetaEditando, r, ing, ps, uri, () -> {
+                recetaGuardada.postValue(true);
+            });
+        }
     }
+
 
     // Cuando se modifica una receta
     public void cargarRecetaParaEditar(long recetaId, @NonNull LifecycleOwner owner) {
 
         repo.getRecetaCompleta(recetaId).observe(owner, recetaCompleta -> {
             if (recetaCompleta == null) return;
+
+            idRecetaEditando = recetaId;
 
             // Muy importante: crear nuevos objetos para que LiveData emita
             receta.setValue(recetaCompleta.receta);
@@ -148,8 +159,6 @@ public class CrearRecetaViewModel extends AndroidViewModel {
             }
         });
     }
-
-
 
 }
 

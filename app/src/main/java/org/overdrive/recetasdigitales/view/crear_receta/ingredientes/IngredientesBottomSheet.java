@@ -105,7 +105,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
                     return;
                 }
 
-                Toast.makeText(requireContext(), "Ingrediente agregado", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(requireContext(), "Ingrediente agregado", Toast.LENGTH_SHORT).show();
 
                 if (esEdicion) {
                     actualizarIngrediente();

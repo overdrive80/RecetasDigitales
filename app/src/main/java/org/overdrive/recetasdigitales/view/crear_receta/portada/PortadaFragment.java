@@ -189,11 +189,11 @@ public class PortadaFragment extends Fragment {
                 if (menuItem.getItemId() == R.id.action_siguiente) {
 
                     // Validar nombre obligatorio
-//                    if (binding.etNombreReceta.getText().toString().trim().isEmpty()) {
-//                        binding.etNombreReceta.setError("El nombre de la receta es obligatorio");
-//                        binding.etNombreReceta.requestFocus();
-//                        return true;
-//                    }
+                    if (binding.etNombreReceta.getText().toString().trim().isEmpty()) {
+                        binding.etNombreReceta.setError("El nombre de la receta es obligatorio");
+                        binding.etNombreReceta.requestFocus();
+                        return true;
+                    }
 
                     if (contenidoCorrecto()) {
                         setRecetaViewModel();

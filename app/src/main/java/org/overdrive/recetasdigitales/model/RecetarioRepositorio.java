@@ -57,7 +57,13 @@ public class RecetarioRepositorio {
 
     public void borrarReceta(Receta receta) {
         Recetario.servicioExecutor.execute(
-                () -> mRecetaDAO.borrarReceta(receta)
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        eliminarImagen(receta.getImagenUri());
+                        mRecetaDAO.borrarReceta(receta);
+                    }
+                }
         );
     }
 
@@ -69,49 +75,75 @@ public class RecetarioRepositorio {
         return mRecetaDAO.insertarReceta(receta);
     }
 
+    private void persistirRecetaCompleta(Receta receta,
+                                         List<Ingrediente> ingredientes,
+                                         List<Paso> pasos,
+                                         Uri imagenUriTemporal) {
+
+        String rutaFinalImagen = copiarImagenAlmacenamientoInterno(imagenUriTemporal);
+        receta.setImagenUri(rutaFinalImagen);
+
+        long recetaId = mRecetaDAO.insertarReceta(receta);
+        receta.setIdReceta(recetaId);
+
+        for (Ingrediente ing : ingredientes) ing.setIdReceta(recetaId);
+        mIngredienteDAO.insertarIngredientes(ingredientes);
+
+        for (int i = 0; i < pasos.size(); i++) {
+            Paso paso = pasos.get(i);
+            paso.setIdReceta(recetaId);
+            paso.setOrden(i + 1);
+        }
+        mPasoDAO.insertarPasos(pasos);
+    }
+
     public void insertarRecetaCompleta(Receta receta,
                                        List<Ingrediente> ingredientes,
                                        List<Paso> pasos,
                                        Uri imagenUriTemporal,
-                                       Runnable onFinish) {
-
-        // Ejecutamos en un hilo secundario
+                                       Runnable onFinish){
         Recetario.servicioExecutor.execute(() -> {
-            // Empleamos un metodo para ejecutar las acciones en una transacción cancelable
-            mdb.runInTransaction(() -> {
+            mdb.runInTransaction(() -> persistirRecetaCompleta(receta, ingredientes, pasos, imagenUriTemporal));
 
-                // Guardar imagen
-                String rutaFinalImagen = copiarImagenAlmacenamientoInterno(imagenUriTemporal);
-                receta.setImagenUri(rutaFinalImagen);
-
-                // Insertar receta
-                long recetaId = mRecetaDAO.insertarReceta(receta);
-                receta.setIdReceta(recetaId);
-
-                // Ingredientes
-                for (Ingrediente ing : ingredientes) {
-                    ing.setIdReceta(recetaId);
-                }
-                mIngredienteDAO.insertarIngredientes(ingredientes);
-
-                // Pasos
-                for (int i = 0; i < pasos.size(); i++){
-                    Paso paso = pasos.get(i);
-                    paso.setIdReceta(recetaId);
-                    paso.setOrden(i + 1);
-                }
-
-                mPasoDAO.insertarPasos(pasos);
-            });
-
-            // Notificar cuando termine
             if (onFinish != null) {
-                //volvemos al hilo principal pero lo encolamos
                 new Handler(Looper.getMainLooper()).post(onFinish);
             }
         });
     }
 
+    public void reemplazarRecetaCompleta(long idOriginal,
+                                         Receta receta,
+                                         List<Ingrediente> ingredientesNuevos,
+                                         List<Paso> pasosNuevos,
+                                         Uri imagenUriTemporal,
+                                         Runnable onFinish){
+        Recetario.servicioExecutor.execute(() -> {
+            mdb.runInTransaction(() -> {
+
+                //1. Sacamos receta original solo para conocer su URI real
+                Receta recetaOriginal = mRecetaDAO.getReceta(idOriginal);
+                String imagenOriginal = recetaOriginal.getImagenUri();
+
+                //2. Borrar la imagen solo si el usuario realmente eligió una nueva
+                if (imagenUriTemporal != null && imagenOriginal != null) {
+                    eliminarImagen(imagenOriginal);
+                }
+
+                //3. Borramos la receta completa
+                mRecetaDAO.borrarRecetaPorId(idOriginal);
+
+                //4. Insertamos la nueva con su imagen correspondiente
+                persistirRecetaCompleta(receta, ingredientesNuevos, pasosNuevos, imagenUriTemporal);
+
+            });
+
+            if (onFinish != null) {
+                new Handler(Looper.getMainLooper()).post(onFinish);
+            }
+        });
+    }
+
+    //Gestion de imagenes
     private String copiarImagenAlmacenamientoInterno(Uri uriTemp) {
         if (uriTemp == null) return null;
 
@@ -151,13 +183,18 @@ public class RecetarioRepositorio {
         }
     }
 
-    // Metodo para limpiar imágenes si falla la transacción
+    // Metodo para eliminar imagenes de recetas modificadas
     public void eliminarImagen(String imagenPath) {
-        if (imagenPath != null) {
-            File imagenFile = new File(imagenPath);
-            if (imagenFile.exists()) {
-                imagenFile.delete();
-            }
+        if (imagenPath == null) return;
+
+        // Eliminamos prefijo file:// para que File encuentre el archivo
+        if (imagenPath.startsWith("file://")) {
+            imagenPath = imagenPath.substring("file://".length());
+        }
+
+        File imagenFile = new File(imagenPath);
+        if (imagenFile.exists()) {
+            imagenFile.delete();
         }
     }
 }

@@ -93,11 +93,22 @@ public class VerRecetaTab2Fragment extends Fragment {
             FilaVerIngredienteBinding filaBinding = FilaVerIngredienteBinding.inflate(inflater, binding.tablaIngredientes, false);
 
             // Configurar los textos y agregarlos
+            Double cantidad = ingrediente.getCantidad();
+            String unidad = ingrediente.getUnidad();
             String nombre = ingrediente.getNombre();
-            String cantidad = ingrediente.getCantidad() + " " + ingrediente.getUnidad();
+
+            if (cantidad != null) {
+                String cantidadFormateada = (cantidad % 1 == 0)
+                        ? String.valueOf(cantidad.intValue())
+                        : String.valueOf(cantidad);
+
+                filaBinding.tvCantidadItemTabla.setText(String.format("%s %s", cantidadFormateada, unidad));
+            } else {
+                filaBinding.tvCantidadItemTabla.setText(unidad);
+            }
 
             filaBinding.tvIngredienteItemTabla.setText(nombre);
-            filaBinding.tvCantidadItemTabla.setText(cantidad);
+
 
             // Añadir la fila a la tabla
             binding.tablaIngredientes.addView(filaBinding.getRoot());

@@ -101,7 +101,7 @@ public class PasosBottomSheet extends BottomSheetDialogFragment {
                     return;
                 }
 
-                Toast.makeText(requireContext(), "Paso agregado", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(requireContext(), "Paso agregado", Toast.LENGTH_SHORT).show();
 
                 if (esEdicion) {
                     actualizarPaso();

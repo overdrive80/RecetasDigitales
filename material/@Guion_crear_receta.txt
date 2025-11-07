@@ -1,0 +1,24 @@
+* Portada
+
+	Paella de marisco
+	Plato típico levantino a base de arroz y marisco
+	1 20
+
+* Ingredientes
+
+	Arroz 400 g
+	Caldo 1230 ml
+	Mejillones 500 g
+	Cigalas 4 uds
+	Aceite 200 ml
+	Sal Al gusto
+	Tomate natural triturado 500 g
+
+* Pasos
+   1. A fuego medio, añadimos el aceite y el tomate triturado a la paellera.
+   2. Añadimos los mejillones, cuando se abran los retiramos.
+   3. Con el tomate reducido, añadimos el caldo y cuando empiece a hervir añadimos el arroz por toda la paellera.
+   4. Añadimos sal al gusto.
+   5. Casi al final de la cocción, añadimos las cigalas y los mejillones para que evitar sobrecocción.
+   6. En los dos ultimos minutos, aumentamos el fuego nivel medio para obtener el socarrat.
+   
