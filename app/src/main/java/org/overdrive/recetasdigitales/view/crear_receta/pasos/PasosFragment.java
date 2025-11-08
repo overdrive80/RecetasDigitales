@@ -25,7 +25,6 @@ import org.overdrive.recetasdigitales.databinding.FragmentPasosBinding;
 import org.overdrive.recetasdigitales.viewmodel.CrearRecetaViewModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PasosFragment extends Fragment {
     private FragmentPasosBinding binding;

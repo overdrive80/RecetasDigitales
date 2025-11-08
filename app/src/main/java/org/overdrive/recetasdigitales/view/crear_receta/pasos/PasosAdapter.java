@@ -1,6 +1,5 @@
 package org.overdrive.recetasdigitales.view.crear_receta.pasos;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.overdrive.recetasdigitales.databinding.RecyclerPasosItemBinding;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 
-import java.util.Collections;
 import java.util.List;
 
 public class PasosAdapter extends RecyclerView.Adapter<PasosViewHolder> {
@@ -53,6 +51,7 @@ public class PasosAdapter extends RecyclerView.Adapter<PasosViewHolder> {
 
     public interface OnClickPasoListener {
         void onClickPaso(int posicion);
+
         void onEliminarPaso(int posicion);
     }
 

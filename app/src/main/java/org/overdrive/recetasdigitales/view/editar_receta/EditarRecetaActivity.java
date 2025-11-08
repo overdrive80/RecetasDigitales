@@ -5,7 +5,6 @@ import static org.overdrive.recetasdigitales.Constantes.RECETA_ID;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavDestination;
 
 import org.overdrive.recetasdigitales.R;

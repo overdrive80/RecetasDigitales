@@ -2,7 +2,6 @@ package org.overdrive.recetasdigitales.view.ver_receta;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +23,6 @@ import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 import org.overdrive.recetasdigitales.tools.GestorTiempo;
 import org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel;
-
-import java.io.File;
 
 public class VerRecetaTab1Fragment extends Fragment {
 

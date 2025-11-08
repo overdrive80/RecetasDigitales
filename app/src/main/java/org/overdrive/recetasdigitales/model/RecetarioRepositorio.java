@@ -101,7 +101,7 @@ public class RecetarioRepositorio {
                                        List<Ingrediente> ingredientes,
                                        List<Paso> pasos,
                                        Uri imagenUriTemporal,
-                                       Runnable onFinish){
+                                       Runnable onFinish) {
         Recetario.servicioExecutor.execute(() -> {
             mdb.runInTransaction(() -> persistirRecetaCompleta(receta, ingredientes, pasos, imagenUriTemporal));
 
@@ -116,7 +116,7 @@ public class RecetarioRepositorio {
                                          List<Ingrediente> ingredientesNuevos,
                                          List<Paso> pasosNuevos,
                                          Uri imagenUriTemporal,
-                                         Runnable onFinish){
+                                         Runnable onFinish) {
         Recetario.servicioExecutor.execute(() -> {
             mdb.runInTransaction(() -> {
 

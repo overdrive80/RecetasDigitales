@@ -1,7 +1,5 @@
 package org.overdrive.recetasdigitales.view.crear_receta.pasos;
 
-import android.graphics.Color;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,9 +19,16 @@ public class PasosItemTouchHelper extends ItemTouchHelper.Callback {
     }
 
     // Activa el movimiento con pulsacion larga
-    @Override public boolean isLongPressDragEnabled() { return true; }
+    @Override
+    public boolean isLongPressDragEnabled() {
+        return true;
+    }
+
     // Desactiva el desplazamiento lateral
-    @Override public boolean isItemViewSwipeEnabled() { return false; }
+    @Override
+    public boolean isItemViewSwipeEnabled() {
+        return false;
+    }
 
     @Override
     public int getMovementFlags(@NonNull RecyclerView rv, @NonNull RecyclerView.ViewHolder vh) {
@@ -54,7 +59,9 @@ public class PasosItemTouchHelper extends ItemTouchHelper.Callback {
         return true;
     }
 
-    @Override public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) { }
+    @Override
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+    }
 
     @Override
     public void clearView(@NonNull RecyclerView rv, @NonNull RecyclerView.ViewHolder vh) {

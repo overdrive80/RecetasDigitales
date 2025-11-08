@@ -1,25 +1,20 @@
 package org.overdrive.recetasdigitales.viewmodel;
 
 import android.app.Application;
-import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
 import org.overdrive.recetasdigitales.model.RecetarioRepositorio;
 import org.overdrive.recetasdigitales.model.entidades.Ingrediente;
 import org.overdrive.recetasdigitales.model.entidades.Paso;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
-import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CrearRecetaViewModel extends AndroidViewModel {
@@ -40,14 +35,26 @@ public class CrearRecetaViewModel extends AndroidViewModel {
     }
 
     // RECETA
-    public void setReceta(Receta receta) { this.receta.setValue(receta); }
-    public MutableLiveData<Receta> getReceta() { return receta; }
+    public void setReceta(Receta receta) {
+        this.receta.setValue(receta);
+    }
 
-    public void setImagenUri(Uri uri) { imagenUriTemporal.setValue(uri); }
-    public MutableLiveData<Uri> getImagenUri() { return imagenUriTemporal; }
+    public MutableLiveData<Receta> getReceta() {
+        return receta;
+    }
+
+    public void setImagenUri(Uri uri) {
+        imagenUriTemporal.setValue(uri);
+    }
+
+    public MutableLiveData<Uri> getImagenUri() {
+        return imagenUriTemporal;
+    }
 
     // INGREDIENTES
-    public MutableLiveData<List<Ingrediente>> getIngredientes() { return ingredientes; }
+    public MutableLiveData<List<Ingrediente>> getIngredientes() {
+        return ingredientes;
+    }
 
     public void setIngrediente(Ingrediente ingrediente) {
         //Creamos siempre una lista nueva. Eso asegura que el liveData notifique cambios.
@@ -75,11 +82,18 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         ingredientes.setValue(nueva);
     }
 
-    public void setPosicionIngredienteEditando(int posicion) { posicionIngredienteEditando.setValue(posicion); }
-    public MutableLiveData<Integer> getPosicionIngredienteEditando() { return posicionIngredienteEditando; }
+    public void setPosicionIngredienteEditando(int posicion) {
+        posicionIngredienteEditando.setValue(posicion);
+    }
+
+    public MutableLiveData<Integer> getPosicionIngredienteEditando() {
+        return posicionIngredienteEditando;
+    }
 
     // PASOS
-    public MutableLiveData<List<Paso>> getPasos() { return pasos; }
+    public MutableLiveData<List<Paso>> getPasos() {
+        return pasos;
+    }
 
     public void setPaso(Paso paso) {
         List<Paso> lista = new ArrayList<>(pasos.getValue());
@@ -106,8 +120,13 @@ public class CrearRecetaViewModel extends AndroidViewModel {
         pasos.setValue(nueva);
     }
 
-    public void setPosicionPasoEditando(int posicion) { posicionPasoEditando.setValue(posicion); }
-    public MutableLiveData<Integer> getPosicionPasoEditando() { return posicionPasoEditando; }
+    public void setPosicionPasoEditando(int posicion) {
+        posicionPasoEditando.setValue(posicion);
+    }
+
+    public MutableLiveData<Integer> getPosicionPasoEditando() {
+        return posicionPasoEditando;
+    }
 
     public void moverPaso(int from, int to) {
         List<Paso> lista = new ArrayList<>(pasos.getValue());
@@ -118,7 +137,10 @@ public class CrearRecetaViewModel extends AndroidViewModel {
 
     // Gestion de persistencia //
     private final MutableLiveData<Boolean> recetaGuardada = new MutableLiveData<>();
-    public LiveData<Boolean> getRecetaGuardada() { return recetaGuardada; }
+
+    public LiveData<Boolean> getRecetaGuardada() {
+        return recetaGuardada;
+    }
 
     public void guardarRecetaCompleta() {
         Receta r = receta.getValue();

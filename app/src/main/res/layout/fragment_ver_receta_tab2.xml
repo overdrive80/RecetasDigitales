@@ -40,7 +40,8 @@
             android:showDividers="middle"
             android:divider="?android:attr/dividerHorizontal">
 
-            <TableRow android:paddingVertical="8dp"
+            <TableRow
+                android:paddingVertical="8dp"
                 tools:ignore="UselessParent">
 
                 <TextView
