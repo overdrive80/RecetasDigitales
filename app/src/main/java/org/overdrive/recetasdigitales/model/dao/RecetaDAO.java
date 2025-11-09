@@ -13,7 +13,6 @@ import org.overdrive.recetasdigitales.model.relaciones.RecetaCompleta;
 
 import java.util.List;
 
-// En tu RecetaDAO
 @Dao
 public interface RecetaDAO {
 
@@ -36,7 +35,9 @@ public interface RecetaDAO {
     LiveData<List<Receta>> getTodasRecetas();
 
     // Obtener recetas por titulo
-    @Query("SELECT * FROM recetas WHERE titulo LIKE '%' || :texto || '%' ORDER BY titulo ASC")
+    @Query("SELECT * FROM recetas " +
+            "WHERE titulo LIKE '%' || :texto || '%' " +
+            "ORDER BY titulo ASC")
     LiveData<List<Receta>> buscarPortitulo(String texto);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

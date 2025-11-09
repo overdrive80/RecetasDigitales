@@ -12,14 +12,13 @@ import org.overdrive.recetasdigitales.model.entidades.Receta;
 import java.util.List;
 
 /**
- * Esta clase recibe los datos y los pasa al ViewHolder
+ * Adaptador encargado de proporcionar los datos al RecyclerView.
+ * Recibe la lista actual y notifica el click mediante un listener.
  */
 public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
-    private List<Receta> recetas;
-    private static final String TAG = "RecetasAdapter";
-    private OnClickItemListener listener;
-    private RecetasCallback callback;
 
+    private List<Receta> recetas;
+    private final OnClickItemListener listener;
 
     public RecetasAdapter(List<Receta> recetas, OnClickItemListener listener) {
         this.recetas = recetas;
@@ -29,56 +28,36 @@ public class RecetasAdapter extends RecyclerView.Adapter<RecetasViewHolder> {
     @NonNull
     @Override
     public RecetasViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //El LayoutInflater nos permite convertir el archivo XML del layout
-        // en objetos View que Android puede mostrar
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        RecyclerRecetasItemBinding binding =
+                RecyclerRecetasItemBinding.inflate(inflater, parent, false);
 
-        //El metodo estático inflate() del binding nos permite construir la vista del ítem a partir del XML.
-        RecyclerRecetasItemBinding binding = RecyclerRecetasItemBinding.inflate(inflater, parent, false);
-
-        return new RecetasViewHolder(binding, getCallback());
-    }
-
-    private RecetasCallback getCallback() {
-        return new RecetasCallback() {
-
-            @Override
-            public void onClicItem(int position) {
-                listener.onClickReceta(recetas.get(position));
-            }
-        };
+        return new RecetasViewHolder(binding, listener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecetasViewHolder holder, int position) {
-        // Aqui pasamos cada objeto al ViewHolder
         Receta receta = recetas.get(position);
-        holder.bind(receta);
-
+        holder.bind(receta, listener);
     }
 
     @Override
     public int getItemCount() {
-        return recetas == null ? 0 : recetas.size();
+        return recetas != null ? recetas.size() : 0;
     }
 
     /**
-     * Actualizar datos del adapter y nofiticar cambios al recyclerView.
-     * <p>
-     * Permite optimizar el uso del recyclerview.
-     *
-     * @param nuevasRecetas Lista de nuevas recetas
+     * Actualiza los datos del adaptador y refresca la interfaz.
      */
     public void actualizarDatos(List<Receta> nuevasRecetas) {
         this.recetas = nuevasRecetas;
         notifyDataSetChanged();
     }
 
-    public interface RecetasCallback {
-        void onClicItem(int position);
-    }
-
+    /**
+     * Listener usado para propagar el evento de click al Fragment/Activity.
+     */
     public interface OnClickItemListener {
-        void onClickReceta(Receta receta);
+        void onClickReceta(int posicion);
     }
 }

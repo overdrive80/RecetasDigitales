@@ -15,31 +15,28 @@ import org.overdrive.recetasdigitales.model.entidades.Receta;
  * Responsabilidad: vincular datos a vistas
  */
 public class RecetasViewHolder extends RecyclerView.ViewHolder {
-    private RecyclerRecetasItemBinding binding;
 
-    public RecetasViewHolder(@NonNull RecyclerRecetasItemBinding binding, RecetasAdapter.RecetasCallback callback) {
+    private final RecyclerRecetasItemBinding binding;
+
+    public RecetasViewHolder(@NonNull RecyclerRecetasItemBinding binding, RecetasAdapter.OnClickItemListener listener) {
         super(binding.getRoot());
         this.binding = binding;
 
-        configurarListeners(callback);
-
-    }
-
-    private void configurarListeners(RecetasAdapter.RecetasCallback callback) {
-        // Listener del item completo
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int posicion = getBindingAdapterPosition();
-                if (posicion != RecyclerView.NO_POSITION) {
-                    callback.onClicItem(posicion);
+        // Listener único, creado una sola vez
+        binding.getRoot().setOnClickListener(v -> {
+            if (listener != null) {
+                int position = getBindingAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onClickReceta(position);
                 }
             }
         });
     }
 
-    // Aqui se vinculan los datos con las vistas
-    public void bind(Receta receta) {
+    /**
+     * Vincula la receta a las vistas y gestiona el click.
+     */
+    public void bind(Receta receta, RecetasAdapter.OnClickItemListener listener) {
         binding.tvTituloReceta.setText(receta.getTitulo());
         binding.tvDescripcion.setText(receta.getDescripcion());
     }

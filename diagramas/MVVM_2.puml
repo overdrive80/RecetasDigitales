@@ -1,0 +1,62 @@
+@startuml
+
+Title Diagrama de componentes MVVM
+
+skinparam Rectangle {
+  Shadowing false
+  RoundCorner 25
+}
+
+'Direccion del dibujo. left to right direction top to bottom direction
+left to right direction
+'Forzar lineas rectas
+skinparam linetype polyline
+skinparam nodesep 200
+
+
+<style>
+    rectangle {
+        LineThickness 2
+        FontColor #white
+        MinimumWidth 120
+        MinimumHeight 80
+        FontSize 20
+        HorizontalAlignment center
+
+            .transparente {
+                BackGroundColor #transparent
+                LineColor #transparent
+                FontColor #transparent
+            }
+            .viewmodel {
+              BackGroundColor #ffa001
+              LineColor #fab747
+            }
+            .view {
+              BackGroundColor #019ce3
+              LineColor #3eaee1
+            }
+            .model {
+             BackGroundColor #6fc539
+              LineColor #91d069
+
+            }
+    }
+
+
+</style>
+
+hide stereotype
+hide <<transparente>> stereotype
+rectangle "\nView\n" as VIEW <<view>>
+rectangle "\nViewModel\n" as VM <<viewmodel>>
+rectangle "\nModel\n" as MODEL <<model>>
+
+
+VIEW --> VM : "observa"
+VM --> VIEW : "notifica"
+
+VM --> MODEL : "consulta"
+MODEL --> VM : "retorna"
+
+@enduml

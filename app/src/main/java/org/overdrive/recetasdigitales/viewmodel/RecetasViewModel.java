@@ -42,11 +42,6 @@ public class RecetasViewModel extends AndroidViewModel {
 
     }
 
-    public LiveData<List<Receta>> getTodasRecetas() {
-        return repo.getTodasRecetas();
-    }
-
-
     public void setFiltroBusqueda(String texto) {
         filtroBusqueda.setValue(texto);
     }

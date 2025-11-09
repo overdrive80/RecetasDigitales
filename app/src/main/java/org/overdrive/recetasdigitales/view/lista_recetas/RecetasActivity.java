@@ -8,7 +8,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -20,6 +22,7 @@ import org.overdrive.recetasdigitales.view.ver_receta.VerRecetaActivity;
 import org.overdrive.recetasdigitales.viewmodel.RecetasViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecetasActivity extends AppCompatActivity {
     private RecetasViewModel viewModel;
@@ -59,11 +62,6 @@ public class RecetasActivity extends AppCompatActivity {
     }
 
     private void configurarObservadores() {
-        // Observamos cambios en la lista de recetas
-        viewModel.getTodasRecetas().observe(this, recetas -> {
-            // Evitamos crear un nuevo adapter por cada cambio en Room
-            adapter.actualizarDatos(recetas);
-        });
 
         // Observamos los cambios al filtrar recetas
         viewModel.recetasFiltradas.observe(this, recetas -> {
@@ -87,13 +85,21 @@ public class RecetasActivity extends AppCompatActivity {
     private RecetasAdapter.OnClickItemListener getOnClickRecetaListener() {
         return new RecetasAdapter.OnClickItemListener() {
             @Override
-            public void onClickReceta(Receta receta) {
-                viewModel.setRecetaSeleccionada(receta);
+            public void onClickReceta(int posicion) {
+                // Obtenemos la lista con los datos filtrados
+                List<Receta> listaActual = viewModel.recetasFiltradas.getValue();
 
-                // Android recomienda no crear constructores con parametros en Fragments
-                RecetasBottomSheet bottomSheet = new RecetasBottomSheet();
-                bottomSheet.setOnClickOpcionListener(getOnClickOpcionListener());
-                bottomSheet.show(getSupportFragmentManager(), RecetasBottomSheet.TAG);
+                // Verificamos que no sea nula
+                if (listaActual != null && posicion != RecyclerView.NO_POSITION) {
+
+                    Receta receta = listaActual.get(posicion);
+                    viewModel.setRecetaSeleccionada(receta);
+
+                    // Android recomienda no crear constructores con parametros en Fragments
+                    RecetasBottomSheet bottomSheet = new RecetasBottomSheet();
+                    bottomSheet.setOnClickOpcionListener(getOnClickOpcionListener());
+                    bottomSheet.show(getSupportFragmentManager(), RecetasBottomSheet.TAG);
+                }
             }
         };
     }
