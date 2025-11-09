@@ -87,6 +87,8 @@ public class RecetasActivity extends AppCompatActivity {
         return new RecetasAdapter.OnClickItemListener() {
             @Override
             public void onClickReceta(int posicion) {
+                ocultarTeclado();
+
                 // Obtenemos la lista con los datos filtrados
                 List<Receta> listaActual = viewModel.recetasFiltradas.getValue();
 
@@ -95,8 +97,6 @@ public class RecetasActivity extends AppCompatActivity {
 
                     Receta receta = listaActual.get(posicion);
                     viewModel.setRecetaSeleccionada(receta);
-
-                    ocultarTeclado();
 
                     // Android recomienda no crear constructores con parametros en Fragments
                     RecetasBottomSheet bottomSheet = new RecetasBottomSheet();

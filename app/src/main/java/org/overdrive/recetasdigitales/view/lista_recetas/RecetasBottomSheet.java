@@ -23,14 +23,14 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
     private RecetasViewModel viewModel;
     private Receta recetaSeleccionada;
 
-
     //La documentación de Android prohíbe constructores con parámetros en fragments
     //Al recrear el fragmento se rompe el ciclo de vida del fragment
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
+        // Obtenemos instancia del viewModel compartido
+        inicializarViewModel();
     }
 
     @Nullable
@@ -43,10 +43,23 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
         //Obtenemos la vista raiz del layout para el BottomSheet
         View view = binding.getRoot();
 
-        // Obtenemos instancia del viewModel compartido
-        viewModel = new ViewModelProvider(requireActivity()).get(RecetasViewModel.class);
-        recetaSeleccionada = viewModel.getRecetaSeleccionada().getValue();
+        return view;
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //Obtenemos la receta seleccionada del ViewModel compartido
+        recetaSeleccionada = viewModel.getRecetaSeleccionada().getValue();
+        configurarListeners();
+    }
+
+    private void inicializarViewModel() {
+        viewModel = new ViewModelProvider(requireActivity()).get(RecetasViewModel.class);
+    }
+
+    private void configurarListeners() {
         // Esta opcion abre una nueva actividad para mostrar la receta
         binding.opcionVerReceta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,9 +93,6 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
                 dismiss();
             }
         });
-
-
-        return view;
     }
 
     public void setOnClickOpcionListener(OnClickOpcionListener listener) {

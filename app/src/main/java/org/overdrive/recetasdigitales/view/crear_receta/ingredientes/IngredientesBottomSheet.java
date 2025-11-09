@@ -42,10 +42,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         //Obtenemos la vista del layout del bottomSheet mediante el inflater del metodo
         binding = BottomsheetNuevoIngredienteBinding.inflate(inflater, container, false);
 
-        //Obtenemos la vista raiz del layout para el BottomSheet
-        View view = binding.getRoot();
-
-        return view;
+        return binding.getRoot();
     }
 
     @Override
