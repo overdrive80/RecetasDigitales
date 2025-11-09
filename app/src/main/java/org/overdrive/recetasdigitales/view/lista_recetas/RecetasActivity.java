@@ -5,6 +5,7 @@ import static org.overdrive.recetasdigitales.Constantes.RECETA_ID;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -95,6 +96,8 @@ public class RecetasActivity extends AppCompatActivity {
                     Receta receta = listaActual.get(posicion);
                     viewModel.setRecetaSeleccionada(receta);
 
+                    ocultarTeclado();
+
                     // Android recomienda no crear constructores con parametros en Fragments
                     RecetasBottomSheet bottomSheet = new RecetasBottomSheet();
                     bottomSheet.setOnClickOpcionListener(getOnClickOpcionListener());
@@ -146,4 +149,14 @@ public class RecetasActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void ocultarTeclado() {
+        View view = getCurrentFocus();
+        if (view != null) {
+            view.clearFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
 }

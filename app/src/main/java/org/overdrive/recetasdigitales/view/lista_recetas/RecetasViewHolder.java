@@ -24,12 +24,13 @@ public class RecetasViewHolder extends RecyclerView.ViewHolder {
 
         // Listener único, creado una sola vez
         binding.getRoot().setOnClickListener(v -> {
-            if (listener != null) {
-                int position = getBindingAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    listener.onClickReceta(position);
-                }
+            int position = getBindingAdapterPosition();
+
+            if (listener == null || position == RecyclerView.NO_POSITION) {
+                return;
             }
+
+            listener.onClickReceta(position);
         });
     }
 
