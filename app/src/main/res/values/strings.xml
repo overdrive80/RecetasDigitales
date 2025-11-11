@@ -34,4 +34,6 @@
     <string name="pasos_de_elaboracion">Production steps</string>
     <string name="nombre_del_ingrediente">Ingredient name</string>
     <string name="boton_de_eliminar">Delete button</string>
+    <string name="siguiente">Next</string>
+    <string name="guardar">Save</string>
 </resources>

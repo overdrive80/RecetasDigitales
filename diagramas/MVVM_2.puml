@@ -1,6 +1,6 @@
 @startuml
 
-Title Diagrama de componentes MVVM
+'Title Diagrama de componentes MVVM
 
 skinparam Rectangle {
   Shadowing false

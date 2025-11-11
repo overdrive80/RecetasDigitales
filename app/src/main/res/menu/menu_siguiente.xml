@@ -5,8 +5,8 @@
         android:id="@+id/action_siguiente"
         android:enabled="true"
         android:icon="@drawable/outline_navigate_next_36"
-        android:title="Siguiente"
+        android:title="@string/siguiente"
         android:visible="true"
         app:iconTint="?attr/colorOnPrimary"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="always|withText" />
 </menu>

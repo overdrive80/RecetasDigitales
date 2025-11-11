@@ -1,14 +1,12 @@
 <resources>
     <string name="app_name">Recetas Digitales</string>
     <string name="boton_nueva_receta">Botón nueva receta</string>
-    <string name="logo_app">logo_app</string>
     <string name="semiesfera_decorativa">semiesfera_decorativa</string>
     <string name="titulo_receta">Título de la receta</string>
     <string name="breve_descripcion">Breve descripción de la receta</string>
     <string name="modificar">Modificar</string>
     <string name="eliminar">Eliminar</string>
     <string name="ver">Ver receta</string>
-    <string name="title_activity_ver_receta">VerRecetaActivity</string>
     <string name="portada">Portada</string>
     <string name="ingredientes">Ingredientes</string>
     <string name="pasos">Pasos</string>
@@ -34,4 +32,6 @@
     <string name="pasos_de_elaboracion">Pasos de elaboración</string>
     <string name="nombre_del_ingrediente">Nombre del ingrediente</string>
     <string name="boton_de_eliminar">Botón de eliminar</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="guardar">Guardar</string>
 </resources>
