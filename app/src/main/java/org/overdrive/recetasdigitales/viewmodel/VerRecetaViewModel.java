@@ -34,11 +34,6 @@ public class VerRecetaViewModel extends AndroidViewModel {
         recetaCompleta = repo.getRecetaCompleta(idReceta);
     }
 
-//    public VerRecetaViewModel(Application application) {
-//        super(application);
-//        repo = new RecetarioRepositorio(application);
-//    }
-
     public void cargarRecetaCompleta(long recetaId) {
         recetaCompleta = repo.getRecetaCompleta(recetaId);
 

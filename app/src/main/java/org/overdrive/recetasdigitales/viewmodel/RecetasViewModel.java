@@ -17,7 +17,7 @@ import kotlin.jvm.functions.Function1;
 
 /**
  * ViewModel para Recetario
- * <p>
+ *
  * Sobrevive a recreaciones por eso hay que persistir los datos para que no se pierdan
  */
 public class RecetasViewModel extends AndroidViewModel {
