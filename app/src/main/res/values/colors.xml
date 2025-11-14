@@ -4,6 +4,7 @@
     <color name="dragCardView">#67FFAE31</color>
     <color name="blue_25">#EEF7FF</color>
     <color name="blue_50">#E3F2FD</color>
+    <color name="blue_200">#90CAF9</color>
     <color name="blue_500">#2196F3</color>
     <color name="blue_600">#1E88E5</color>
     <color name="blue_800">#1565C0</color>
@@ -12,4 +13,8 @@
     <color name="deep_orange_900">#BF360C</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_status_bar">#000000</color>
+    <color name="dark_navigation_bar">#000000</color>
 </resources>

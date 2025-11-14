@@ -37,7 +37,7 @@
     Redefinimos los atributos clave de color (colorPrimary) DENTRO del tema
     del BottomSheet para que los botones y otros widgets usen el color correcto.
 -->
-    <style name="ThemeBottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+    <style name="ThemeBottomSheet" parent="Theme.Material3.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/EstiloBottomSheet</item>
 
         <item name="colorPrimary">@color/blue_800</item>
