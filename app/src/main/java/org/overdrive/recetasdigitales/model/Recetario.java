@@ -116,10 +116,12 @@ public abstract class Recetario extends RoomDatabase {
             /** Primero entidades fuertes. Recetas **/
             String uriImg1 = "android.resource://" +
                     appContext.getPackageName() + "/drawable/tortilla_patatas";
+            String uriImg2 = "android.resource://" +
+                    appContext.getPackageName() + "/drawable/paella_marisco";
 
             Receta r1 = new Receta("Tortilla de patatas",
                     "Clásica receta española a base de patata y huevo.", uriImg1, 45);
-            Receta r2 = new Receta("Receta 2", "Descripción 2", "Sin imagen", 75);
+            Receta r2 = new Receta("Paella de marisco", "Plato típico levantino a base de arroz y marisco", uriImg2, 80);
 
             // Insertar recetas
             long rowId1 = database.recetaDAO().insertarReceta(r1);
@@ -127,12 +129,17 @@ public abstract class Recetario extends RoomDatabase {
 
             /** Segundo entidades débiles. Ingredientes **/
             List<Ingrediente> ingredientes = Arrays.asList(
-                    new Ingrediente("Huevos", 6.0, "ud/s", rowId1),
-                    new Ingrediente("Patatas", 3.0, "ud/s", rowId1),
+                    new Ingrediente("Huevos", 6.0, "uds", rowId1),
+                    new Ingrediente("Patatas", 3.0, "uds", rowId1),
                     new Ingrediente("Aceite", 50.0, "ml", rowId1),
                     new Ingrediente("Sal", 3.0, "g", rowId1),
-                    new Ingrediente("R2_Ingrediente 1", 50.0, "ml", rowId2),
-                    new Ingrediente("R2_Ingrediente 2", 2D, "cucharadas", rowId2)
+                    new Ingrediente("Arroz", 400.0, "g", rowId2),
+                    new Ingrediente("Caldo", 1230.0, "ml", rowId2),
+                    new Ingrediente("Mejillones", 500.0, "g", rowId2),
+                    new Ingrediente("Cigalas", 4.0, "uds", rowId2),
+                    new Ingrediente("Aceite de oliva", 200.0, "ml", rowId2),
+                    new Ingrediente("Sal", null, "Al gusto", rowId2),
+                    new Ingrediente("Tomate natural triturado", 500D, "g", rowId2)
             );
 
             // Insertar ingredientes
@@ -149,8 +156,13 @@ public abstract class Recetario extends RoomDatabase {
                     new Paso(5, "En un sartén con aceite caliente, incorporar la mezcla de huevo y patatas. " +
                             "Cuando veamos en los bordes como el huevo a cuajado, la damos la vuelta ayudandonos de un util que abarque" +
                             "el diametro de la sarten. La volvemos a incorporar con cuidado por el lado que no esta cuajada.", rowId1),
-
-                    new Paso(1, "Mezclar ingredientes", rowId2)
+                    //Receta 2
+                    new Paso(1, "A fuego medio, añadimos el aceite y el tomate triturado a la paellera.", rowId2),
+                    new Paso(2, "Añadimos los mejillones, cuando se abran los retiramos.", rowId2),
+                    new Paso(3, "Con el tomate reducido, añadimos el caldo y cuando empiece a hervir añadimos el arroz por toda la paellera.", rowId2),
+                    new Paso(4, "Añadimos sal al gusto.", rowId2),
+                    new Paso(5, "Casi al final de la cocción, añadimos las cigalas y los mejillones para que evitar sobrecocción.", rowId2),
+                    new Paso(6, "En los dos ultimos minutos, aumentamos el fuego nivel medio para obtener el socarrat.", rowId2)
             );
 
             // Insertar pasos
