@@ -34,4 +34,21 @@
     <string name="boton_de_eliminar">Botón de eliminar</string>
     <string name="siguiente">Siguiente</string>
     <string name="guardar">Guardar</string>
+    <string name="cancelar_creacion_de_receta">Cancelar creación de receta</string>
+    <string name="deseas_salir_del_asistente">¿Deseas salir del asistente?</string>
+    <string name="no">No</string>
+    <string name="si">Si</string>
+    <string name="cancelar_modificacion_de_receta">Cancelar modificación de receta</string>
+    <string name="el_nombre_de_la_receta_es_obligatorio">El nombre de la receta es obligatorio</string>
+    <string name="valor_entre">Valor entre %s y %s</string>
+    <string name="sin_imagen">Sin imagen</string>
+    <string name="sufijo_hora">%s h</string>
+    <string name="sufijo_minutos">%s min</string>
+    <string name="receta_eliminada">%s eliminada.</string>
+    <string name="editar_receta">Editar receta</string>
+    <string name="receta_guardada">Receta guardada</string>
+    <string name="esta_seguro_de_borrar_el_paso">¿Está seguro de borrar el paso?</string>
+    <string name="esta_seguro_de_borrar_el_ingrediente">Are you sure you want to delete the ingredient?</string>
+    <string name="este_campo_es_obligatorio">Este campo es obligatorio</string>
+    <string name="nuevo_paso">Nuevo paso</string>
 </resources>

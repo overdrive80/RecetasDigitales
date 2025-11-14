@@ -29,7 +29,7 @@ public class EditarRecetaActivity extends CrearRecetaActivity {
     @Override
     protected void configurarToolbar() {
         super.configurarToolbar();
-        setTitle("Editar receta");
+        setTitle(getString(R.string.editar_receta));
     }
 
     @Override
@@ -39,10 +39,10 @@ public class EditarRecetaActivity extends CrearRecetaActivity {
         if (destination != null && destination.getId() == R.id.portadaFragment) {
             // Si estamos en la portada mostrar dialogo
             new AlertDialog.Builder(this)
-                    .setTitle("Cancelar modificación de receta")
-                    .setMessage("¿Deseas salir del asistente?")
-                    .setNegativeButton("No", null)
-                    .setPositiveButton("Si", (dialog, which) -> finish())
+                    .setTitle(R.string.cancelar_modificacion_de_receta)
+                    .setMessage(R.string.deseas_salir_del_asistente)
+                    .setNegativeButton(R.string.no, null)
+                    .setPositiveButton(R.string.si, (dialog, which) -> finish())
                     .show();
 
             return true; //Evitamos que se siga propagando el evento

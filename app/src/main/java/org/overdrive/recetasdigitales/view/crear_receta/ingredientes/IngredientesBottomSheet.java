@@ -97,7 +97,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
 
                 //Solo se valida un campo, el nombre del ingrediente
                 if (binding.etNombreIngrediente.getText().toString().isEmpty()) {
-                    binding.etNombreIngrediente.setError("Este campo es obligatorio");
+                    binding.etNombreIngrediente.setError(getString(R.string.este_campo_es_obligatorio));
                     return;
                 }
 

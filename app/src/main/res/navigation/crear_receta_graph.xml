@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/portadaFragment"
         android:name="org.overdrive.recetasdigitales.view.crear_receta.portada.PortadaFragment"
-        android:label="Portada"
+        android:label="@string/portada"
         tools:layout="@layout/fragment_portada">
         <action
             android:id="@+id/action_portada_a_ingredientes"
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/IngredientesFragment"
         android:name="org.overdrive.recetasdigitales.view.crear_receta.ingredientes.IngredientesFragment"
-        android:label="Ingredientes"
+        android:label="@string/ingredientes"
         tools:layout="@layout/fragment_ingredientes">
         <action
             android:id="@+id/action_ingredientes_a_pasos"
@@ -25,6 +25,6 @@
     <fragment
         android:id="@+id/pasosFragment"
         android:name="org.overdrive.recetasdigitales.view.crear_receta.pasos.PasosFragment"
-        android:label="Pasos"
+        android:label="@string/pasos"
         tools:layout="@layout/fragment_pasos" />
 </navigation>

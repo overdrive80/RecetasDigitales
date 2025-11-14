@@ -1,7 +1,5 @@
 package org.overdrive.recetasdigitales.view.lista_recetas;
 
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 

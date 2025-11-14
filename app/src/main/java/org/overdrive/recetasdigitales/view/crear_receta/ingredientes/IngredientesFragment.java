@@ -84,10 +84,10 @@ public class IngredientesFragment extends Fragment {
             public void onEliminarIngrediente(int posicion) {
                 // Si estamos en la portada mostrar dialogo
                 new AlertDialog.Builder(requireContext())
-                        .setTitle("Eliminar")
-                        .setMessage("¿Está seguro de borrar el ingrediente?")
-                        .setNegativeButton("No", null)
-                        .setPositiveButton("Si", (dialog, which) -> viewModel.eliminarIngrediente(posicion))
+                        .setTitle(R.string.eliminar)
+                        .setMessage(R.string.esta_seguro_de_borrar_el_ingrediente)
+                        .setNegativeButton(R.string.no, null)
+                        .setPositiveButton(R.string.si, (dialog, which) -> viewModel.eliminarIngrediente(posicion))
                         .show();
             }
         });

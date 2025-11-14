@@ -38,6 +38,7 @@ public class PortadaFragment extends Fragment {
     private int horas, minutos;
     private final int horaMax = 23, horaMin = 0;
     private final int minutoMax = 59, minutoMin = 0;
+
     // Launcher para obtener la imagen
     private ActivityResultLauncher<String> lanzadorImagen = registerForActivityResult(
             new ActivityResultContracts.GetContent(),
@@ -129,7 +130,11 @@ public class PortadaFragment extends Fragment {
                 horas = StringToInt(s.toString(), 0);
 
                 if (!validarTiempo(horas, horaMin, horaMax)) {
-                    binding.etHoras.setError("Valor entre " + horaMin + " y " + horaMax);
+                    binding.etHoras.setError(getString(
+                            R.string.valor_entre,
+                            String.valueOf(horaMin),
+                            String.valueOf(horaMax)
+                    ));
                     binding.etHoras.requestFocus();
                 } else {
                     binding.etHoras.setError(null);
@@ -144,7 +149,11 @@ public class PortadaFragment extends Fragment {
                 minutos = StringToInt(s.toString(), 0);
 
                 if (!validarTiempo(minutos, minutoMin, minutoMax)) {
-                    binding.etMinutos.setError("Valor entre " + minutoMin + " y " + minutoMax);
+                    binding.etMinutos.setError(getString(
+                            R.string.valor_entre,
+                            String.valueOf(minutoMin),
+                            String.valueOf(minutoMax)
+                    ));
                     binding.etMinutos.requestFocus();
                 } else {
                     binding.etMinutos.setError(null);
@@ -190,7 +199,7 @@ public class PortadaFragment extends Fragment {
 
                     // Validar nombre obligatorio
                     if (binding.etNombreReceta.getText().toString().trim().isEmpty()) {
-                        binding.etNombreReceta.setError("El nombre de la receta es obligatorio");
+                        binding.etNombreReceta.setError(getString(R.string.el_nombre_de_la_receta_es_obligatorio));
                         binding.etNombreReceta.requestFocus();
                         return true;
                     }

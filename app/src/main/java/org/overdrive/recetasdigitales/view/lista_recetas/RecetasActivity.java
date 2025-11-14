@@ -9,12 +9,12 @@ import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.ActivityRecetasBinding;
 import org.overdrive.recetasdigitales.model.entidades.Receta;
 import org.overdrive.recetasdigitales.view.crear_receta.CrearRecetaActivity;
@@ -134,7 +134,7 @@ public class RecetasActivity extends AppCompatActivity {
 
                 viewModel.borrarReceta(receta);
 
-                Snackbar.make(binding.getRoot(), titulo + " eliminada.", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(binding.getRoot(), getString(R.string.receta_eliminada, titulo), Snackbar.LENGTH_LONG).show();
             }
         };
     }

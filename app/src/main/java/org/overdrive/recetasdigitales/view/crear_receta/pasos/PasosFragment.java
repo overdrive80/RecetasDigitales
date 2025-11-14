@@ -91,7 +91,7 @@ public class PasosFragment extends Fragment {
         //  Observa el resultado de guardar la receta para finalizar el fragment
         viewModel.getRecetaGuardada().observe(getViewLifecycleOwner(), guardada -> {
             if (Boolean.TRUE.equals(guardada)) {
-                Toast.makeText(getContext(), "Receta guardada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.receta_guardada, Toast.LENGTH_SHORT).show();
                 requireActivity().finish();
             }
         });
@@ -113,10 +113,10 @@ public class PasosFragment extends Fragment {
             public void onEliminarPaso(int posicion) {
                 // Si estamos en la portada mostrar dialogo
                 new AlertDialog.Builder(requireContext())
-                        .setTitle("Eliminar")
-                        .setMessage("¿Está seguro de borrar el paso?")
-                        .setNegativeButton("No", null)
-                        .setPositiveButton("Si", (dialog, which) -> viewModel.eliminarPaso(posicion))
+                        .setTitle(R.string.eliminar)
+                        .setMessage(R.string.esta_seguro_de_borrar_el_paso)
+                        .setNegativeButton(R.string.no, null)
+                        .setPositiveButton(R.string.si, (dialog, which) -> viewModel.eliminarPaso(posicion))
                         .show();
             }
         });

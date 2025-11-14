@@ -111,8 +111,14 @@ public class VerRecetaTab1Fragment extends Fragment {
             binding.tvHorasTab1.setVisibility(t.getHoras() > 0 ? View.VISIBLE : View.GONE);
             binding.tvMinutosTab1.setVisibility(t.getMinutos() > 0 ? View.VISIBLE : View.GONE);
 
-            binding.tvHorasTab1.setText(t.getHoras() + " h");
-            binding.tvMinutosTab1.setText(t.getMinutos() + " min");
+            binding.tvHorasTab1.setText(
+                    getString(R.string.sufijo_hora,
+                            String.valueOf(t.getHoras())
+                    ));
+            binding.tvMinutosTab1.setText(
+                    getString(R.string.sufijo_minutos,
+                            String.valueOf(t.getMinutos())
+                    ));
         }
     }
 
@@ -127,7 +133,7 @@ public class VerRecetaTab1Fragment extends Fragment {
         ShapeableImageView ivImagen = binding.ivImagenTab1;
 
         if (receta.getImagenUri() == null || receta.getImagenUri().isEmpty() ||
-                receta.getImagenUri().equals("Sin imagen")) {
+                receta.getImagenUri().equals(getString(R.string.sin_imagen))) {
 
             ColorStateList transparentColor = ColorStateList.valueOf(Color.TRANSPARENT);
             ivImagen.setStrokeColor(transparentColor);
@@ -144,5 +150,4 @@ public class VerRecetaTab1Fragment extends Fragment {
                     .into(ivImagen);
         }
     }
-
 }

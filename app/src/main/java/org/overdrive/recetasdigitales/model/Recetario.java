@@ -37,7 +37,9 @@ public abstract class Recetario extends RoomDatabase {
 
     // Exponer DAO
     public abstract RecetaDAO recetaDAO();
+
     public abstract IngredienteDAO ingredienteDAO();
+
     public abstract PasoDAO pasoDAO();
 
     //Patrón Singleton con multithilo

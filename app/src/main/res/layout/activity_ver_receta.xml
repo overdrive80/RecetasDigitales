@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:navGraph="@navigation/ver_receta_graph"
-            tools:layout="@layout/fragment_ver_receta_tab1"/>
+            tools:layout="@layout/fragment_ver_receta_tab1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

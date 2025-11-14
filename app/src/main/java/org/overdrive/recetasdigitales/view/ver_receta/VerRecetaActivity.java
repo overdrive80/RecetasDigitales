@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.overdrive.recetasdigitales.R;
 import org.overdrive.recetasdigitales.databinding.ActivityVerRecetaBinding;
 import org.overdrive.recetasdigitales.viewmodel.VerRecetaViewModel;
 
@@ -47,7 +48,7 @@ public class VerRecetaActivity extends AppCompatActivity {
 
     private void configurarToolbar() {
         setSupportActionBar(binding.appBarLayout.toolbar);
-        setTitle("Ver receta");
+        setTitle(R.string.ver);
     }
 
     private void habilitarBotonRetroceso() {

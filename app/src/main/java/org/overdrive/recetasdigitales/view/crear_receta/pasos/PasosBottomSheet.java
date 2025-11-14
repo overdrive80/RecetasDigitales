@@ -62,7 +62,7 @@ public class PasosBottomSheet extends BottomSheetDialogFragment {
 
             // No hacemos nada si no es válido. Si es -1 entonces no es edicion.
             if (posicion == null || posicion < 0 || pasos == null || posicion >= pasos.size()) {
-                binding.tvTituloPaso.setText("Nuevo paso");
+                binding.tvTituloPaso.setText(R.string.nuevo_paso);
                 esEdicion = false;
                 return;
             }
@@ -93,7 +93,7 @@ public class PasosBottomSheet extends BottomSheetDialogFragment {
 
                 //Solo se valida la descripcion del paso
                 if (binding.etDescripcionPaso.getText().toString().isEmpty()) {
-                    binding.etDescripcionPaso.setError("Este campo es obligatorio");
+                    binding.etDescripcionPaso.setError(getString(R.string.este_campo_es_obligatorio));
                     return;
                 }
 
