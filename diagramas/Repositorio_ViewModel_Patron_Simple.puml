@@ -1,0 +1,92 @@
+@startuml
+skinparam groupInheritance 2
+skinparam classFontSize 13
+skinparam packageFontSize 14
+hide empty members
+skinparam backgroundColor transparent
+
+package "View" {
+  class "Activity/Fragment" as ActivityFragment {
+    - view: View
+    - viewModel: ClaseViewModel
+    + onCreate()
+    - observarViewModel()
+    - actualizarUI()
+  }
+}
+
+package "ViewModel"{
+  class ClaseViewModel <<extends AndroidViewModel>> {
+    - repositorio: Repositorio
+    - valorMutable: MutableLiveData<T>
+    - listaInmutable: LiveData<List<T>>
+    __
+    + ClaseViewModel(application: Application)
+  }
+}
+
+package "Model" {
+  class Repositorio {
+    - basedatos: Basedatos
+    - dao: DAO
+    __
+    + Repositorio(context: Context)
+  }
+
+  ' Usamos together para agrupar y alinear
+  together {
+      ' Colocamos Basedatos y DAO en la misma línea
+      abstract class Basedatos <<extends RoomDatabase>> {
+        - static volatile INSTANCIA: Basedatos
+        - static executor: ExecutorService
+        __
+        + getInstance(context: Context): Basedatos
+        __
+        + getDAO(): DAO
+      }
+
+      interface DAO <<interface>> {
+        + getTodos(): LiveData<List<T>>
+        + getPorId(id: Tipo): LiveData<T>
+        + insertar(item: T): long
+        + insertarTodos(lista: List<T>): long[]
+        + actualizar(item: T): int
+        + eliminar(item: T): int
+      }
+
+  }
+
+  package "Implementación Room" {
+    class Basedatos_Impl <<extends Basedatos>> {
+      - _dao: DAO
+      + getDAO(): DAO
+    }
+
+    class DAO_Impl <<implements DAO>> {
+      + getTodos(): LiveData<List<T>>
+      + getPorId(id: Tipo): LiveData<T>
+      + insertar(item: T): long
+      + insertarTodos(lista: List<T>): long[]
+    }
+  }
+
+}
+
+' Relaciones principales
+ActivityFragment --> ClaseViewModel : observa
+ClaseViewModel --> Repositorio : usa
+Repositorio --> DAO : usa
+Repositorio --> Basedatos : obtiene instancia
+
+' Relación entre Basedatos y DAO
+Basedatos --> DAO : expone DAO
+
+' Relaciones de implementación
+DAO <|.. DAO_Impl : implementa
+Basedatos <|-- Basedatos_Impl : extiende
+
+' Alineamiento horizontal mediante relación oculta
+Basedatos -[hidden]> DAO
+' Alineamiento vertical mediante relación oculta
+Basedatos .[hidden]|> Basedatos_Impl
+@enduml

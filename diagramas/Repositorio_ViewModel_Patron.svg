@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="CLASS" height="1317px" preserveAspectRatio="none" style="font-family:Arial;width:778px;height:1317px;background:#FFFFFF;" version="1.1" viewBox="0 0 778 1317" width="778px" zoomAndPan="magnify">
+	<defs/>
+	<g>
+		<!--cluster Capa de Presentaci?n-->
+		<g class="cluster" data-entity="Capa de Presentaci.n" data-source-line="5" data-uid="ent0002" id="cluster_Capa de Presentaci.n">
+			<path d="M223.5,6.0137 L370.7754,6.0137 A3.75,3.75 0 0 1 373.2754,8.5137 L380.2754,30.6348 L534.5,30.6348 A2.5,2.5 0 0 1 537,33.1348 L537,474.5137 A2.5,2.5 0 0 1 534.5,477.0137 L223.5,477.0137 A2.5,2.5 0 0 1 221,474.5137 L221,8.5137 A2.5,2.5 0 0 1 223.5,6.0137" fill="none" style="stroke:#000000;stroke-width:1.5;"/>
+			<line style="stroke:#000000;stroke-width:1.5;" x1="221" x2="380.2754" y1="30.6348" y2="30.6348"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="146.2754" x="225" y="23.1211">Capa de Presentaci&#243;n</text>
+		</g>
+		<!--cluster Capa de Dominio-->
+		<g class="cluster" data-entity="Capa de Dominio" data-source-line="27" data-uid="ent0005" id="cluster_Capa de Dominio">
+			<path d="M255.5,528.0137 L370.8447,528.0137 A3.75,3.75 0 0 1 373.3447,530.5137 L380.3447,552.6348 L502.5,552.6348 A2.5,2.5 0 0 1 505,555.1348 L505,764.5137 A2.5,2.5 0 0 1 502.5,767.0137 L255.5,767.0137 A2.5,2.5 0 0 1 253,764.5137 L253,530.5137 A2.5,2.5 0 0 1 255.5,528.0137" fill="none" style="stroke:#000000;stroke-width:1.5;"/>
+			<line style="stroke:#000000;stroke-width:1.5;" x1="253" x2="380.3447" y1="552.6348" y2="552.6348"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="114.3447" x="257" y="545.1211">Capa de Dominio</text>
+		</g>
+		<!--cluster Capa de Persistencia-->
+		<g class="cluster" data-entity="Capa de Persistencia" data-source-line="41" data-uid="ent0007" id="cluster_Capa de Persistencia">
+			<path d="M8.5,818.0137 L150.3477,818.0137 A3.75,3.75 0 0 1 152.8477,820.5137 L159.8477,842.6348 L687.5,842.6348 A2.5,2.5 0 0 1 690,845.1348 L690,1307.5137 A2.5,2.5 0 0 1 687.5,1310.0137 L8.5,1310.0137 A2.5,2.5 0 0 1 6,1307.5137 L6,820.5137 A2.5,2.5 0 0 1 8.5,818.0137" fill="none" style="stroke:#000000;stroke-width:1.5;"/>
+			<line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="159.8477" y1="842.6348" y2="842.6348"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="140.8477" x="10" y="835.1211">Capa de Persistencia</text>
+		</g>
+		<!--cluster Implementaci?n Room-->
+		<g class="cluster" data-entity="Implementaci.n Room" data-source-line="66" data-uid="ent0010" id="cluster_Implementaci.n Room">
+			<path d="M143.5,1099.0137 L294.6309,1099.0137 A3.75,3.75 0 0 1 297.1309,1101.5137 L304.1309,1123.6348 L591.5,1123.6348 A2.5,2.5 0 0 1 594,1126.1348 L594,1283.5137 A2.5,2.5 0 0 1 591.5,1286.0137 L143.5,1286.0137 A2.5,2.5 0 0 1 141,1283.5137 L141,1101.5137 A2.5,2.5 0 0 1 143.5,1099.0137" fill="none" style="stroke:#000000;stroke-width:1.5;"/>
+			<line style="stroke:#000000;stroke-width:1.5;" x1="141" x2="304.1309" y1="1123.6348" y2="1123.6348"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="150.1309" x="145" y="1116.1211">Implementaci&#243;n Room</text>
+		</g>
+		<!--class ActivityFragment-->
+		<g class="entity" data-entity="ActivityFragment" data-source-line="6" data-uid="ent0003" id="entity_ActivityFragment">
+			<rect fill="#F1F1F1" height="141.1055" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="204.1855" x="277" y="43.0137"/>
+			<ellipse cx="324.636" cy="59.0137" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M327.4016,54.8887 Q327.5579,54.6699 327.7454,54.5605 Q327.9329,54.4512 328.1516,54.4512 Q328.5266,54.4512 328.761,54.7168 Q328.9954,54.9668 328.9954,55.5762 L328.9954,57.0293 Q328.9954,57.6387 328.761,57.9043 Q328.5266,58.1699 328.1516,58.1699 Q327.8079,58.1699 327.6047,57.9668 Q327.4016,57.7793 327.2922,57.2637 Q327.2454,56.9043 327.0579,56.7168 Q326.7297,56.3418 326.1204,56.123 Q325.511,55.9043 324.886,55.9043 Q324.1204,55.9043 323.4797,56.2324 Q322.8547,56.5605 322.3547,57.3105 Q321.8704,58.0605 321.8704,59.0918 L321.8704,60.1855 Q321.8704,61.4199 322.761,62.248 Q323.6516,63.0605 325.2454,63.0605 Q326.1829,63.0605 326.8391,62.8105 Q327.2297,62.6543 327.6516,62.2168 Q327.9172,61.9512 328.0579,61.873 Q328.2141,61.7949 328.4172,61.7949 Q328.7454,61.7949 328.9954,62.0605 Q329.261,62.3105 329.261,62.6543 Q329.261,62.998 328.9172,63.4043 Q328.4172,63.9824 327.6204,64.3105 Q326.5422,64.7637 325.2454,64.7637 Q323.7297,64.7637 322.5266,64.1387 Q321.5422,63.6387 320.8547,62.5762 Q320.1672,61.498 320.1672,60.2168 L320.1672,59.0605 Q320.1672,57.7324 320.7766,56.5918 Q321.4016,55.4355 322.4954,54.8262 Q323.5891,54.2012 324.8235,54.2012 Q325.5579,54.2012 326.1985,54.373 Q326.8547,54.5293 327.4016,54.8887 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="100.4136" x="345.136" y="64.3965">Activity/Fragment</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="278" x2="480.1855" y1="75.0137" y2="75.0137"/>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="285" y="86.8242"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.1309" x="297" y="94.1211">view: View</text>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="285" y="105.4453"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178.1855" x="297" y="112.7422">viewModel: ClaseViewModel</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="278" x2="480.1855" y1="120.2559" y2="120.2559"/>
+			<ellipse cx="288" cy="135.0664" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.917" x="297" y="139.3633">onCreate()</text>
+			<rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="285" y="150.6875"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.2686" x="297" y="157.9844">observarViewModel()</text>
+			<rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="285" y="169.3086"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83.2412" x="297" y="176.6055">actualizarUI()</text>
+		</g>
+		<!--class ClaseViewModel-->
+		<g class="entity" data-entity="ClaseViewModel" data-source-line="14" data-uid="ent0004" id="entity_ClaseViewModel">
+			<rect fill="#F1F1F1" height="197.5996" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="282.7988" x="237.5" y="263.0137"/>
+			<ellipse cx="297.2666" cy="284.6396" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M300.0322,280.5146 Q300.1885,280.2959 300.376,280.1865 Q300.5635,280.0771 300.7822,280.0771 Q301.1572,280.0771 301.3916,280.3428 Q301.626,280.5928 301.626,281.2021 L301.626,282.6553 Q301.626,283.2646 301.3916,283.5303 Q301.1572,283.7959 300.7822,283.7959 Q300.4385,283.7959 300.2354,283.5928 Q300.0322,283.4053 299.9229,282.8896 Q299.876,282.5303 299.6885,282.3428 Q299.3604,281.9678 298.751,281.749 Q298.1416,281.5303 297.5166,281.5303 Q296.751,281.5303 296.1104,281.8584 Q295.4854,282.1865 294.9854,282.9365 Q294.501,283.6865 294.501,284.7178 L294.501,285.8115 Q294.501,287.0459 295.3916,287.874 Q296.2822,288.6865 297.876,288.6865 Q298.8135,288.6865 299.4697,288.4365 Q299.8604,288.2803 300.2822,287.8428 Q300.5479,287.5771 300.6885,287.499 Q300.8447,287.4209 301.0479,287.4209 Q301.376,287.4209 301.626,287.6865 Q301.8916,287.9365 301.8916,288.2803 Q301.8916,288.624 301.5479,289.0303 Q301.0479,289.6084 300.251,289.9365 Q299.1729,290.3896 297.876,290.3896 Q296.3604,290.3896 295.1572,289.7646 Q294.1729,289.2646 293.4854,288.2021 Q292.7979,287.124 292.7979,285.8428 L292.7979,284.6865 Q292.7979,283.3584 293.4072,282.2178 Q294.0322,281.0615 295.126,280.4521 Q296.2197,279.8271 297.4541,279.8271 Q298.1885,279.8271 298.8291,279.999 Q299.4854,280.1553 300.0322,280.5146 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="158.7656" x="315.7666" y="280.9629">&#171;extends AndroidViewModel&#187;</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96.8208" x="346.739" y="298.0029">ClaseViewModel</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="238.5" x2="519.2988" y1="306.2656" y2="306.2656"/>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="245.5" y="318.0762"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143.958" x="257.5" y="325.373">repositorio: Repositorio</text>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="245.5" y="336.6973"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="217.8955" x="257.5" y="343.9941">valorMutable: MutableLiveData&lt;T&gt;</text>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="245.5" y="355.3184"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212.4541" x="257.5" y="362.6152">listaInmutable: LiveData&lt;List&lt;T&gt;&gt;</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="238.5" x2="519.2988" y1="370.1289" y2="370.1289"/>
+			<ellipse cx="248.5" cy="384.9395" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="256.7988" x="257.5" y="389.2363">ClaseViewModel(application: Application)</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="238.5" x2="519.2988" y1="396.75" y2="396.75"/>
+			<ellipse cx="248.5" cy="411.5605" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224.9023" x="257.5" y="415.8574">getResultados(): LiveData&lt;List&lt;T&gt;&gt;</text>
+			<ellipse cx="248.5" cy="430.1816" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190.627" x="257.5" y="434.4785">setValorMutable(valor: T): void</text>
+			<ellipse cx="248.5" cy="448.8027" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199.2129" x="257.5" y="453.0996">getValorMutable(): LiveData&lt;T&gt;</text>
+		</g>
+		<!--class Repositorio-->
+		<g class="entity" data-entity="Repositorio" data-source-line="28" data-uid="ent0006" id="entity_Repositorio">
+			<rect fill="#F1F1F1" height="186.3477" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="219.7715" x="269" y="565.0137"/>
+			<ellipse cx="341.7581" cy="581.0137" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M344.5237,576.8887 Q344.6799,576.6699 344.8674,576.5605 Q345.0549,576.4512 345.2737,576.4512 Q345.6487,576.4512 345.8831,576.7168 Q346.1174,576.9668 346.1174,577.5762 L346.1174,579.0293 Q346.1174,579.6387 345.8831,579.9043 Q345.6487,580.1699 345.2737,580.1699 Q344.9299,580.1699 344.7268,579.9668 Q344.5237,579.7793 344.4143,579.2637 Q344.3674,578.9043 344.1799,578.7168 Q343.8518,578.3418 343.2424,578.123 Q342.6331,577.9043 342.0081,577.9043 Q341.2424,577.9043 340.6018,578.2324 Q339.9768,578.5605 339.4768,579.3105 Q338.9924,580.0605 338.9924,581.0918 L338.9924,582.1855 Q338.9924,583.4199 339.8831,584.248 Q340.7737,585.0605 342.3674,585.0605 Q343.3049,585.0605 343.9612,584.8105 Q344.3518,584.6543 344.7737,584.2168 Q345.0393,583.9512 345.1799,583.873 Q345.3362,583.7949 345.5393,583.7949 Q345.8674,583.7949 346.1174,584.0605 Q346.3831,584.3105 346.3831,584.6543 Q346.3831,584.998 346.0393,585.4043 Q345.5393,585.9824 344.7424,586.3105 Q343.6643,586.7637 342.3674,586.7637 Q340.8518,586.7637 339.6487,586.1387 Q338.6643,585.6387 337.9768,584.5762 Q337.2893,583.498 337.2893,582.2168 L337.2893,581.0605 Q337.2893,579.7324 337.8987,578.5918 Q338.5237,577.4355 339.6174,576.8262 Q340.7112,576.2012 341.9456,576.2012 Q342.6799,576.2012 343.3206,576.373 Q343.9768,576.5293 344.5237,576.8887 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65.7554" x="362.2581" y="586.3965">Repositorio</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="270" x2="487.7715" y1="597.0137" y2="597.0137"/>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="277" y="608.8242"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138.5439" x="289" y="616.1211">basedatos: Basedatos</text>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="277" y="627.4453"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.4756" x="289" y="634.7422">dao: DAO</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="270" x2="487.7715" y1="642.2559" y2="642.2559"/>
+			<ellipse cx="280" cy="657.0664" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181.3027" x="289" y="661.3633">Repositorio(context: Context)</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="270" x2="487.7715" y1="668.877" y2="668.877"/>
+			<ellipse cx="280" cy="683.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193.7715" x="289" y="687.9844">getTodos(): LiveData&lt;List&lt;T&gt;&gt;</text>
+			<ellipse cx="280" cy="702.3086" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177.4131" x="289" y="706.6055">getPorId(id: T): LiveData&lt;T&gt;</text>
+			<ellipse cx="280" cy="720.9297" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.248" x="289" y="725.2266">insertar(item: T): void</text>
+			<ellipse cx="280" cy="739.5508" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145.4824" x="289" y="743.8477">actualizar(item: T): void</text>
+		</g>
+		<!--class Basedatos-->
+		<g class="entity" data-entity="Basedatos" data-source-line="46" data-uid="ent0008" id="entity_Basedatos">
+			<rect fill="#F1F1F1" height="141.7363" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="282.8125" x="30.5" y="877.5137"/>
+			<ellipse cx="98.6113" cy="899.1396" fill="#A9DCDF" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M100.7988,900.9053 L96.6582,900.9053 L96.2363,901.9365 L96.6582,901.9365 Q97.2676,901.9365 97.5332,902.1709 Q97.7988,902.4053 97.7988,902.7959 Q97.7988,903.1709 97.5332,903.4053 Q97.2676,903.6396 96.6582,903.6396 L94.3613,903.6396 Q93.752,903.6396 93.502,903.4053 Q93.2363,903.1709 93.2363,902.7803 Q93.2363,902.4053 93.5176,902.1709 Q93.7832,901.9209 94.4082,901.9365 L97.0801,895.2803 L95.9707,895.2803 Q95.3613,895.2803 95.0957,895.0459 Q94.8301,894.8115 94.8301,894.4209 Q94.8301,894.0459 95.0957,893.8115 Q95.3613,893.5771 95.9707,893.5771 L99.6426,893.5771 L103.0332,901.9365 Q103.627,901.9365 103.8145,902.0771 Q104.2051,902.3428 104.2051,902.7959 Q104.2051,903.1709 103.9395,903.4053 Q103.6895,903.6396 103.0801,903.6396 L100.7832,903.6396 Q100.1738,903.6396 99.9082,903.4053 Q99.6426,903.1709 99.6426,902.7803 Q99.6426,902.4053 99.9082,902.1709 Q100.1738,901.9365 100.7832,901.9365 L101.2051,901.9365 L100.7988,900.9053 Z M100.0801,899.2021 L98.7207,895.8271 L97.3457,899.2021 L100.0801,899.2021 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="142.0898" x="117.1113" y="895.4629">&#171;extends RoomDatabase&#187;</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacing" textLength="61.4326" x="157.4399" y="912.5029">Basedatos</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="31.5" x2="312.3125" y1="920.7656" y2="920.7656"/>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="38.5" y="932.5762"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="232.6475" x="50.5" y="939.873">static volatile INSTANCIA: Basedatos</text>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="38.5" y="951.1973"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199.9717" x="50.5" y="958.4941">static executor: ExecutorService</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="31.5" x2="312.3125" y1="966.0078" y2="966.0078"/>
+			<ellipse cx="41.5" cy="980.8184" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="256.8125" x="50.5" y="985.1152">getInstance(context: Context): Basedatos</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="31.5" x2="312.3125" y1="992.6289" y2="992.6289"/>
+			<ellipse cx="41.5" cy="1007.4395" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97.2412" x="50.5" y="1011.7363">getDAO(): DAO</text>
+		</g>
+		<!--class DAO-->
+		<g class="entity" data-entity="DAO" data-source-line="55" data-uid="ent0009" id="entity_DAO">
+			<rect fill="#F1F1F1" height="170.9785" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="242.3096" x="424" y="863.0137"/>
+			<ellipse cx="513.2183" cy="884.6396" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M514.1714,881.2803 L514.1714,887.9365 L515.8901,887.9365 Q516.4995,887.9365 516.7651,888.1709 Q517.0308,888.4053 517.0308,888.7959 Q517.0308,889.1709 516.7651,889.4053 Q516.4995,889.6396 515.8901,889.6396 L510.7495,889.6396 Q510.1401,889.6396 509.8745,889.4053 Q509.6089,889.1709 509.6089,888.7803 Q509.6089,888.4053 509.8745,888.1709 Q510.1401,887.9365 510.7495,887.9365 L512.4683,887.9365 L512.4683,881.2803 L510.7495,881.2803 Q510.1401,881.2803 509.8745,881.0459 Q509.6089,880.8115 509.6089,880.4209 Q509.6089,880.0459 509.8745,879.8115 Q510.1401,879.5771 510.7495,879.5771 L515.8901,879.5771 Q516.4995,879.5771 516.7651,879.8115 Q517.0308,880.0459 517.0308,880.4209 Q517.0308,880.8115 516.7651,881.0459 Q516.4995,881.2803 515.8901,881.2803 L514.1714,881.2803 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="59.373" x="531.7183" y="880.9629">&#171;interface&#187;</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacing" textLength="28.1709" x="547.3193" y="898.0029">DAO</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="425" x2="665.3096" y1="906.2656" y2="906.2656"/>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="425" x2="665.3096" y1="914.2656" y2="914.2656"/>
+			<ellipse cx="435" cy="929.0762" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193.7715" x="444" y="933.373">getTodos(): LiveData&lt;List&lt;T&gt;&gt;</text>
+			<ellipse cx="435" cy="947.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196.0957" x="444" y="951.9941">getPorId(id: Tipo): LiveData&lt;T&gt;</text>
+			<ellipse cx="435" cy="966.3184" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133.0342" x="444" y="970.6152">insertar(item: T): long</text>
+			<ellipse cx="435" cy="984.9395" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="216.3096" x="444" y="989.2363">insertarTodos(lista: List&lt;T&gt;): long[]</text>
+			<ellipse cx="435" cy="1003.5605" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134.5859" x="444" y="1007.8574">actualizar(item: T): int</text>
+			<ellipse cx="435" cy="1022.1816" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123.6826" x="444" y="1026.4785">eliminar(item: T): int</text>
+		</g>
+		<!--class Basedatos_Impl-->
+		<g class="entity" data-entity="Basedatos_Impl" data-source-line="67" data-uid="ent0011" id="entity_Basedatos_Impl">
+			<rect fill="#F1F1F1" height="96.4941" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="143.418" x="157.5" y="1155.0137"/>
+			<ellipse cx="172.5" cy="1176.6396" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M175.2656,1172.5146 Q175.4219,1172.2959 175.6094,1172.1865 Q175.7969,1172.0771 176.0156,1172.0771 Q176.3906,1172.0771 176.625,1172.3428 Q176.8594,1172.5928 176.8594,1173.2021 L176.8594,1174.6553 Q176.8594,1175.2646 176.625,1175.5303 Q176.3906,1175.7959 176.0156,1175.7959 Q175.6719,1175.7959 175.4688,1175.5928 Q175.2656,1175.4053 175.1563,1174.8896 Q175.1094,1174.5303 174.9219,1174.3428 Q174.5938,1173.9678 173.9844,1173.749 Q173.375,1173.5303 172.75,1173.5303 Q171.9844,1173.5303 171.3438,1173.8584 Q170.7188,1174.1865 170.2188,1174.9365 Q169.7344,1175.6865 169.7344,1176.7178 L169.7344,1177.8115 Q169.7344,1179.0459 170.625,1179.874 Q171.5156,1180.6865 173.1094,1180.6865 Q174.0469,1180.6865 174.7031,1180.4365 Q175.0938,1180.2803 175.5156,1179.8428 Q175.7813,1179.5771 175.9219,1179.499 Q176.0781,1179.4209 176.2813,1179.4209 Q176.6094,1179.4209 176.8594,1179.6865 Q177.125,1179.9365 177.125,1180.2803 Q177.125,1180.624 176.7813,1181.0303 Q176.2813,1181.6084 175.4844,1181.9365 Q174.4063,1182.3896 173.1094,1182.3896 Q171.5938,1182.3896 170.3906,1181.7646 Q169.4063,1181.2646 168.7188,1180.2021 Q168.0313,1179.124 168.0313,1177.8428 L168.0313,1176.6865 Q168.0313,1175.3584 168.6406,1174.2178 Q169.2656,1173.0615 170.3594,1172.4521 Q171.4531,1171.8271 172.6875,1171.8271 Q173.4219,1171.8271 174.0625,1171.999 Q174.7188,1172.1553 175.2656,1172.5146 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="115.418" x="184.5" y="1172.9629">&#171;extends Basedatos&#187;</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="93.2217" x="195.5981" y="1190.0029">Basedatos_Impl</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="158.5" x2="299.918" y1="1198.2656" y2="1198.2656"/>
+			<rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="165.5" y="1210.0762"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.2617" x="177.5" y="1217.373">_dao: DAO</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="158.5" x2="299.918" y1="1224.8867" y2="1224.8867"/>
+			<ellipse cx="168.5" cy="1239.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97.2412" x="177.5" y="1243.9941">getDAO(): DAO</text>
+		</g>
+		<!--class DAO_Impl-->
+		<g class="entity" data-entity="DAO_Impl" data-source-line="72" data-uid="ent0012" id="entity_DAO_Impl">
+			<rect fill="#F1F1F1" height="133.7363" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="242.3096" x="336" y="1136.0137"/>
+			<ellipse cx="402.8853" cy="1157.6396" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"/>
+			<path d="M405.6509,1153.5146 Q405.8071,1153.2959 405.9946,1153.1865 Q406.1821,1153.0771 406.4009,1153.0771 Q406.7759,1153.0771 407.0103,1153.3428 Q407.2446,1153.5928 407.2446,1154.2021 L407.2446,1155.6553 Q407.2446,1156.2646 407.0103,1156.5303 Q406.7759,1156.7959 406.4009,1156.7959 Q406.0571,1156.7959 405.854,1156.5928 Q405.6509,1156.4053 405.5415,1155.8896 Q405.4946,1155.5303 405.3071,1155.3428 Q404.979,1154.9678 404.3696,1154.749 Q403.7603,1154.5303 403.1353,1154.5303 Q402.3696,1154.5303 401.729,1154.8584 Q401.104,1155.1865 400.604,1155.9365 Q400.1196,1156.6865 400.1196,1157.7178 L400.1196,1158.8115 Q400.1196,1160.0459 401.0103,1160.874 Q401.9009,1161.6865 403.4946,1161.6865 Q404.4321,1161.6865 405.0884,1161.4365 Q405.479,1161.2803 405.9009,1160.8428 Q406.1665,1160.5771 406.3071,1160.499 Q406.4634,1160.4209 406.6665,1160.4209 Q406.9946,1160.4209 407.2446,1160.6865 Q407.5103,1160.9365 407.5103,1161.2803 Q407.5103,1161.624 407.1665,1162.0303 Q406.6665,1162.6084 405.8696,1162.9365 Q404.7915,1163.3896 403.4946,1163.3896 Q401.979,1163.3896 400.7759,1162.7646 Q399.7915,1162.2646 399.104,1161.2021 Q398.4165,1160.124 398.4165,1158.8428 L398.4165,1157.6865 Q398.4165,1156.3584 399.0259,1155.2178 Q399.6509,1154.0615 400.7446,1153.4521 Q401.8384,1152.8271 403.0728,1152.8271 Q403.8071,1152.8271 404.4478,1152.999 Q405.104,1153.1553 405.6509,1153.5146 Z " fill="#000000"/>
+			<text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="104.0391" x="421.3853" y="1153.9629">&#171;implements DAO&#187;</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59.96" x="443.4248" y="1171.0029">DAO_Impl</text>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="337" x2="577.3096" y1="1179.2656" y2="1179.2656"/>
+			<line style="stroke:#181818;stroke-width:0.5;" x1="337" x2="577.3096" y1="1187.2656" y2="1187.2656"/>
+			<ellipse cx="347" cy="1202.0762" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193.7715" x="356" y="1206.373">getTodos(): LiveData&lt;List&lt;T&gt;&gt;</text>
+			<ellipse cx="347" cy="1220.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196.0957" x="356" y="1224.9941">getPorId(id: Tipo): LiveData&lt;T&gt;</text>
+			<ellipse cx="347" cy="1239.3184" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133.0342" x="356" y="1243.6152">insertar(item: T): long</text>
+			<ellipse cx="347" cy="1257.9395" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="216.3096" x="356" y="1262.2363">insertarTodos(lista: List&lt;T&gt;): long[]</text>
+		</g>
+		<g class="entity" data-entity="GMN20" data-source-line="98" data-uid="ent0021" id="entity_GMN20">
+			<path d="M524,618.5137 L524,654.0137 L489.07,658.0137 L524,662.0137 L524,697.6777 A0,0 0 0 0 524,697.6777 L771.9033,697.6777 A0,0 0 0 0 771.9033,697.6777 L771.9033,628.5137 L761.9033,618.5137 L524,618.5137 A0,0 0 0 0 524,618.5137" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/>
+			<path d="M761.9033,618.5137 L761.9033,628.5137 L771.9033,628.5137 L761.9033,618.5137" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="117.0127" x="530" y="637.542">Patr&#243;n Repository:</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="159.707" x="530" y="654.833">- Abstrae el origen de datos</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221.0952" x="530" y="672.124">- Proporciona API limpia al ViewModel</text>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="226.9033" x="530" y="689.415">- Centraliza la l&#243;gica de acceso a datos</text>
+		</g>
+		<!--link ActivityFragment to ClaseViewModel-->
+		<g class="link" data-entity-1="ActivityFragment" data-entity-2="ClaseViewModel" data-source-line="85" data-uid="lnk13" id="link_ActivityFragment_ClaseViewModel">
+			<path codeLine="85" d="M379,184.1637 C379,208.5037 379,230.3137 379,256.5637" fill="none" id="ActivityFragment-to-ClaseViewModel" style="stroke:#181818;stroke-width:1;"/>
+			<polygon fill="#181818" points="379,262.5637,383,253.5637,379,257.5637,375,253.5637,379,262.5637" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="46.249" x="380" y="229.042">observa</text>
+		</g>
+		<!--link ClaseViewModel to Repositorio-->
+		<g class="link" data-entity-1="ClaseViewModel" data-entity-2="Repositorio" data-source-line="86" data-uid="lnk14" id="link_ClaseViewModel_Repositorio">
+			<path codeLine="86" d="M379,461.3237 C379,494.7037 379,525.8737 379,558.7637" fill="none" id="ClaseViewModel-to-Repositorio" style="stroke:#181818;stroke-width:1;"/>
+			<polygon fill="#181818" points="379,564.7637,383,555.7637,379,559.7637,375,555.7637,379,564.7637" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20.96" x="380" y="508.042">usa</text>
+		</g>
+		<!--link Repositorio to DAO-->
+		<g class="link" data-entity-1="Repositorio" data-entity-2="DAO" data-source-line="87" data-uid="lnk15" id="link_Repositorio_DAO">
+			<path codeLine="87" d="M431.98,751.0937 C452.57,786.8737 473.018,822.4129 493.188,857.4729" fill="none" id="Repositorio-to-DAO" style="stroke:#181818;stroke-width:1;"/>
+			<polygon fill="#181818" points="496.18,862.6737,495.1592,852.8779,493.6867,858.3397,488.2248,856.8672,496.18,862.6737" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20.96" x="458" y="798.042">usa</text>
+		</g>
+		<!--link Repositorio to Basedatos-->
+		<g class="link" data-entity-1="Repositorio" data-entity-2="Basedatos" data-source-line="88" data-uid="lnk16" id="link_Repositorio_Basedatos">
+			<path codeLine="88" d="M312.93,751.0937 C283.59,791.9837 253.1084,834.4791 225.8584,872.4491" fill="none" id="Repositorio-to-Basedatos" style="stroke:#181818;stroke-width:1;"/>
+			<polygon fill="#181818" points="222.36,877.3237,230.8572,872.344,225.2753,873.2615,224.3578,867.6796,222.36,877.3237" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="97.5698" x="288" y="798.042">obtiene instancia</text>
+		</g>
+		<!--link Basedatos to DAO-->
+		<g class="link" data-entity-1="Basedatos" data-entity-2="DAO" data-source-line="91" data-uid="lnk17" id="link_Basedatos_DAO">
+			<path codeLine="91" d="M313.55,948.5137 C349.92,948.5137 382.72,948.5137 417.96,948.5137" fill="none" id="Basedatos-to-DAO" style="stroke:#181818;stroke-width:1;"/>
+			<polygon fill="#181818" points="423.96,948.5137,414.96,944.5137,418.96,948.5137,414.96,952.5137,423.96,948.5137" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74.4326" x="331.75" y="941.542">expone DAO</text>
+		</g>
+		<!--link Basedatos to DAO-->
+		<!--reverse link DAO to DAO_Impl-->
+		<g class="link" data-entity-1="DAO" data-entity-2="DAO_Impl" data-source-line="94" data-uid="lnk18" id="link_DAO_DAO_Impl">
+			<path codeLine="94" d="M509.5289,1051.2919 C497.9989,1084.3919 490.89,1104.7637 480.07,1135.8137" fill="none" id="DAO-backto-DAO_Impl" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;"/>
+			<polygon fill="none" points="515.45,1034.2937,503.8628,1049.3182,515.1949,1053.2656,515.45,1034.2937" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67.1963" x="504" y="1079.042">implementa</text>
+		</g>
+		<!--reverse link Basedatos to Basedatos_Impl-->
+		<g class="link" data-entity-1="Basedatos" data-entity-2="Basedatos_Impl" data-source-line="95" data-uid="lnk19" id="link_Basedatos_Basedatos_Impl">
+			<path codeLine="95" d="M163.1995,1037.8453 C162.5695,1058.4353 164.2,1062.8237 169,1083.0137 C174.94,1108.0037 187.01,1133.6937 198.78,1154.7737" fill="none" id="Basedatos-backto-Basedatos_Impl" style="stroke:#181818;stroke-width:1;"/>
+			<polygon fill="none" points="163.75,1019.8537,157.2023,1037.6618,169.1967,1038.0288,163.75,1019.8537" style="stroke:#181818;stroke-width:1;"/>
+			<text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49.1499" x="170" y="1079.042">extiende</text>
+		</g>
+		<!--link Basedatos to Basedatos_Impl-->
+		<!--SRC=[bLRRRjiu47tNLmpyKYU1izZBas0Oy3ej8A3j6acQbw889j9K8KgH0abxaspoINtg9-J7TaZTPGLDWy2ME8V3cJDdXhRVX2hHO06vqRioKRTaX4EL4lmHsTQOIhJsdLRkGZmG_FvdprHY-Wrpwen_HL6z1hCDbWWPmTQG9UKm5Sy_r0p-Yw1o2RDrwiHUkFlVtXdC2yRC02qqgyrYs06mWBsWVsEuui_UmWUTaOnXmnxfgdaFzXFGQcC87SsFwWtwnfBPesc1hGLJjqCf7j1yIiBYKzJ6EVGDooNTEL8PHweoeqNMcbQhDbP3fRR2QIDq3EVTInCvIcq-x1pUI8gXVdWlzdI63fUNgnecXNMOgA81jeZtR61OXRk-hlCT1Zh7ifGYHIUqYc7TlHmDT-NapidkfCDCs_dHIwUSW2LtrOjx7fA8uPAtx9c6pjq0rNSO4dkAdYPKSgOBeOJkwwD7Mylh3MUOeTCsXh-RnzgK8LDzjlvdc5tFoJnbdNBjM2tLmo4Hb_ed731cgqsIpKLMPJuksWa8nI9pQER2KN50JoUqG_iqCriobeCWbGhqz33m3NooM6WBJdD0tBRW-n4mDpj-W7lW4nIXOMYBg1ZqUpTQwZHiRodaBSmSa0A9K0XR8CZdx-oYteGtrXaElQvCjwzhXdEj2q-4hr3R25LbMCHEf9obv6z9a7oyk5n_t2JhSH47SBgZTEUymjxMJnVSl2Ab5bfNhgrCecmONuU5dZfel9i9y9Ll55IF0Fyds8dvYZmNFKdBPVi-oFCr0feIaIZrX8vUr9BKAfz0L0U7WU6TXJDhzESlFVoa_ZYX7eIau5vy0H182H-jK9EYb5Iq8pueOLOJCzBBjSVsHDCQUamku7hGojFbgOjJ-UV5nhDeWWchFRUlAyzhY_EpqlnAOPugHla_Yjxmm9BCerPaeJI2cxv4IJOwk1KNYzNuPegR2ouQ6JosFqrZs5cC-YiUuSKzRUdwtH_X12do-Vbc4zW5xOlFeHaQ3vQeU-yEehkIimpcOTeyyyHGKb7ekyVJqwxISG_JSxzyN2p6SlD7-PWpYYAb7O4H-Qq3_NLqCHyVRz6PeE1c_Ju-Fewy9DTX01Bt1Z0wvq79KJRpPC6_SNIfZOyVORrD-E8kIi43MKB_Dya2DfwUq7v-qChd7pdVoTuLfYbP3LZxv631X-gPMOTPNd02JiCjd_x0Guqz5vG9L3wTbdoT-ckyp_RdMv5bfBu4qiVEzYnGFlzrhauRLu-h4S7_0m00]-->
+	</g>
+</svg>

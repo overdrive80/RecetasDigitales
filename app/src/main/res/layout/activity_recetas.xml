@@ -14,7 +14,7 @@
         android:clickable="false"
         android:focusable="false"
         android:importantForAccessibility="no"
-        android:padding="200dp"
+        android:padding="120dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_logo" />
 

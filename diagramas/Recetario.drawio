@@ -1,19 +1,19 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0" version="28.2.9">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0" version="29.0.3">
   <diagram name="Página-1" id="gDK-1hM7gKoi610au4Mr">
-    <mxGraphModel dx="1402" dy="741" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1418" dy="756" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="TiEsysN_654erDo39Nrs-1" value="RecetasActivity" style="swimlane;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-1" value="RecetasActivity" style="swimlane;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="100" y="490" width="270" height="450" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-2" value="BottomSheetOpciones" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#76608a;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#ffffff;strokeColor=#432D57;" parent="TiEsysN_654erDo39Nrs-1" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-2" value="BottomSheetOpciones" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#e1d5e7;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;strokeColor=#9673a6;" parent="TiEsysN_654erDo39Nrs-1" vertex="1">
           <mxGeometry y="346" width="270" height="104" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-3" value="Ver" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=7;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;spacing=2;spacingTop=0;fontColor=light-dark(#000000,#030303);" parent="TiEsysN_654erDo39Nrs-2" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-3" value="&lt;b&gt;Ver&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=7;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;spacing=2;spacingTop=0;fontColor=light-dark(#000000,#030303);" parent="TiEsysN_654erDo39Nrs-2" vertex="1">
           <mxGeometry y="26" width="270" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-4" value="Modificar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;spacing=2;fontColor=light-dark(#000000,#242424);" parent="TiEsysN_654erDo39Nrs-2" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-4" value="&lt;b&gt;Modificar&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;spacing=2;fontColor=light-dark(#000000,#242424);" parent="TiEsysN_654erDo39Nrs-2" vertex="1">
           <mxGeometry y="52" width="270" height="26" as="geometry" />
         </mxCell>
         <mxCell id="cyKQ_azb7Uv8QxwHuupG-1" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;labelBorderColor=light-dark(#000000,#000000);fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-2" target="TiEsysN_654erDo39Nrs-32" edge="1">
@@ -25,10 +25,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-5" value="Eliminar" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;spacing=2;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-2" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-5" value="&lt;b&gt;Eliminar&lt;/b&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=bottom;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;spacing=2;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-2" vertex="1">
           <mxGeometry y="78" width="270" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-6" value="RecetasRecyclerView" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#a0522d;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#ffffff;strokeColor=#6D1F00;" parent="TiEsysN_654erDo39Nrs-1" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-6" value="&lt;i&gt;RecetasRecyclerView&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#333333;strokeColor=#666666;" parent="TiEsysN_654erDo39Nrs-1" vertex="1">
           <mxGeometry x="10" y="90" width="250" height="104" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-7" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-6" vertex="1">
@@ -41,7 +41,7 @@
           <mxGeometry y="78" width="250" height="26" as="geometry" />
         </mxCell>
         <UserObject label="Buscador" treeRoot="1" id="TiEsysN_654erDo39Nrs-10">
-          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fillColor=#d0cee2;strokeColor=#56517e;" parent="TiEsysN_654erDo39Nrs-1" vertex="1">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};fillColor=#fff2cc;strokeColor=#d6b656;" parent="TiEsysN_654erDo39Nrs-1" vertex="1">
             <mxGeometry x="10" y="40" width="250" height="35" as="geometry" />
           </mxCell>
         </UserObject>
@@ -63,34 +63,34 @@
         <mxCell id="TiEsysN_654erDo39Nrs-15" value="" style="shape=cross;whiteSpace=wrap;html=1;" parent="TiEsysN_654erDo39Nrs-13" vertex="1">
           <mxGeometry x="13.75" y="13.75" width="30" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-16" value="VerRecetaActivity" style="swimlane;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-16" value="VerRecetaActivity" style="swimlane;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="100" y="40" width="860" height="330" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-17" value="RecetaViewPager2" style="swimlane;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" parent="TiEsysN_654erDo39Nrs-16" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-17" value="RecetaViewPager2" style="swimlane;fillColor=#f8cecc;strokeColor=#b85450;" parent="TiEsysN_654erDo39Nrs-16" vertex="1">
           <mxGeometry x="20" y="40" width="820" height="260" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-18" value="ResumenFragment" style="swimlane;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="TiEsysN_654erDo39Nrs-17" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-18" value="ResumenFragment" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-17" vertex="1">
           <mxGeometry x="20" y="40" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-19" value="IngredientesFragment" style="swimlane;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="TiEsysN_654erDo39Nrs-17" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-19" value="IngredientesFragment" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-17" vertex="1">
           <mxGeometry x="310" y="40" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-20" value="IngredientesTextView" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#dae8fc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-19" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-20" value="&lt;i&gt;TablaIngredientes&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;strokeColor=#666666;fontColor=#333333;" parent="TiEsysN_654erDo39Nrs-19" vertex="1">
           <mxGeometry x="5" y="38" width="190" height="104" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-21" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-20" vertex="1">
           <mxGeometry y="26" width="190" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-22" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);textShadow=1;" parent="TiEsysN_654erDo39Nrs-20" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-22" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-20" vertex="1">
           <mxGeometry y="52" width="190" height="26" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-23" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-20" vertex="1">
           <mxGeometry y="78" width="190" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-24" value="PasosFragment" style="swimlane;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="TiEsysN_654erDo39Nrs-17" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-24" value="PasosFragment" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-17" vertex="1">
           <mxGeometry x="600" y="40" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-25" value="PasosTextView" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-24" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-25" value="&lt;i&gt;PasosLinearLayout&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="TiEsysN_654erDo39Nrs-24" vertex="1">
           <mxGeometry x="5" y="38" width="190" height="104" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-26" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-25" vertex="1">
@@ -123,22 +123,22 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-32" value="CrearRecetaActivity" style="swimlane;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" parent="1" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-32" value="CrearRecetaActivity/EditarRecetaActivity" style="swimlane;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="680" y="510" width="860" height="330" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-33" value="CrearRecetaNavigation" style="swimlane;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" parent="TiEsysN_654erDo39Nrs-32" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-33" value="CrearRecetaNavigation" style="swimlane;fillColor=#f8cecc;strokeColor=#b85450;" parent="TiEsysN_654erDo39Nrs-32" vertex="1">
           <mxGeometry x="20" y="40" width="820" height="260" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-34" value="CrearResumenFragment" style="swimlane;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="TiEsysN_654erDo39Nrs-33" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-34" value="PortadaFragment" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-33" vertex="1">
           <mxGeometry x="20" y="40" width="200" height="210" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-35" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Ingredientes&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="TiEsysN_654erDo39Nrs-34" vertex="1">
           <mxGeometry x="65" y="170" width="70" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-36" value="CrearIngredientesFragment" style="swimlane;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="TiEsysN_654erDo39Nrs-33" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-36" value="IngredientesFragment" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-33" vertex="1">
           <mxGeometry x="310" y="40" width="200" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-37" value="IngredientesRecyclerView" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#a0522d;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#ffffff;strokeColor=#6D1F00;" parent="TiEsysN_654erDo39Nrs-36" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-37" value="&lt;i&gt;IngredientesRecyclerView&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#333333;strokeColor=#666666;" parent="TiEsysN_654erDo39Nrs-36" vertex="1">
           <mxGeometry x="5" y="38" width="190" height="104" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-38" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#000000);" parent="TiEsysN_654erDo39Nrs-37" vertex="1">
@@ -153,10 +153,10 @@
         <mxCell id="TiEsysN_654erDo39Nrs-41" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Pasos&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="TiEsysN_654erDo39Nrs-36" vertex="1">
           <mxGeometry x="65" y="170" width="70" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-43" value="CrearPasosFragment" style="swimlane;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="TiEsysN_654erDo39Nrs-33" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-43" value="PasosFragment" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TiEsysN_654erDo39Nrs-33" vertex="1">
           <mxGeometry x="600" y="40" width="200" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="TiEsysN_654erDo39Nrs-44" value="PasosRecyclerView" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#a0522d;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#ffffff;strokeColor=#6D1F00;" parent="TiEsysN_654erDo39Nrs-43" vertex="1">
+        <mxCell id="TiEsysN_654erDo39Nrs-44" value="&lt;i&gt;PasosRecyclerView&lt;/i&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f5f5f5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontColor=#333333;strokeColor=#666666;" parent="TiEsysN_654erDo39Nrs-43" vertex="1">
           <mxGeometry x="5" y="38" width="190" height="104" as="geometry" />
         </mxCell>
         <mxCell id="TiEsysN_654erDo39Nrs-45" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontColor=light-dark(#000000,#030303);" parent="TiEsysN_654erDo39Nrs-44" vertex="1">
@@ -192,7 +192,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cyKQ_azb7Uv8QxwHuupG-2" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Carga datos de receta&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+        <mxCell id="cyKQ_azb7Uv8QxwHuupG-2" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Cargar datos de receta&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="400" y="880" width="180" height="30" as="geometry" />
         </mxCell>
       </root>
