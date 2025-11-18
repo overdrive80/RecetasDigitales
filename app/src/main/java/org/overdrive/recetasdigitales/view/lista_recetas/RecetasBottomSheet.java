@@ -57,8 +57,8 @@ public class RecetasBottomSheet extends BottomSheetDialogFragment {
                 // Evitamos que se colapse
                 behavior.setSkipCollapsed(true);
 
-                //Impedir que se pueda arrastrar con el dedo
-                behavior.setDraggable(false);
+//                //Impedir que se pueda arrastrar con el dedo
+//                behavior.setDraggable(false);
             }
         }
     }
