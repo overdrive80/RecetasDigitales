@@ -40,6 +40,9 @@
     <style name="ThemeBottomSheet" parent="Theme.Material3.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/EstiloBottomSheet</item>
 
+        <item name="colorSurfaceDim">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
         <item name="colorPrimary">@color/blue_800</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSurface">@color/blue_25</item>
