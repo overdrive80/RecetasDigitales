@@ -1,181 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
     tools:context=".view.crear_receta.portada.PortadaFragment">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivImagenReceta"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="8dp"
-        android:adjustViewBounds="true"
-        android:background="@color/blue_50"
-        android:clickable="true"
-        android:cropToPadding="true"
-        android:focusable="true"
-        android:padding="4dp"
-        android:scaleType="centerCrop"
-        android:tooltipText="Haz clic para añadir imagen"
-        app:layout_constraintBottom_toTopOf="@id/lblNombreReceta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/FormaRedonda"
-        app:strokeColor="@color/blue_800"
-        app:strokeWidth="2dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/lblNombreReceta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawablePadding="8dp"
-        android:text="@string/nombreMayus"
-        android:textColor="@color/blue_800"
-        android:textSize="20sp"
-        android:textStyle="italic|bold"
-        app:drawableStartCompat="@drawable/outline_description_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivImagenReceta" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <View
-        android:id="@+id/separador0"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/deep_orange_900"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblNombreReceta" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivImagenReceta"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="8dp"
+                android:adjustViewBounds="true"
+                android:background="@color/blue_50"
+                android:clickable="true"
+                android:cropToPadding="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                android:tooltipText="Haz clic para añadir imagen"
+                app:layout_constraintBottom_toTopOf="@id/lblNombreReceta"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/FormaRedonda"
+                app:strokeColor="@color/blue_800"
+                app:strokeWidth="2dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/etNombreReceta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:background="@drawable/bg_edittext"
-        android:gravity="top|start"
-        android:hint="@string/nombre_de_la_receta"
-        android:inputType="textCapSentences|textPersonName"
-        android:maxLines="1"
-        android:minHeight="48dp"
-        android:padding="12dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separador0" />
+            <TextView
+                android:id="@+id/lblNombreReceta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:text="@string/nombreMayus"
+                android:textColor="@color/blue_800"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+                app:drawableStartCompat="@drawable/outline_description_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivImagenReceta" />
 
-    <TextView
-        android:id="@+id/lblDescripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawablePadding="8dp"
-        android:text="@string/descripcion"
-        android:textColor="@color/blue_800"
-        android:textSize="20sp"
-        android:textStyle="italic|bold"
-        app:drawableStartCompat="@drawable/outline_description_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombreReceta" />
+            <View
+                android:id="@+id/separador0"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/deep_orange_900"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblNombreReceta" />
 
-    <View
-        android:id="@+id/separador1"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/deep_orange_900"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblDescripcion" />
+            <EditText
+                android:id="@+id/etNombreReceta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext"
+                android:gravity="top|start"
+                android:hint="@string/nombre_de_la_receta"
+                android:inputType="textCapSentences|textPersonName"
+                android:maxLines="1"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separador0"
+                tools:ignore="VisualLintTextFieldSize" />
 
-    <EditText
-        android:id="@+id/etDescripcionReceta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints=""
-        android:background="@drawable/bg_edittext"
-        android:gravity="top|start"
-        android:hint="@string/breve_descripcion"
-        android:inputType="textMultiLine|textCapSentences|textPersonName"
-        android:maxLines="6"
-        android:minHeight="96dp"
-        android:padding="12dp"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separador1" />
+            <TextView
+                android:id="@+id/lblDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:text="@string/descripcion"
+                android:textColor="@color/blue_800"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+                app:drawableStartCompat="@drawable/outline_description_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNombreReceta" />
 
-    <TextView
-        android:id="@+id/lblTiempo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawablePadding="8dp"
-        android:text="@string/tiempo_de_elaboracion"
-        android:textColor="@color/blue_800"
-        android:textSize="20sp"
-        android:textStyle="italic|bold"
-        app:drawableStartCompat="@drawable/baseline_access_time_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etDescripcionReceta" />
+            <View
+                android:id="@+id/separador1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/deep_orange_900"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblDescripcion" />
 
-    <View
-        android:id="@+id/separador2"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/deep_orange_900"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblTiempo" />
+            <EditText
+                android:id="@+id/etDescripcionReceta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints=""
+                android:background="@drawable/bg_edittext"
+                android:gravity="top|start"
+                android:hint="@string/breve_descripcion"
+                android:inputType="textMultiLine|textCapSentences|textPersonName"
+                android:maxLines="6"
+                android:minHeight="96dp"
+                android:padding="12dp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separador1"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:baselineAligned="false"
-        android:gravity="start"
-        android:orientation="horizontal"
-        android:weightSum="8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/separador2">
+            <TextView
+                android:id="@+id/lblTiempo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="8dp"
+                android:text="@string/tiempo_de_elaboracion"
+                android:textColor="@color/blue_800"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+                app:drawableStartCompat="@drawable/baseline_access_time_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etDescripcionReceta" />
 
-        <EditText
-            android:id="@+id/etHoras"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
-            android:layout_weight="2"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext"
-            android:hint="@string/horas"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="20sp"
-            android:visibility="visible" />
+            <View
+                android:id="@+id/separador2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/deep_orange_900"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblTiempo" />
 
-        <EditText
-            android:id="@+id/etMinutos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:autofillHints=""
-            android:background="@drawable/bg_edittext"
-            android:hint="@string/minutos"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:padding="12dp"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="20sp"
-            android:visibility="visible" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:baselineAligned="false"
+                android:gravity="start"
+                android:orientation="horizontal"
+                android:weightSum="8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separador2">
 
+                <EditText
+                    android:id="@+id/etHoras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="2"
+                    android:autofillHints=""
+                    android:background="@drawable/bg_edittext"
+                    android:hint="@string/horas"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:padding="12dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="20sp"
+                    android:visibility="visible"
+                    tools:ignore="VisualLintTextFieldSize" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/etMinutos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:background="@drawable/bg_edittext"
+                    android:hint="@string/minutos"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:padding="12dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

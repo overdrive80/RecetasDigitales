@@ -49,7 +49,9 @@
     <string name="editar_receta">Edit recipe</string>
     <string name="receta_guardada">Saved recipe</string>
     <string name="esta_seguro_de_borrar_el_paso">Are you sure you want to delete the step?</string>
-    <string name="esta_seguro_de_borrar_el_ingrediente">¿Está seguro de borrar el ingrediente?</string>
     <string name="este_campo_es_obligatorio">This field is mandatory</string>
     <string name="nuevo_paso">New step</string>
+    <string name="esta_seguro_de_borrar_el_ingrediente">Are you sure you want to delete the ingredient?</string>
+    <string name="boton_nuevo_ingrediente">Botón nuevo ingrediente</string>
+    <string name="boton_nuevo_paso">Botón nuevo paso</string>
 </resources>
