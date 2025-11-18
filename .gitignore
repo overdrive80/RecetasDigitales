@@ -6,6 +6,7 @@ build/
 
 # === Android Studio / IntelliJ ===
 .idea/
+/.idea/
 !.idea/codeStyles/
 !.idea/runConfigurations/
 
@@ -35,4 +36,5 @@ captures/
 # === Archivos generados por Google / Firebase ===
 google-services.json
 app/google-services.json
+
 
