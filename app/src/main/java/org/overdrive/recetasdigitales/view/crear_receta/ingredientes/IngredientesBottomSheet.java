@@ -56,8 +56,11 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
                 // Hacemos que ocupe toda la altura disponible inmediatamente
                 behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
-//                // Opcional: Evitamos que se colapse
-//                behavior.setSkipCollapsed(true);
+                // Evitamos que se colapse
+                behavior.setSkipCollapsed(true);
+
+                //Impedir que se pueda arrastrar con el dedo
+                behavior.setDraggable(false);
             }
         }
     }
