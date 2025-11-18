@@ -1,40 +1,114 @@
-# === Android / Gradle ===
+########################################
+# ANDROID STUDIO / INTELLIJ
+########################################
+
+# Carpetas del IDE (NO deben ir al repo)
+.idea/
 *.iml
+
+# Excepciones opcionales (si quieres compartir estilos y configs de ejecución)
+!.idea/codeStyles/
+!.idea/runConfigurations/
+
+########################################
+# GRADLE / ARTIFACTOS DE COMPILACIÓN
+########################################
+
 .gradle/
 build/
 **/build/
 
-# === Android Studio / IntelliJ ===
-.idea/
-/.idea/
-!.idea/codeStyles/
-!.idea/runConfigurations/
+# Metadata que genera Gradle en releases
+output-metadata.json
 
-# === Archivos de máquina local ===
+########################################
+# ARCHIVOS DE CONFIGURACIÓN LOCAL
+########################################
+
 local.properties
-.DS_Store
+*.log
 
-# === NDK / CMake ===
-externalNativeBuild/
+########################################
+# ANDROID NDK / CMAKE / NATIVO
+########################################
+
 .cxx/
+externalNativeBuild/
 
-# === Capturas del device monitor ===
+########################################
+# APK / BUNDLES / ARTIFACTOS
+########################################
+
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.so
+*.o
+*.obj
+
+########################################
+# ARCHIVOS DE FIRMA (IMPORTANTÍSIMO)
+########################################
+
+*.jks
+*.keystore
+*.pk8
+*.pem
+*.p12
+*.pfx
+*.der
+
+########################################
+# FIREBASE / GOOGLE SERVICES
+########################################
+
+google-services.json
+app/google-services.json
+*.plist
+
+########################################
+# IMÁGENES / PERFILADORES / DUMPS
+########################################
+
 captures/
+*.hprof
+*.trace
 
-# === Archivos temporales ===
+########################################
+# CACHE, TEMPORALES, BACKUPS
+########################################
+
+.DS_Store
+Thumbs.db
+
+# Archivos temporales de edición
 ~*
 *~
 
-# === Archivos de firma (keystore) — MUY IMPORTANTE ===
-*.jks
-*.keystore
-*.pem
-*.der
-*.p12
-*.pfx
+# Archivos de merge
+*.orig
+*.rej
 
-# === Archivos generados por Google / Firebase ===
-google-services.json
-app/google-services.json
+########################################
+# KOTLIN / JAVA BUILD
+########################################
 
+*.jar
+*.war
+*.ear
 
+########################################
+# OTROS
+########################################
+
+# RenderScript (si lo usas)
+gen/
+
+# DataBinding layout info
+*.xml.flat
+*.xml.protobuf
+
+# Artifacts de test
+test-results/
