@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.overdrive.recetasdigitales.R;
@@ -32,6 +35,30 @@ public class PasosBottomSheet extends BottomSheetDialogFragment {
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
         setCancelable(false);
         inicializarViewModel();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Obtenemos la referencia al Dialog
+        BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
+
+        if (dialog != null) {
+            // Encontramos el contenedor principal del BottomSheet (es un FrameLayout interno de Android)
+            FrameLayout bottomSheet = dialog.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+
+            if (bottomSheet != null) {
+                // Obtenemos el comportamientoasociado
+                BottomSheetBehavior<FrameLayout> behavior = BottomSheetBehavior.from(bottomSheet);
+
+                // Hacemos que ocupe toda la altura disponible inmediatamente
+                behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
+//                // Opcional: Evitamos que se colapse
+                behavior.setSkipCollapsed(true);
+            }
+        }
     }
 
     @Nullable

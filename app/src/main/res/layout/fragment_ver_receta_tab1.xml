@@ -1,133 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.ver_receta.VerRecetaTab1Fragment"
-    android:padding="24dp">
+    tools:context="view.ver_receta.VerRecetaTab1Fragment">
 
-    <TextView
-        android:id="@+id/tvTituloTab1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/titulo_tortilla"
-        android:textColor="@color/deep_orange_900"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ivImagenTab1"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="32dp"
-        android:adjustViewBounds="true"
-        android:cropToPadding="true"
-        android:padding="4dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@id/lblDescripcionTab1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloTab1"
-        app:shapeAppearanceOverlay="@style/FormaRedonda"
-        app:srcCompat="@drawable/tortilla_patatas"
-        app:strokeColor="@color/blue_800"
-        app:strokeWidth="2dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tvTituloTab1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/titulo_tortilla"
+                android:textColor="@color/deep_orange_900"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/lblDescripcionTab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/descripcion"
-        android:textColor="@color/blue_800"
-        android:textSize="20sp"
-        app:drawableStartCompat="@drawable/outline_description_24"
-        android:drawablePadding="8dp"
-        android:textStyle="italic|bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivImagenTab1" />
-
-    <View
-        android:id="@+id/lineaDescripcionTab1"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/deep_orange_900"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblDescripcionTab1" />
-
-    <TextView
-        android:id="@+id/tvDescripcionTab1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/receta_tortilla"
-        android:textColor="?attr/colorOnSurface"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineaDescripcionTab1" />
-
-    <TextView
-        android:id="@+id/lblTiempoTab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/tiempo_de_elaboracion"
-        android:textColor="@color/blue_800"
-        android:textSize="20sp"
-        android:textStyle="italic|bold"
-        app:drawableStartCompat="@drawable/baseline_access_time_24"
-        android:drawablePadding="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDescripcionTab1" />
-
-    <View
-        android:id="@+id/lineaTiempoTab1"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/deep_orange_900"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblTiempoTab1" />
-
-    <LinearLayout
-        android:id="@+id/layoutTiempoTab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:baselineAligned="false"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lineaTiempoTab1">
-
-        <TextView
-            android:id="@+id/tvHorasTab1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
-            android:text="@string/horas"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="20sp"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/tvMinutosTab1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/minutos"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="20sp"
-            android:visibility="visible" />
-
-    </LinearLayout>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivImagenTab1"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="32dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:padding="4dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@id/lblDescripcionTab1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTituloTab1"
+                app:shapeAppearanceOverlay="@style/FormaRedonda"
+                app:srcCompat="@drawable/tortilla_patatas"
+                app:strokeColor="@color/blue_800"
+                app:strokeWidth="2dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/lblDescripcionTab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:drawablePadding="8dp"
+                android:text="@string/descripcion"
+                android:textColor="@color/blue_800"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+                app:drawableStartCompat="@drawable/outline_description_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivImagenTab1" />
+
+            <View
+                android:id="@+id/lineaDescripcionTab1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/deep_orange_900"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblDescripcionTab1" />
+
+            <TextView
+                android:id="@+id/tvDescripcionTab1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/receta_tortilla"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineaDescripcionTab1" />
+
+            <TextView
+                android:id="@+id/lblTiempoTab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:drawablePadding="8dp"
+                android:text="@string/tiempo_de_elaboracion"
+                android:textColor="@color/blue_800"
+                android:textSize="20sp"
+                android:textStyle="italic|bold"
+                app:drawableStartCompat="@drawable/baseline_access_time_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescripcionTab1" />
+
+            <View
+                android:id="@+id/lineaTiempoTab1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/deep_orange_900"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lblTiempoTab1" />
+
+            <LinearLayout
+                android:id="@+id/layoutTiempoTab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lineaTiempoTab1">
+
+                <TextView
+                    android:id="@+id/tvHorasTab1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:text="@string/horas"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tvMinutosTab1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/minutos"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
