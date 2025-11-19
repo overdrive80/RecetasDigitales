@@ -54,4 +54,6 @@
     <string name="esta_seguro_de_borrar_el_ingrediente">Are you sure you want to delete the ingredient?</string>
     <string name="boton_nuevo_ingrediente">Botón nuevo ingrediente</string>
     <string name="boton_nuevo_paso">Botón nuevo paso</string>
+    <string name="fondo_pasos">fondo_pasos</string>
+    <string name="fondo_ingredientes">fondo_ingredientes</string>
 </resources>
