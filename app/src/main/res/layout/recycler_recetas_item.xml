@@ -7,13 +7,16 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardListaRecetas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
         android:backgroundTint="@color/fondoCardView"
-        android:foreground="?selectableItemBackground"
+        app:rippleColor="@color/dragCardView"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
         app:contentPadding="10dp"

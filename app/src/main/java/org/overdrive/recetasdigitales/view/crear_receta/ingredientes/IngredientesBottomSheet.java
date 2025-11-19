@@ -205,12 +205,4 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         viewModel.setPosicionIngredienteEditando(-1);
         esEdicion = false;
     }
-
-    private void ocultarTeclado() {
-        View view = binding.getRoot();
-        InputMethodManager imm = (InputMethodManager)
-                requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-    }
-
 }
