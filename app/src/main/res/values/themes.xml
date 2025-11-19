@@ -10,10 +10,11 @@
         <item name="colorOnSecondary">@color/white</item>
 
         <!-- Colores de superficies y texto -->
-        <item name="colorSurface">@color/white</item>
-        <item name="colorOnSurface">@color/black</item>
-        <item name="android:colorBackground">@color/white</item>
-        <item name="colorOnBackground">@color/black</item>
+        <item name="colorSurface">@android:color/white</item>
+        <item name="colorOnSurface">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="colorOnBackground">@android:color/black</item>
 
         <!-- Estado visual -->
         <item name="android:statusBarColor">@color/blue_500</item>
@@ -40,8 +41,12 @@
  <item name="colorSurfaceDim">@android:color/transparent</item>
 <item name="android:statusBarColor">@android:color/transparent</item>
 -->
+    <!--        <item name="android:windowBackground">@color/trans_blue_50</item>-->
     <style name="ThemeBottomSheet" parent="Theme.Material3.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/EstiloBottomSheet</item>
+
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@color/trans_blue_50</item>
 
         <item name="colorPrimary">@color/blue_800</item>
         <item name="colorOnPrimary">@color/white</item>

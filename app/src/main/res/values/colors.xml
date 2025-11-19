@@ -3,6 +3,7 @@
     <color name="transparente">#00000000</color>
     <color name="fondoCardView">#4790CAF9</color>
     <color name="dragCardView">#67FFAE31</color>
+    <color name="trans_blue_50">#25E3F2FD</color>
     <color name="blue_25">#EEF7FF</color>
     <color name="blue_50">#E3F2FD</color>
     <color name="blue_200">#90CAF9</color>
@@ -18,4 +19,9 @@
     <color name="dark_surface">#1E1E1E</color>
     <color name="dark_status_bar">#000000</color>
     <color name="dark_navigation_bar">#000000</color>
+    <color name="orange_50">#FFF3E0</color>
+    <color name="trans_orange_50">#25FFF3E0</color>
+    <color name="trans_orange_200">#25FFCC80</color>
+
+
 </resources>

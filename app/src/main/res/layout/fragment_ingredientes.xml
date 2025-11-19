@@ -9,11 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.12"
-        android:importantForAccessibility="no"
         android:padding="50dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_ingredientes"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvIngredientes"
