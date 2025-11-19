@@ -1,10 +1,12 @@
 package org.overdrive.recetasdigitales.view.crear_receta.ingredientes;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 
@@ -35,6 +37,7 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         super.onCreate(savedInstanceState);
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.ThemeBottomSheet); //Establecemos el tema del boton sheet
         setCancelable(false);
+
         inicializarViewModel();
     }
 
@@ -201,6 +204,13 @@ public class IngredientesBottomSheet extends BottomSheetDialogFragment {
         // Resetear estado de edición
         viewModel.setPosicionIngredienteEditando(-1);
         esEdicion = false;
+    }
+
+    private void ocultarTeclado() {
+        View view = binding.getRoot();
+        InputMethodManager imm = (InputMethodManager)
+                requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 }

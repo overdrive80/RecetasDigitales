@@ -18,11 +18,11 @@
         tools:targetApi="33">
         <activity
             android:name=".view.editar_receta.EditarRecetaActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustNothing"
             android:exported="false" />
         <activity
             android:name=".view.crear_receta.CrearRecetaActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustNothing"
             android:exported="false" />
         <activity
             android:name=".view.ver_receta.VerRecetaActivity"
@@ -31,7 +31,7 @@
             android:theme="@style/Theme.RecetasDigitales.NoActionBar" />
         <activity
             android:name=".view.lista_recetas.RecetasActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustNothing"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

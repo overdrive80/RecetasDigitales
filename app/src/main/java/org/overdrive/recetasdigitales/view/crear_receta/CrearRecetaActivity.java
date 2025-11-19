@@ -1,12 +1,9 @@
 package org.overdrive.recetasdigitales.view.crear_receta;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Window;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
