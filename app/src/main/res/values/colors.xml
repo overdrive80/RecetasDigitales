@@ -86,7 +86,7 @@
     <color name="dark_navigation_bar">#000000</color>
     <color name="trans_orange_50">#25FFF3E0</color>
     <color name="trans_orange_200">#25FFCC80</color>
-    <color name="ripple_item">#75FB8C00</color>
+    <color name="ripple_item">#50FB8C00</color>
 
 
 </resources>

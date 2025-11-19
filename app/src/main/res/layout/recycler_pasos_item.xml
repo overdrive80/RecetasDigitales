@@ -16,6 +16,7 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
         app:cardBackgroundColor="@color/fondoCardView"
+        android:foreground="@drawable/ripple_receta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeWidth="0dp">

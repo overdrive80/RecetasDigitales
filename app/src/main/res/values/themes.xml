@@ -17,7 +17,7 @@
 
         <item name="rippleColor">@color/blue_50</item>
         <!-- IMPORTANTE NO BORRAR: Generaba un surface residual en los recyclerview -->
-<!--        <item name="colorControlHighlight">@android:color/transparent</item>-->
+        <!--        <item name="colorControlHighlight">@android:color/transparent</item>-->
     </style>
 
     <style name="Theme.RecetasDigitales" parent="AppBaseTheme">
