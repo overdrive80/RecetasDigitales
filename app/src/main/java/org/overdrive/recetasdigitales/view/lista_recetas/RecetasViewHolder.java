@@ -21,7 +21,7 @@ public class RecetasViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
 
         // Listener único, creado una sola vez
-        binding.cardListaRecetas.setOnClickListener(v -> {
+        binding.cardReceta.setOnClickListener(v -> {
             int position = getBindingAdapterPosition();
 
             if (listener == null || position == RecyclerView.NO_POSITION) {

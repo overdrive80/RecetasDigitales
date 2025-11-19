@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="AppBaseTheme" parent="Theme.Material3.Light.NoActionBar">
 
@@ -7,6 +7,7 @@
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Colores de superficies y texto -->
+        <item name="colorSurface">@color/fondoCardView</item>
         <item name="android:windowBackground">@android:color/white</item>
 
         <!-- Estado visual -->
@@ -15,6 +16,8 @@
         <item name="android:navigationBarColor">@color/blue_600</item>
 
         <item name="rippleColor">@color/blue_50</item>
+        <!-- Color global de ripple y selectableItemBackground -->
+        <item name="colorControlHighlight">@color/dragCardView</item>
     </style>
 
     <style name="Theme.RecetasDigitales" parent="AppBaseTheme">

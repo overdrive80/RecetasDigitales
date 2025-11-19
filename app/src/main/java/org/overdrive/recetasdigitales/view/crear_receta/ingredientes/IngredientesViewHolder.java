@@ -48,7 +48,7 @@ public class IngredientesViewHolder extends RecyclerView.ViewHolder {
 
     private void configurarListeners() {
         // Listener del item completo
-        itemView.setOnClickListener(v -> {
+        binding.cardIngrediente.setOnClickListener(v -> {
             int posicion = getBindingAdapterPosition();
             if (posicion != RecyclerView.NO_POSITION) {
                 listener.onClickIngrediente(posicion);

@@ -1,12 +1,10 @@
 package org.overdrive.recetasdigitales.view.crear_receta.ingredientes;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 

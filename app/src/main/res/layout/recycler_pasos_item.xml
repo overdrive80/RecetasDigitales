@@ -5,15 +5,18 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardPaso"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:foreground="@drawable/selector_paso_item"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
-        app:contentPadding="10dp"
+        app:cardBackgroundColor="@color/fondoCardView"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeWidth="0dp">
@@ -22,19 +25,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@drawable/selector_paso_item">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/tvNumPasoItem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:gravity="start"
                     android:minHeight="36dp"
                     android:paddingTop="2dp"

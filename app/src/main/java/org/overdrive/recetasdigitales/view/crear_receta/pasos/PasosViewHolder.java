@@ -37,7 +37,7 @@ public class PasosViewHolder extends RecyclerView.ViewHolder {
 
     private void configurarListeners() {
         // Listener del item completo
-        itemView.setOnClickListener(v -> {
+        binding.cardPaso.setOnClickListener(v -> {
             int posicion = getBindingAdapterPosition();
             if (posicion != RecyclerView.NO_POSITION) {
                 listener.onClickPaso(posicion);
@@ -52,4 +52,5 @@ public class PasosViewHolder extends RecyclerView.ViewHolder {
             }
         });
     }
+
 }

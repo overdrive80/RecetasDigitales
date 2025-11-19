@@ -10,17 +10,17 @@
         </shape>
     </item>
 
-    <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <corners android:radius="10dp" />
-            <stroke android:width="2dp" android:color="#67CA800D" />
-            <solid android:color="@color/dragCardView" />
-        </shape>
-    </item>
+    <!--    <item android:state_pressed="true">-->
+    <!--        <shape android:shape="rectangle">-->
+    <!--            <corners android:radius="10dp" />-->
+    <!--            <stroke android:width="2dp" android:color="#67CA800D" />-->
+    <!--            <solid android:color="@color/dragCardView" />-->
+    <!--        </shape>-->
+    <!--    </item>-->
 
     <!-- Estado normal -->
     <item>
-        <color android:color="@color/fondoCardView" />
+        <color android:color="@android:color/transparent" />
     </item>
 
 </selector>
