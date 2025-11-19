@@ -14,7 +14,6 @@
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/fondoCardView"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"

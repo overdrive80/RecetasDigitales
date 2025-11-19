@@ -16,8 +16,8 @@
         <item name="android:navigationBarColor">@color/blue_600</item>
 
         <item name="rippleColor">@color/blue_50</item>
-        <!-- Color global de ripple y selectableItemBackground -->
-        <item name="colorControlHighlight">@color/dragCardView</item>
+        <!-- IMPORTANTE NO BORRAR: Generaba un surface residual en los recyclerview -->
+<!--        <item name="colorControlHighlight">@android:color/transparent</item>-->
     </style>
 
     <style name="Theme.RecetasDigitales" parent="AppBaseTheme">
@@ -51,5 +51,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-
+    <!-- IMPORTANTE NO BORRAR: Visualiza un surface residual en los recyclerview -->
+    <style name="ThemeNoHighlight">
+        <item name="colorControlHighlight">@android:color/transparent</item>
+    </style>
 </resources>

@@ -87,8 +87,10 @@ public class PasosItemTouchHelper extends ItemTouchHelper.Callback {
         super.onSelectedChanged(viewHolder, actionState);
 
         if (actionState == ItemTouchHelper.ACTION_STATE_DRAG && viewHolder != null) {
+            viewHolder.itemView.setPressed(false);
             viewHolder.itemView.setActivated(true); // Aplica color de arrastre definido en el selector
         }
     }
+
 
 }

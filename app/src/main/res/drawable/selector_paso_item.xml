@@ -20,7 +20,10 @@
 
     <!-- Estado normal -->
     <item>
-        <color android:color="@android:color/transparent" />
+        <shape android:shape="rectangle">
+            <solid android:color="@color/fondoCardView"/>
+            <corners android:radius="10dp"/>
+        </shape>
     </item>
 
 </selector>
