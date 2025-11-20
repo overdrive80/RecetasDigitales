@@ -124,16 +124,16 @@ public class RecetarioRepositorio {
                 Receta recetaOriginal = mRecetaDAO.getReceta(idOriginal);
                 String imagenOriginal = recetaOriginal.getImagenUri();
 
-                //2. Borrar la imagen solo si el usuario realmente eligió una nueva
+                //2. Borramos la receta completa
+                mRecetaDAO.borrarRecetaPorId(idOriginal);
+
+                //3. Insertamos la nueva con su imagen correspondiente
+                persistirRecetaCompleta(receta, ingredientesNuevos, pasosNuevos, imagenUriTemporal);
+
+                //4. Borrar la imagen solo si el usuario realmente eligió una nueva
                 if (imagenUriTemporal != null && imagenOriginal != null) {
                     eliminarImagen(imagenOriginal);
                 }
-
-                //3. Borramos la receta completa
-                mRecetaDAO.borrarRecetaPorId(idOriginal);
-
-                //4. Insertamos la nueva con su imagen correspondiente
-                persistirRecetaCompleta(receta, ingredientesNuevos, pasosNuevos, imagenUriTemporal);
 
             });
 
